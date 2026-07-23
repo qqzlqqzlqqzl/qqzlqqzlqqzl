@@ -1,30 +1,10 @@
 {
   "status": "running",
-  "current_stage": "Thingiverse",
-  "stage_started_at": 1784814684.0715678,
-  "last_real_progress_at": 1784814709.588284,
-  "stage_detail": "已处理9个Sitemap，本来源发现1000个候选",
+  "current_stage": "Open Hardware Observatory",
+  "stage_started_at": 1784814741.7681272,
+  "last_real_progress_at": 1784814741.7681274,
+  "stage_detail": "读取Sitemap和列表页",
   "completed_sources": [
-    {
-      "name": "Hackster.io",
-      "rows": 4,
-      "elapsed_seconds": 1.2
-    },
-    {
-      "name": "Arduino Project Hub",
-      "rows": 0,
-      "elapsed_seconds": 0.8
-    },
-    {
-      "name": "Instructables",
-      "rows": 0,
-      "elapsed_seconds": 0.4
-    },
-    {
-      "name": "Crowd Supply",
-      "rows": 480,
-      "elapsed_seconds": 5.5
-    },
     {
       "name": "Tindie",
       "rows": 420,
@@ -94,23 +74,42 @@
       "name": "Printables",
       "rows": 36,
       "elapsed_seconds": 38.5
+    },
+    {
+      "name": "Thingiverse",
+      "rows": 300,
+      "elapsed_seconds": 34.7
+    },
+    {
+      "name": "MakerWorld",
+      "rows": 300,
+      "elapsed_seconds": 11.4
+    },
+    {
+      "name": "Maker Faire",
+      "rows": 300,
+      "elapsed_seconds": 10.8
+    },
+    {
+      "name": "Open Hardware Repository",
+      "rows": 0,
+      "elapsed_seconds": 0.7
     }
   ],
-  "completed_rows": 9074,
-  "sitemaps_processed": 65,
-  "candidates_found": 28072,
-  "detail_pages_processed": 199,
+  "completed_rows": 9974,
+  "sitemaps_processed": 98,
+  "candidates_found": 40239,
+  "detail_pages_processed": 253,
   "warnings": [
     "Seeed Project Hub列表页失败：RetryError",
     "element14 Community sitemap失败：ConnectionError",
     "element14 Community列表页失败：ConnectionError"
   ],
-  "_source_candidates": 1000,
-  "elapsed_seconds": 1723.6,
-  "stage_elapsed_seconds": 26.1,
-  "seconds_since_real_progress": 0.6,
+  "elapsed_seconds": 1785.2,
+  "stage_elapsed_seconds": 30.0,
+  "seconds_since_real_progress": 30.0,
   "run_url": "https://github.com/qqzlqqzlqqzl/qqzlqqzlqqzl/actions/runs/30010928798",
-  "updated_at_epoch": 1784814710.1812935,
+  "updated_at_epoch": 1784814771.7537675,
   "heartbeat_schema": 1,
   "repository": "qqzlqqzlqqzl/qqzlqqzlqqzl",
   "run_id": "30010928798",
