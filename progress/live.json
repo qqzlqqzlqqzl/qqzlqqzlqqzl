@@ -1,0 +1,7 @@
+{
+  "status": "initialized",
+  "message": "等待主分支10k抓取任务接管",
+  "current_stage": "未运行",
+  "completed_sources": [],
+  "completed_rows": 0
+}
