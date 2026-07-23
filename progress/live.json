@@ -1,60 +1,10 @@
 {
-  "status": "running",
-  "current_stage": "The Pi Hut Tutorials",
-  "stage_started_at": 1784816116.9571588,
-  "last_real_progress_at": 1784816124.977099,
-  "stage_detail": "已处理10个Sitemap，本来源发现0个候选",
+  "status": "success",
+  "current_stage": "Raspberry Pi Blog Projects",
+  "stage_started_at": 1784816148.4805274,
+  "last_real_progress_at": 1784816153.4677193,
+  "stage_detail": "程序退出码0",
   "completed_sources": [
-    {
-      "name": "MakerWorld",
-      "rows": 300,
-      "elapsed_seconds": 11.4
-    },
-    {
-      "name": "Maker Faire",
-      "rows": 300,
-      "elapsed_seconds": 10.8
-    },
-    {
-      "name": "Open Hardware Repository",
-      "rows": 0,
-      "elapsed_seconds": 0.7
-    },
-    {
-      "name": "Open Hardware Observatory",
-      "rows": 0,
-      "elapsed_seconds": 350.2
-    },
-    {
-      "name": "OpenMV Projects",
-      "rows": 209,
-      "elapsed_seconds": 6.3
-    },
-    {
-      "name": "Hackaday文章项目",
-      "rows": 360,
-      "elapsed_seconds": 1.6
-    },
-    {
-      "name": "Make: Projects",
-      "rows": 12,
-      "elapsed_seconds": 6.7
-    },
-    {
-      "name": "Elecrow Projects",
-      "rows": 240,
-      "elapsed_seconds": 4.0
-    },
-    {
-      "name": "Maker Pro",
-      "rows": 0,
-      "elapsed_seconds": 0.1
-    },
-    {
-      "name": "IoT Design Pro",
-      "rows": 162,
-      "elapsed_seconds": 1.7
-    },
     {
       "name": "Electronics For You Projects",
       "rows": 420,
@@ -94,12 +44,62 @@
       "name": "Pimoroni Learn",
       "rows": 50,
       "elapsed_seconds": 17.6
+    },
+    {
+      "name": "The Pi Hut Tutorials",
+      "rows": 244,
+      "elapsed_seconds": 19.7
+    },
+    {
+      "name": "micro:bit Projects",
+      "rows": 0,
+      "elapsed_seconds": 1.2
+    },
+    {
+      "name": "NVIDIA Jetson Projects",
+      "rows": 4,
+      "elapsed_seconds": 1.1
+    },
+    {
+      "name": "Open Source Ecology",
+      "rows": 0,
+      "elapsed_seconds": 0.1
+    },
+    {
+      "name": "CNX Software Hardware",
+      "rows": 0,
+      "elapsed_seconds": 0.5
+    },
+    {
+      "name": "HackMakeMod Projects",
+      "rows": 0,
+      "elapsed_seconds": 0.8
+    },
+    {
+      "name": "Maker.io Projects",
+      "rows": 0,
+      "elapsed_seconds": 0.1
+    },
+    {
+      "name": "DigiKey TechForum Projects",
+      "rows": 300,
+      "elapsed_seconds": 3.3
+    },
+    {
+      "name": "Arduino Blog Projects",
+      "rows": 380,
+      "elapsed_seconds": 4.3
+    },
+    {
+      "name": "Raspberry Pi Blog Projects",
+      "rows": 0,
+      "elapsed_seconds": 0.3
     }
   ],
-  "completed_rows": 12612,
-  "sitemaps_processed": 188,
-  "candidates_found": 57765,
-  "detail_pages_processed": 427,
+  "completed_rows": 13540,
+  "sitemaps_processed": 224,
+  "candidates_found": 65084,
+  "detail_pages_processed": 471,
   "warnings": [
     "Seeed Project Hub列表页失败：RetryError",
     "element14 Community sitemap失败：ConnectionError",
@@ -108,12 +108,11 @@
     "Open Hardware Observatory列表页失败：ConnectTimeout",
     "Pimoroni Learn sitemap失败：RetryError"
   ],
-  "_source_candidates": 0,
-  "elapsed_seconds": 3138.8,
-  "stage_elapsed_seconds": 8.4,
-  "seconds_since_real_progress": 0.4,
+  "elapsed_seconds": 3166.9,
+  "stage_elapsed_seconds": 5.0,
+  "seconds_since_real_progress": 0.0,
   "run_url": "https://github.com/qqzlqqzlqqzl/qqzlqqzlqqzl/actions/runs/30010928798",
-  "updated_at_epoch": 1784816125.3857863,
+  "updated_at_epoch": 1784816153.468712,
   "heartbeat_schema": 1,
   "repository": "qqzlqqzlqqzl/qqzlqqzlqqzl",
   "run_id": "30010928798",
