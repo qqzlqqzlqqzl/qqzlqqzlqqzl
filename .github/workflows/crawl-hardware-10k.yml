@@ -2,6 +2,13 @@ name: Crawl 10k balanced hardware opportunities
 
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - "crawler/v2.py"
+      - "crawler/main.py"
+      - "crawler/requirements.txt"
+      - "crawler/RUN_10K.md"
+      - ".github/workflows/crawl-hardware-10k.yml"
   push:
     branches: [main]
     paths:
@@ -14,7 +21,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: hardware-opportunities-10k
+  group: ${{ github.workflow }}-${{ github.event_name }}
   cancel-in-progress: true
 
 jobs:
@@ -59,6 +66,7 @@ jobs:
           retention-days: 90
           compression-level: 6
       - name: Publish permanent GitHub Release
+        if: github.event_name != 'pull_request'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
