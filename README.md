@@ -1,56 +1,141 @@
-# 开源硬件商业化机会库爬虫
+# 开源硬件商业化机会库
 
-此仓库用于从公开网页、公开 API 和公开项目目录中采集近五年活跃的开源硬件项目，并生成商业化初筛数据。
+从公开网页、公开 API 和公开项目目录采集近五年活跃的开源硬件项目，生成可检索的商业化初筛数据。该仓库同时保存抓取程序、评分规则、GitHub Actions 工作流、运行交接说明和数据字典。
 
-## V2 正式交付
+## 当前正式成果
 
 GitHub Actions Run #11 已于 2026-07-23 成功完成：
 
-- 抓取前原始记录：13,540 条
-- 去重候选：12,869 条
-- 最终入库：10,500 条
-- 有效平台：34 个
-- 前四平台合计占比：48.19%（质量门槛不高于 72%）
-- 正态化评分均值 / 标准差：5.40 / 1.45
-- 8 分及以上项目：386 条
+| 指标 | 结果 |
+|---|---:|
+| 抓取前原始记录 | 13,540 |
+| 去重候选 | 12,869 |
+| 最终入库 | 10,500 |
+| 有效平台 | 34 |
+| 前四平台合计占比 | 48.19% |
+| 8 分及以上项目 | 386 |
+| 正态化评分均值 / 标准差 | 5.40 / 1.45 |
 
-永久交付页：
+永久成果：
 
-- [开源硬件商业化机会库 10k · Run 11](https://github.com/qqzlqqzlqqzl/qqzlqqzlqqzl/releases/tag/hardware-opportunities-10k-run-11)
-- [GitHub Actions Run #11](https://github.com/qqzlqqzlqqzl/qqzlqqzlqqzl/actions/runs/30010928798)
+- [下载 Release：开源硬件商业化机会库 10k · Run 11](https://github.com/qqzlqqzlqqzl/qqzlqqzlqqzl/releases/tag/hardware-opportunities-10k-run-11)
+- [查看 GitHub Actions Run #11](https://github.com/qqzlqqzlqqzl/qqzlqqzlqqzl/actions/runs/30010928798)
 
-## 输出文件
+## 下载后怎么打开
 
-Release 和 Actions Artifact `open-hardware-commercial-opportunities-10k` 包含：
+1. 在 Release 页面下载 `open-hardware-commercial-opportunities-10k.zip`，然后完整解压。
+2. 普通阅读优先打开 `output_v2/开源硬件商业化机会库_10000条.xlsx`。
+3. 使用 Microsoft Excel、WPS 表格或 LibreOffice Calc 打开。
+4. 先看“摘要”工作表，再进入“项目机会库”。
+5. 在“项目机会库”中建议先筛选：
+   - `正态化商业评分 >= 8`；
+   - 目标类别，例如“电子礼物/徽章/挂件”“测试测量/工程工具”；
+   - `数据质量 = A`；
+   - 可接受的量产难度、售后风险和合规风险。
+6. 点击“原始链接”进入项目页面，逐项复核许可证、BOM、Gerber、固件、图片权利、专利、商标和真实市场需求。
 
-- `开源硬件商业化机会库_10000条.xlsx`
-- `hardware_opportunities.csv`
-- `hardware_opportunities.jsonl`
-- `source_status.csv`
-- `score_distribution.csv`
-- `summary.json`
-- `SCORING_METHOD.md`
-- `progress.json`
-- 完整 ZIP 包
+更详细的操作说明见 [docs/LOCAL_USAGE.md](docs/LOCAL_USAGE.md)。
 
-Excel 工作簿包含“项目机会库”“摘要”“来源状态”“评分方法”四个工作表。
+## 输出文件怎么选
 
-## 字段与评分
+| 文件 | 适合用途 |
+|---|---|
+| `开源硬件商业化机会库_10000条.xlsx` | 人工浏览、筛选、排序、查看摘要和来源状态 |
+| `hardware_opportunities.csv` | Excel、Power BI、Python、数据库导入 |
+| `hardware_opportunities.jsonl` | 程序处理、向量化、LLM/数据管道逐行读取 |
+| `source_status.csv` | 检查各平台抓取成功、失败、耗时和条数 |
+| `score_distribution.csv` | 查看 0–10 分各区间分布 |
+| `summary.json` | 自动化读取本次运行的核心统计和质量门槛 |
+| `SCORING_METHOD.md` | 查看评分方法和限制 |
+| `progress.json` | 查看最后运行阶段、警告和来源进度 |
 
-每条记录保留项目 ID、名称、平台、原始链接、缩略图来源、日期、描述、关键词、类别、支持量、许可证线索、开源完整度、市场验证、典型竞品、商业价值、改进方向、目标客户、建议价格、量产难度、售后风险、合规风险和 0–10 分评分。
+完整字段解释见 [docs/DATA_DICTIONARY.md](docs/DATA_DICTIONARY.md)。
 
-原始分由脚本依据每行自身证据进行确定性规则评分，再按全库排序映射为近似正态分布的正态化分数。该评分用于大范围初筛，不是人工逐条商业尽调。
+## 最快复现方式：GitHub Actions
 
-## 质量说明
+1. 打开仓库的 **Actions** 页面。
+2. 选择 **Crawl 10k balanced hardware opportunities**。
+3. 点击 **Run workflow**。
+4. `target` 默认是 `10500`；测试时可改成较小数字，但质量门槛仍要求正式运行至少 10,000 条。
+5. `publish_release=true` 时，成功运行会发布永久 Release；关闭后只保留 90 天的 Actions Artifact。
+6. 运行过程中可查看 Actions 日志；`progress` 分支中的 `progress/live.json` 保存最近一次心跳状态。
 
-- 最终 10,500 条记录的项目 ID 和 URL 均已去重。
-- 337 条记录未抓到正文描述，但仍保留原始链接与其他可用元数据。
-- 5,215 条记录目前归类为“其他”，后续精细筛选时应结合原始页面复核。
-- 高分项目仍需逐项核验真实销量、BOM、成本、许可证、专利、商标、图片、字体、认证和安全合规。
+整库工作流只允许手动触发，避免普通代码或文档合并意外启动一次长时间抓取。
+
+## 本地运行
+
+推荐 Python 3.12。以下命令在仓库根目录执行。
+
+### Windows PowerShell
+
+```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -r crawler\requirements.txt
+python crawler\v2.py --target 10500 --out output_v2
+```
+
+### Linux / macOS
+
+```bash
+python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r crawler/requirements.txt
+python crawler/v2.py --target 10500 --out output_v2
+```
+
+本地直接运行 `v2.py` 不会写入 GitHub 的 `progress` 分支，也不会自动创建 Release。完整的环境、参数、网络要求、故障处理和结果校验见 [docs/LOCAL_USAGE.md](docs/LOCAL_USAGE.md) 与 [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md)。
+
+## 仓库结构
+
+```text
+.
+├─ crawler/
+│  ├─ main.py                  # 基础采集器、数据模型、导出与评分辅助
+│  ├─ v2.py                    # 10k 多平台平衡采集和质量门槛
+│  ├─ v2_progress.py           # 运行进度、心跳和来源状态
+│  ├─ v2_progress_git.py       # GitHub Actions 持久化进度与硬超时入口
+│  └─ requirements.txt
+├─ tests/                      # 轻量单元测试
+├─ docs/
+│  ├─ LOCAL_USAGE.md           # 下载、打开、本地运行和排障
+│  ├─ REPRODUCIBILITY.md       # 复现流程和验收标准
+│  └─ DATA_DICTIONARY.md       # 字段字典
+├─ HANDOFF.md                  # 当前状态、设计决策、已知问题和后续维护
+└─ .github/workflows/
+   ├─ crawl-hardware-10k.yml   # 手动整库抓取
+   └─ validate-crawler.yml     # PR/代码变更的轻量验证
+```
+
+## 分支说明
+
+- `main`：唯一产品代码和文档主线。
+- `progress`：运行状态分支，只保存 `progress/live.json` 心跳；**不要合并进 main**。
+- 临时功能分支：通过 PR 合并后即可删除。
+
+## 评分应怎样理解
+
+每条记录先依据自身元数据计算确定性规则原始分，因素包括类别、平台、支持量、时间、图片、描述、许可证线索、开源完整度、商业关键词、量产难度、售后风险和合规风险。随后按全库原始分排序，映射为近似正态分布的 0–10 分。
+
+这是一套大范围初筛工具，不是人工逐条商业尽调。高分表示“值得优先打开原始链接复核”，不表示项目可以直接复制、生产或销售。
+
+## 已知数据限制
+
+- 最终 10,500 条记录的 `project_id` 和 URL 均已去重。
+- 337 条记录没有抓到正文描述，但仍保留原始链接和其他可用元数据。
+- 5,215 条记录目前归类为“其他”，精细研究时需要二次分类。
+- 页面可公开访问不等于设计文件允许商用。
+- 网站结构、API、限流和网络状态变化会导致不同日期运行结果不完全一致。
 
 ## 合规边界
 
 - 只访问公开页面和公开 API。
 - 不绕过登录、验证码、付费墙或访问控制。
-- 使用有限并发、重试退避与来源状态记录。
-- 公开可访问不等于允许商用；每个候选项目仍需逐项核验许可证、专利、商标、图片、字体与安全合规。
+- 使用有限并发、请求超时、重试退避和来源状态记录。
+- 开发产品前必须逐项核验许可证、专利、商标、图片、字体、认证、产品安全和目标市场法规。
+
+## 维护入口
+
+首次接手本项目请先阅读 [HANDOFF.md](HANDOFF.md)。任何评分、来源或字段变更，都应同步更新数据字典、复现说明和评分说明，并通过 `Validate crawler` 工作流后再合并。
