@@ -6,6 +6,8 @@ on:
       - "crawler/**"
       - "tests/**"
       - "scripts/**"
+      - "windows/**"
+      - "*.bat"
       - ".github/workflows/validate-crawler.yml"
       - "crawler/requirements.txt"
   push:
@@ -14,6 +16,8 @@ on:
       - "crawler/**"
       - "tests/**"
       - "scripts/**"
+      - "windows/**"
+      - "*.bat"
       - ".github/workflows/validate-crawler.yml"
       - "crawler/requirements.txt"
 
@@ -21,7 +25,7 @@ permissions:
   contents: read
 
 jobs:
-  validate:
+  validate-python:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
@@ -36,3 +40,73 @@ jobs:
         run: python -m compileall -q crawler tests scripts
       - name: Run unit tests
         run: python -m unittest discover -s tests -v
+
+  validate-windows-launchers:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Parse PowerShell scripts
+        id: parse
+        continue-on-error: true
+        shell: powershell
+        run: |
+          New-Item -ItemType Directory -Force windows-ci | Out-Null
+          $messages = New-Object System.Collections.Generic.List[string]
+          foreach ($path in @('windows/run.ps1', 'windows/check_result.ps1')) {
+            $tokens = $null
+            $errors = $null
+            [void][System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path $path), [ref]$tokens, [ref]$errors)
+            foreach ($parseError in $errors) {
+              $messages.Add("${path}:$($parseError.Extent.StartLineNumber):$($parseError.Extent.StartColumnNumber): $($parseError.Message)")
+            }
+          }
+          if ($messages.Count -eq 0) {
+            $messages.Add('PowerShell parser: OK')
+          }
+          $messages | Set-Content -Path windows-ci/parser-errors.txt -Encoding UTF8
+          $messages | ForEach-Object { Write-Host $_ }
+          if ($messages[0] -ne 'PowerShell parser: OK') { exit 1 }
+      - name: Upload PowerShell parser diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-powershell-parser-diagnostics
+          path: windows-ci/parser-errors.txt
+          if-no-files-found: error
+          retention-days: 7
+      - name: Enforce PowerShell parsing
+        if: steps.parse.outcome != 'success'
+        shell: powershell
+        run: exit 1
+      - name: Dry-run crawler PowerShell entry
+        shell: powershell
+        run: powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File windows\run.ps1 -DryRun -NoPause
+      - name: Dry-run result-checker PowerShell entry
+        shell: powershell
+        run: powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File windows\check_result.ps1 -DryRun -NoPause
+      - name: Dry-run crawler BAT entry
+        shell: cmd
+        run: call RUN_WINDOWS.bat -DryRun -NoPause
+      - name: Dry-run result-checker BAT entry
+        shell: cmd
+        run: call CHECK_RESULT_WINDOWS.bat -DryRun -NoPause
+      - name: Build validated Windows package
+        shell: powershell
+        run: |
+          $package = 'dist\open-hardware-crawler-windows'
+          New-Item -ItemType Directory -Force $package | Out-Null
+          $excluded = @('.git', 'dist', 'windows-ci', '.venv', '.venv-windows', 'output', 'output_v2', '__pycache__')
+          Get-ChildItem -Force | Where-Object { $excluded -notcontains $_.Name } | ForEach-Object {
+            Copy-Item $_.FullName -Destination $package -Recurse -Force
+          }
+          Compress-Archive -Path $package -DestinationPath 'dist\open-hardware-crawler-windows.zip' -CompressionLevel Optimal
+      - name: Upload validated Windows package
+        uses: actions/upload-artifact@v4
+        with:
+          name: open-hardware-crawler-windows
+          path: dist/open-hardware-crawler-windows.zip
+          if-no-files-found: error
+          retention-days: 90

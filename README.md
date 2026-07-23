@@ -2,6 +2,20 @@
 
 从公开网页、公开 API 和公开项目目录采集近五年活跃的开源硬件项目，生成可检索的商业化初筛数据。该仓库同时保存抓取程序、评分规则、GitHub Actions 工作流、运行交接说明和数据字典。
 
+## Windows：下载后双击运行
+
+Windows 用户不需要手工创建虚拟环境或输入 `pip` 命令：
+
+1. 点击 GitHub 的 **Code → Download ZIP**；
+2. 完整解压；
+3. 双击根目录的 `RUN_WINDOWS.bat`；
+4. 按提示输入目标条数，正式运行使用 `10500`；
+5. 程序会自动检查或安装 Python、创建环境、安装依赖、抓取、验收并打开结果目录。
+
+已有结果需要检查时，双击 `CHECK_RESULT_WINDOWS.bat`。
+
+详细图文式说明和故障处理见 [WINDOWS使用说明.md](WINDOWS使用说明.md)。
+
 ## 当前正式成果
 
 GitHub Actions Run #11 已于 2026-07-23 成功完成：
@@ -64,19 +78,23 @@ GitHub Actions Run #11 已于 2026-07-23 成功完成：
 
 ## 本地运行
 
-推荐 Python 3.12。以下命令在仓库根目录执行。
+### Windows 推荐方式
 
-### Windows PowerShell
+直接双击：
 
-```powershell
-py -3.12 -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-python -m pip install -r crawler\requirements.txt
-python crawler\v2.py --target 10500 --out output_v2
+```text
+RUN_WINDOWS.bat
+```
+
+它会自动完成 Python 检查、虚拟环境、依赖、运行和验收。命令行也可使用：
+
+```bat
+RUN_WINDOWS.bat -Target 10500 -Output output_v2
 ```
 
 ### Linux / macOS
+
+推荐 Python 3.12，在仓库根目录执行：
 
 ```bash
 python3.12 -m venv .venv
@@ -92,12 +110,19 @@ python crawler/v2.py --target 10500 --out output_v2
 
 ```text
 .
+├─ RUN_WINDOWS.bat             # Windows 双击运行入口
+├─ CHECK_RESULT_WINDOWS.bat    # Windows 双击验收入口
+├─ WINDOWS使用说明.md          # Windows 完整说明
+├─ windows/
+│  ├─ run.ps1                  # 自动安装环境并运行
+│  └─ check_result.ps1         # 自动验收并打开结果
 ├─ crawler/
 │  ├─ main.py                  # 基础采集器、数据模型、导出与评分辅助
 │  ├─ v2.py                    # 10k 多平台平衡采集和质量门槛
 │  ├─ v2_progress.py           # 运行进度、心跳和来源状态
 │  ├─ v2_progress_git.py       # GitHub Actions 持久化进度与硬超时入口
 │  └─ requirements.txt
+├─ scripts/validate_output.py  # 交付结果自动验收
 ├─ tests/                      # 轻量单元测试
 ├─ docs/
 │  ├─ LOCAL_USAGE.md           # 下载、打开、本地运行和排障
@@ -106,7 +131,7 @@ python crawler/v2.py --target 10500 --out output_v2
 ├─ HANDOFF.md                  # 当前状态、设计决策、已知问题和后续维护
 └─ .github/workflows/
    ├─ crawl-hardware-10k.yml   # 手动整库抓取
-   └─ validate-crawler.yml     # PR/代码变更的轻量验证
+   └─ validate-crawler.yml     # Linux 与 Windows 入口验证
 ```
 
 ## 分支说明
