@@ -2,7 +2,7 @@
   "status": "running",
   "current_stage": "OpenBuilds",
   "stage_started_at": 1784815287.0184424,
-  "last_real_progress_at": 1784815372.8652537,
+  "last_real_progress_at": 1784815434.8178246,
   "stage_detail": "解析候选详情，共532个候选",
   "completed_sources": [
     {
@@ -99,7 +99,7 @@
   "completed_rows": 11757,
   "sitemaps_processed": 173,
   "candidates_found": 57183,
-  "detail_pages_processed": 370,
+  "detail_pages_processed": 371,
   "warnings": [
     "Seeed Project Hub列表页失败：RetryError",
     "element14 Community sitemap失败：ConnectionError",
@@ -108,11 +108,11 @@
     "Open Hardware Observatory列表页失败：ConnectTimeout"
   ],
   "_source_candidates": 0,
-  "elapsed_seconds": 2400.1,
-  "stage_elapsed_seconds": 99.7,
-  "seconds_since_real_progress": 13.8,
+  "elapsed_seconds": 2461.9,
+  "stage_elapsed_seconds": 161.5,
+  "seconds_since_real_progress": 13.7,
   "run_url": "https://github.com/qqzlqqzlqqzl/qqzlqqzlqqzl/actions/runs/30010928798",
-  "updated_at_epoch": 1784815386.7076263,
+  "updated_at_epoch": 1784815448.5111992,
   "heartbeat_schema": 1,
   "repository": "qqzlqqzlqqzl/qqzlqqzlqqzl",
   "run_id": "30010928798",
