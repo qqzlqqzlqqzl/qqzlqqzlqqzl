@@ -1,4 +1,4 @@
-param(
+﻿param(
     [string]$Output = "",
     [switch]$DryRun,
     [switch]$NoPause
