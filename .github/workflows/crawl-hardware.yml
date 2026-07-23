@@ -13,13 +13,17 @@ on:
       - "crawler/**"
       - ".github/workflows/crawl-hardware.yml"
 
+concurrency:
+  group: hardware-crawl-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
 jobs:
   crawl:
     runs-on: ubuntu-24.04
-    timeout-minutes: 90
+    timeout-minutes: 60
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
@@ -34,7 +38,8 @@ jobs:
       - name: Crawl and score at least 3,000 projects
         id: crawl
         continue-on-error: true
-        run: python crawler/main.py --target 3600 --out output
+        working-directory: crawler
+        run: python run_fast.py --target 3600 --out ../output
       - name: Publish summary in job output
         if: always()
         run: |
