@@ -98,11 +98,11 @@
   "warnings": [
     "Seeed Project Hub列表页失败：RetryError"
   ],
-  "elapsed_seconds": 1415.8,
-  "stage_elapsed_seconds": 117.8,
-  "seconds_since_real_progress": 117.8,
+  "elapsed_seconds": 1477.4,
+  "stage_elapsed_seconds": 179.5,
+  "seconds_since_real_progress": 179.5,
   "run_url": "https://github.com/qqzlqqzlqqzl/qqzlqqzlqqzl/actions/runs/30010928798",
-  "updated_at_epoch": 1784814402.3320048,
+  "updated_at_epoch": 1784814464.0247698,
   "heartbeat_schema": 1,
   "repository": "qqzlqqzlqqzl/qqzlqqzlqqzl",
   "run_id": "30010928798",
