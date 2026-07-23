@@ -1,30 +1,10 @@
 {
   "status": "running",
-  "current_stage": "element14 Community",
-  "stage_started_at": 1784814284.5001054,
-  "last_real_progress_at": 1784814469.597998,
-  "stage_detail": "已处理1个Sitemap，本来源发现0个候选",
+  "current_stage": "Printables",
+  "stage_started_at": 1784814645.617417,
+  "last_real_progress_at": 1784814648.3053787,
+  "stage_detail": "已处理3个Sitemap，本来源发现0个候选",
   "completed_sources": [
-    {
-      "name": "OSHWA认证目录",
-      "rows": 1800,
-      "elapsed_seconds": 2.5
-    },
-    {
-      "name": "Hack Club项目库",
-      "rows": 700,
-      "elapsed_seconds": 3.6
-    },
-    {
-      "name": "GitHub",
-      "rows": 2749,
-      "elapsed_seconds": 979.8
-    },
-    {
-      "name": "GitLab",
-      "rows": 1840,
-      "elapsed_seconds": 69.8
-    },
     {
       "name": "Hackaday.io",
       "rows": 17,
@@ -89,22 +69,48 @@
       "name": "SparkFun教程项目",
       "rows": 166,
       "elapsed_seconds": 5.4
+    },
+    {
+      "name": "element14 Community",
+      "rows": 0,
+      "elapsed_seconds": 350.0
+    },
+    {
+      "name": "Electromaker",
+      "rows": 18,
+      "elapsed_seconds": 7.7
+    },
+    {
+      "name": "CircuitDigest",
+      "rows": 360,
+      "elapsed_seconds": 3.1
+    },
+    {
+      "name": "All About Circuits Projects",
+      "rows": 0,
+      "elapsed_seconds": 0.0
+    },
+    {
+      "name": "Raspberry Pi Projects",
+      "rows": 0,
+      "elapsed_seconds": 0.3
     }
   ],
-  "completed_rows": 8660,
-  "sitemaps_processed": 25,
-  "candidates_found": 23609,
-  "detail_pages_processed": 145,
+  "completed_rows": 9038,
+  "sitemaps_processed": 34,
+  "candidates_found": 27036,
+  "detail_pages_processed": 181,
   "warnings": [
     "Seeed Project Hub列表页失败：RetryError",
-    "element14 Community sitemap失败：ConnectionError"
+    "element14 Community sitemap失败：ConnectionError",
+    "element14 Community列表页失败：ConnectionError"
   ],
   "_source_candidates": 0,
-  "elapsed_seconds": 1600.5,
-  "stage_elapsed_seconds": 302.6,
-  "seconds_since_real_progress": 117.5,
+  "elapsed_seconds": 1662.0,
+  "stage_elapsed_seconds": 3.0,
+  "seconds_since_real_progress": 0.3,
   "run_url": "https://github.com/qqzlqqzlqqzl/qqzlqqzlqqzl/actions/runs/30010928798",
-  "updated_at_epoch": 1784814587.1111033,
+  "updated_at_epoch": 1784814648.6061175,
   "heartbeat_schema": 1,
   "repository": "qqzlqqzlqqzl/qqzlqqzlqqzl",
   "run_id": "30010928798",
