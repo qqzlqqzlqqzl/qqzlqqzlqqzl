@@ -18,14 +18,24 @@ function Pause-IfNeeded {
     }
 }
 
-function Stop-WithMessage([string]$Message, [int]$Code = 1) {
+function Stop-WithMessage {
+    param(
+        [string]$Message,
+        [int]$Code = 1
+    )
+
     Write-Host ""
     Write-Host "[失败] $Message" -ForegroundColor Red
     Pause-IfNeeded
     exit $Code
 }
 
-function Test-PythonCommand([string]$File, [string[]]$Prefix) {
+function Test-PythonCommand {
+    param(
+        [string]$File,
+        [string[]]$Prefix
+    )
+
     try {
         $arguments = @($Prefix) + @("-c", "import sys; raise SystemExit(0 if sys.version_info >= (3, 10) else 1)")
         & $File @arguments *> $null
@@ -39,16 +49,16 @@ function Test-PythonCommand([string]$File, [string[]]$Prefix) {
 function Find-Python {
     $py = Get-Command "py.exe" -ErrorAction SilentlyContinue
     if ($py) {
-        if (Test-PythonCommand $py.Source @("-3.12")) {
+        if (Test-PythonCommand -File $py.Source -Prefix @("-3.12")) {
             return @{ File = $py.Source; Prefix = @("-3.12"); Label = "Python 3.12 (py launcher)" }
         }
-        if (Test-PythonCommand $py.Source @("-3")) {
+        if (Test-PythonCommand -File $py.Source -Prefix @("-3")) {
             return @{ File = $py.Source; Prefix = @("-3"); Label = "Python 3 (py launcher)" }
         }
     }
 
     $python = Get-Command "python.exe" -ErrorAction SilentlyContinue
-    if ($python -and (Test-PythonCommand $python.Source @())) {
+    if ($python -and (Test-PythonCommand -File $python.Source -Prefix @())) {
         return @{ File = $python.Source; Prefix = @(); Label = "Python" }
     }
 
@@ -59,7 +69,7 @@ function Find-Python {
         "$env:ProgramFiles\Python311\python.exe"
     )
     foreach ($candidate in $knownPaths) {
-        if ((Test-Path $candidate) -and (Test-PythonCommand $candidate @())) {
+        if ((Test-Path $candidate) -and (Test-PythonCommand -File $candidate -Prefix @())) {
             return @{ File = $candidate; Prefix = @(); Label = $candidate }
         }
     }
@@ -97,7 +107,7 @@ $requiredFiles = @(
 )
 foreach ($relativePath in $requiredFiles) {
     if (-not (Test-Path (Join-Path $Root $relativePath))) {
-        Stop-WithMessage "缺少文件：$relativePath。请完整解压仓库后再运行。"
+        Stop-WithMessage -Message "缺少文件：$relativePath。请完整解压仓库后再运行。"
     }
 }
 
@@ -109,10 +119,10 @@ if (-not $pythonLauncher -and -not $DryRun) {
 }
 if (-not $pythonLauncher) {
     if ($DryRun) {
-        Stop-WithMessage "DryRun 未找到 Python 3.10+。" 2
+        Stop-WithMessage -Message "DryRun 未找到 Python 3.10+。" -Code 2
     }
     Start-Process "https://www.python.org/downloads/windows/"
-    Stop-WithMessage "未找到 Python 3.10+，自动安装也未成功。已打开 Python 下载页面；安装时请勾选 Add python.exe to PATH。"
+    Stop-WithMessage -Message "未找到 Python 3.10+，自动安装也未成功。已打开 Python 下载页面；安装时请勾选 Add python.exe to PATH。"
 }
 Write-Host "Python：$($pythonLauncher.Label)" -ForegroundColor Green
 
@@ -127,8 +137,12 @@ if ($Target -le 0) {
     if ([string]::IsNullOrWhiteSpace($targetInput)) {
         $Target = 10500
     }
-    elseif (-not [int]::TryParse($targetInput, [ref]$Target) -or $Target -le 0) {
-        Stop-WithMessage "目标条数必须是正整数。"
+    else {
+        $parsedTarget = 0
+        if (-not [int]::TryParse($targetInput, [ref]$parsedTarget) -or $parsedTarget -le 0) {
+            Stop-WithMessage -Message "目标条数必须是正整数。"
+        }
+        $Target = $parsedTarget
     }
 }
 
@@ -166,9 +180,10 @@ if (-not (Test-Path $venvPython)) {
     Write-Host ""
     Write-Host "首次运行：正在创建独立 Python 环境……" -ForegroundColor Cyan
     $venvArguments = @($pythonLauncher.Prefix) + @("-m", "venv", $venvPath)
-    & $pythonLauncher.File @venvArguments
+    $pythonFile = [string]$pythonLauncher.File
+    & $pythonFile @venvArguments
     if ($LASTEXITCODE -ne 0 -or -not (Test-Path $venvPython)) {
-        Stop-WithMessage "创建虚拟环境失败。"
+        Stop-WithMessage -Message "创建虚拟环境失败。"
     }
 }
 
@@ -181,11 +196,11 @@ if ($installedHash -ne $requirementsHash) {
     Write-Host "正在安装或更新依赖……" -ForegroundColor Cyan
     & $venvPython -m pip install --disable-pip-version-check --upgrade pip
     if ($LASTEXITCODE -ne 0) {
-        Stop-WithMessage "升级 pip 失败。"
+        Stop-WithMessage -Message "升级 pip 失败。"
     }
     & $venvPython -m pip install --disable-pip-version-check -r $requirements
     if ($LASTEXITCODE -ne 0) {
-        Stop-WithMessage "安装依赖失败，请检查网络、代理或安全软件。"
+        Stop-WithMessage -Message "安装依赖失败，请检查网络、代理或安全软件。"
     }
     Set-Content -Path $markerFile -Value $requirementsHash -Encoding ASCII
 }
@@ -210,7 +225,7 @@ if ($crawlExitCode -ne 0) {
         Write-Host "测试数据已生成；退出码 $crawlExitCode 来自正式 10k 质量门槛。" -ForegroundColor Yellow
     }
     else {
-        Stop-WithMessage "抓取程序退出码为 $crawlExitCode。请查看窗口上方的错误信息和输出目录中的 progress/source_status 文件。" $crawlExitCode
+        Stop-WithMessage -Message "抓取程序退出码为 $crawlExitCode。请查看窗口上方的错误信息和输出目录中的 progress/source_status 文件。" -Code $crawlExitCode
     }
 }
 
@@ -219,7 +234,7 @@ if (-not $SkipValidation -and $Target -ge 10000) {
     Write-Host "正在自动验收结果……" -ForegroundColor Cyan
     & $venvPython "scripts\validate_output.py" $outputFullPath
     if ($LASTEXITCODE -ne 0) {
-        Stop-WithMessage "数据已生成，但自动验收未通过。请查看上方具体项目。" 3
+        Stop-WithMessage -Message "数据已生成，但自动验收未通过。请查看上方具体项目。" -Code 3
     }
 }
 
