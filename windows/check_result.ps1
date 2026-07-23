@@ -15,7 +15,12 @@ function Pause-IfNeeded {
     }
 }
 
-function Stop-WithMessage([string]$Message, [int]$Code = 1) {
+function Stop-WithMessage {
+    param(
+        [string]$Message,
+        [int]$Code = 1
+    )
+
     Write-Host "[失败] $Message" -ForegroundColor Red
     Pause-IfNeeded
     exit $Code
@@ -45,12 +50,12 @@ Write-Host "============================================================" -Foreg
 
 $validator = Join-Path $Root "scripts\validate_output.py"
 if (-not (Test-Path $validator)) {
-    Stop-WithMessage "缺少 scripts\validate_output.py，请完整解压仓库。"
+    Stop-WithMessage -Message "缺少 scripts\validate_output.py，请完整解压仓库。"
 }
 
 $python = Find-PythonExecutable
 if (-not $python) {
-    Stop-WithMessage "未找到 Python。请先双击 RUN_WINDOWS.bat 完成环境初始化。"
+    Stop-WithMessage -Message "未找到 Python。请先双击 RUN_WINDOWS.bat 完成环境初始化。"
 }
 
 if ($DryRun) {
@@ -66,7 +71,7 @@ if ([string]::IsNullOrWhiteSpace($Output)) {
 $outputFullPath = if ([System.IO.Path]::IsPathRooted($Output)) { $Output } else { Join-Path $Root $Output }
 
 if (-not (Test-Path $outputFullPath)) {
-    Stop-WithMessage "结果目录不存在：$outputFullPath"
+    Stop-WithMessage -Message "结果目录不存在：$outputFullPath"
 }
 
 if ([System.IO.Path]::GetFileName($python).ToLowerInvariant() -eq "py.exe") {
@@ -78,7 +83,7 @@ else {
 $validationExitCode = $LASTEXITCODE
 
 if ($validationExitCode -ne 0) {
-    Stop-WithMessage "验收未通过，退出码 $validationExitCode。请根据上方提示检查文件。" $validationExitCode
+    Stop-WithMessage -Message "验收未通过，退出码 $validationExitCode。请根据上方提示检查文件。" -Code $validationExitCode
 }
 
 Write-Host ""
