@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """GitHub-persistent entrypoint for the observable V2 crawler.
 
-In addition to stdout, local progress.json and the best-effort PR comment, this
-entrypoint atomically updates progress/live.json on the dedicated ``progress``
-branch every heartbeat. It also installs a source timeout that cannot be
-silently swallowed by broad ``except Exception`` blocks in detail parsers.
+In addition to stdout and local progress.json, this entrypoint atomically
+updates progress/live.json on the dedicated ``progress`` branch every
+heartbeat. It also installs a source timeout that cannot be silently swallowed
+by broad ``except Exception`` blocks in detail parsers.
 """
 from __future__ import annotations
 
@@ -156,11 +156,9 @@ def main() -> int:
     v2_progress.install_instrumentation = install_strict_instrumentation
     v2_progress.write_checkpoint = durable_write_checkpoint
 
-    # Keep the already-created progress comment as an optional second channel.
-    v2_progress.COMMENT_ID = 5058787098
-    v2_progress.pr_number = lambda: 2
-
-    # Publish immediately, rather than waiting for the first 60-second heartbeat.
+    # Manual workflow runs have no PR context. The progress branch is the
+    # durable status channel, so historical PR comments are intentionally not
+    # patched on future runs.
     Path("output_v2").mkdir(parents=True, exist_ok=True)
     publish_progress_branch()
     return v2_progress.main()
