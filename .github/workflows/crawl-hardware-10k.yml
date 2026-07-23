@@ -46,25 +46,12 @@ jobs:
           cache-dependency-path: crawler/requirements.txt
       - name: Install dependencies
         run: python -m pip install --disable-pip-version-check -r crawler/requirements.txt
-      - name: Create observable PR progress comment
-        if: github.event_name == 'pull_request'
-        id: progress_comment
-        env:
-          GH_TOKEN: ${{ github.token }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: |
-          BODY='## 10k硬件机会库实时进度
-
-🟡 工作流已启动，正在初始化采集器。此评论将每60秒覆盖更新。'
-          COMMENT_ID=$(gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" -f body="$BODY" --jq .id)
-          test -n "$COMMENT_ID"
-          echo "comment_id=$COMMENT_ID" >> "$GITHUB_OUTPUT"
       - name: Crawl with minute heartbeat and source checkpoints
         id: crawl
         continue-on-error: true
         env:
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          PROGRESS_COMMENT_ID: ${{ steps.progress_comment.outputs.comment_id }}
+          PR_NUMBER: "2"
+          PROGRESS_COMMENT_ID: "5058787098"
         run: python -u crawler/v2_progress_entry.py --target 10500 --out output_v2
       - name: Package available output
         if: always()
