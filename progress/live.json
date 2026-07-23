@@ -1,15 +1,10 @@
 {
   "status": "running",
-  "current_stage": "Elektor Labs",
-  "stage_started_at": 1784815123.6956236,
-  "last_real_progress_at": 1784815137.6114373,
-  "stage_detail": "已处理10个Sitemap，本来源发现1150个候选",
+  "current_stage": "OpenBuilds",
+  "stage_started_at": 1784815164.366435,
+  "last_real_progress_at": 1784815164.3664358,
+  "stage_detail": "读取Sitemap和列表页",
   "completed_sources": [
-    {
-      "name": "element14 Community",
-      "rows": 0,
-      "elapsed_seconds": 350.0
-    },
     {
       "name": "Electromaker",
       "rows": 18,
@@ -94,12 +89,17 @@
       "name": "Electronics For You Projects",
       "rows": 420,
       "elapsed_seconds": 11.3
+    },
+    {
+      "name": "Elektor Labs",
+      "rows": 380,
+      "elapsed_seconds": 40.6
     }
   ],
-  "completed_rows": 11377,
-  "sitemaps_processed": 169,
-  "candidates_found": 46628,
-  "detail_pages_processed": 351,
+  "completed_rows": 11757,
+  "sitemaps_processed": 170,
+  "candidates_found": 56651,
+  "detail_pages_processed": 369,
   "warnings": [
     "Seeed Project Hub列表页失败：RetryError",
     "element14 Community sitemap失败：ConnectionError",
@@ -107,12 +107,11 @@
     "Open Hardware Observatory sitemap失败：ConnectTimeout",
     "Open Hardware Observatory列表页失败：ConnectTimeout"
   ],
-  "_source_candidates": 1150,
-  "elapsed_seconds": 2154.2,
-  "stage_elapsed_seconds": 17.1,
-  "seconds_since_real_progress": 3.2,
+  "elapsed_seconds": 2215.6,
+  "stage_elapsed_seconds": 37.8,
+  "seconds_since_real_progress": 37.8,
   "run_url": "https://github.com/qqzlqqzlqqzl/qqzlqqzlqqzl/actions/runs/30010928798",
-  "updated_at_epoch": 1784815140.7627065,
+  "updated_at_epoch": 1784815202.214883,
   "heartbeat_schema": 1,
   "repository": "qqzlqqzlqqzl/qqzlqqzlqqzl",
   "run_id": "30010928798",
