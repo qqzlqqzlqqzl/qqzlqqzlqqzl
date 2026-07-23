@@ -1,40 +1,10 @@
 {
   "status": "running",
-  "current_stage": "OpenBuilds",
-  "stage_started_at": 1784815287.0184424,
-  "last_real_progress_at": 1784816043.6734228,
-  "stage_detail": "解析候选详情，共532个候选",
+  "current_stage": "The Pi Hut Tutorials",
+  "stage_started_at": 1784816116.9571588,
+  "last_real_progress_at": 1784816124.977099,
+  "stage_detail": "已处理10个Sitemap，本来源发现0个候选",
   "completed_sources": [
-    {
-      "name": "Electromaker",
-      "rows": 18,
-      "elapsed_seconds": 7.7
-    },
-    {
-      "name": "CircuitDigest",
-      "rows": 360,
-      "elapsed_seconds": 3.1
-    },
-    {
-      "name": "All About Circuits Projects",
-      "rows": 0,
-      "elapsed_seconds": 0.0
-    },
-    {
-      "name": "Raspberry Pi Projects",
-      "rows": 0,
-      "elapsed_seconds": 0.3
-    },
-    {
-      "name": "Printables",
-      "rows": 36,
-      "elapsed_seconds": 38.5
-    },
-    {
-      "name": "Thingiverse",
-      "rows": 300,
-      "elapsed_seconds": 34.7
-    },
     {
       "name": "MakerWorld",
       "rows": 300,
@@ -94,25 +64,56 @@
       "name": "Elektor Labs",
       "rows": 380,
       "elapsed_seconds": 40.6
+    },
+    {
+      "name": "OpenBuilds",
+      "rows": 420,
+      "elapsed_seconds": 917.9
+    },
+    {
+      "name": "Wikifactory",
+      "rows": 0,
+      "elapsed_seconds": 0.7
+    },
+    {
+      "name": "Appropedia Open Hardware",
+      "rows": 360,
+      "elapsed_seconds": 0.8
+    },
+    {
+      "name": "Fabble",
+      "rows": 25,
+      "elapsed_seconds": 4.8
+    },
+    {
+      "name": "OSH Park Shared Projects",
+      "rows": 0,
+      "elapsed_seconds": 10.7
+    },
+    {
+      "name": "Pimoroni Learn",
+      "rows": 50,
+      "elapsed_seconds": 17.6
     }
   ],
-  "completed_rows": 11757,
-  "sitemaps_processed": 173,
-  "candidates_found": 57183,
-  "detail_pages_processed": 384,
+  "completed_rows": 12612,
+  "sitemaps_processed": 188,
+  "candidates_found": 57765,
+  "detail_pages_processed": 427,
   "warnings": [
     "Seeed Project Hub列表页失败：RetryError",
     "element14 Community sitemap失败：ConnectionError",
     "element14 Community列表页失败：ConnectionError",
     "Open Hardware Observatory sitemap失败：ConnectTimeout",
-    "Open Hardware Observatory列表页失败：ConnectTimeout"
+    "Open Hardware Observatory列表页失败：ConnectTimeout",
+    "Pimoroni Learn sitemap失败：RetryError"
   ],
   "_source_candidates": 0,
-  "elapsed_seconds": 3077.4,
-  "stage_elapsed_seconds": 776.9,
-  "seconds_since_real_progress": 20.3,
+  "elapsed_seconds": 3138.8,
+  "stage_elapsed_seconds": 8.4,
+  "seconds_since_real_progress": 0.4,
   "run_url": "https://github.com/qqzlqqzlqqzl/qqzlqqzlqqzl/actions/runs/30010928798",
-  "updated_at_epoch": 1784816063.9585602,
+  "updated_at_epoch": 1784816125.3857863,
   "heartbeat_schema": 1,
   "repository": "qqzlqqzlqqzl/qqzlqqzlqqzl",
   "run_id": "30010928798",
