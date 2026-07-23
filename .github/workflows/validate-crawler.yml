@@ -6,6 +6,8 @@ on:
       - "crawler/**"
       - "tests/**"
       - "scripts/**"
+      - "windows/**"
+      - "*.bat"
       - ".github/workflows/validate-crawler.yml"
       - "crawler/requirements.txt"
   push:
@@ -14,6 +16,8 @@ on:
       - "crawler/**"
       - "tests/**"
       - "scripts/**"
+      - "windows/**"
+      - "*.bat"
       - ".github/workflows/validate-crawler.yml"
       - "crawler/requirements.txt"
 
@@ -21,7 +25,7 @@ permissions:
   contents: read
 
 jobs:
-  validate:
+  validate-python:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
@@ -36,3 +40,17 @@ jobs:
         run: python -m compileall -q crawler tests scripts
       - name: Run unit tests
         run: python -m unittest discover -s tests -v
+
+  validate-windows-launchers:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Dry-run crawler launcher
+        shell: cmd
+        run: RUN_WINDOWS.bat -DryRun -NoPause
+      - name: Dry-run result checker
+        shell: cmd
+        run: CHECK_RESULT_WINDOWS.bat -DryRun -NoPause
