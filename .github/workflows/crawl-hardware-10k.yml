@@ -5,6 +5,7 @@ on:
   pull_request:
     paths:
       - "crawler/v2.py"
+      - "crawler/v2_progress.py"
       - "crawler/main.py"
       - "crawler/requirements.txt"
       - "crawler/RUN_10K.md"
@@ -13,12 +14,15 @@ on:
     branches: [main]
     paths:
       - "crawler/v2.py"
+      - "crawler/v2_progress.py"
       - "crawler/main.py"
       - "crawler/requirements.txt"
       - ".github/workflows/crawl-hardware-10k.yml"
 
 permissions:
   contents: write
+  issues: write
+  pull-requests: read
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}
@@ -30,6 +34,7 @@ jobs:
     timeout-minutes: 180
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PYTHONUNBUFFERED: "1"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -39,34 +44,45 @@ jobs:
           cache-dependency-path: crawler/requirements.txt
       - name: Install dependencies
         run: python -m pip install --disable-pip-version-check -r crawler/requirements.txt
-      - name: Crawl, deduplicate, balance and score
-        run: python crawler/v2.py --target 10500 --out output_v2
-      - name: Package complete output
+      - name: Crawl with minute heartbeat and source checkpoints
+        id: crawl
+        continue-on-error: true
+        run: python -u crawler/v2_progress.py --target 10500 --out output_v2
+      - name: Package available output
+        if: always()
         run: |
+          mkdir -p output_v2
           cd output_v2
-          zip -9 -r ../open-hardware-commercial-opportunities-10k.zip .
+          zip -9 -r ../open-hardware-commercial-opportunities-10k.zip . || true
       - name: Publish run summary
         if: always()
         run: |
           echo '## 10k开源硬件商业化机会库' >> "$GITHUB_STEP_SUMMARY"
+          if [ -f output_v2/progress.json ]; then
+            echo '### 最后检查点' >> "$GITHUB_STEP_SUMMARY"
+            echo '```json' >> "$GITHUB_STEP_SUMMARY"
+            cat output_v2/progress.json >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          fi
           if [ -f output_v2/summary.json ]; then
+            echo '### 最终摘要' >> "$GITHUB_STEP_SUMMARY"
             echo '```json' >> "$GITHUB_STEP_SUMMARY"
             cat output_v2/summary.json >> "$GITHUB_STEP_SUMMARY"
             echo '```' >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo 'No summary generated.' >> "$GITHUB_STEP_SUMMARY"
           fi
-      - name: Upload Actions artifact
+      - name: Upload Actions artifact or diagnostic checkpoint
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: open-hardware-commercial-opportunities-10k
           path: |
             output_v2/
             open-hardware-commercial-opportunities-10k.zip
+          if-no-files-found: warn
           retention-days: 90
           compression-level: 6
       - name: Publish permanent GitHub Release
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && steps.crawl.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -79,6 +95,10 @@ jobs:
             output_v2/score_distribution.csv \
             output_v2/summary.json \
             output_v2/SCORING_METHOD.md \
+            output_v2/progress.json \
             open-hardware-commercial-opportunities-10k.zip \
             --title "开源硬件商业化机会库 10k · Run ${GITHUB_RUN_NUMBER}" \
             --notes-file output_v2/RELEASE_NOTES.md
+      - name: Enforce quality gate
+        if: steps.crawl.outcome != 'success'
+        run: exit 1
