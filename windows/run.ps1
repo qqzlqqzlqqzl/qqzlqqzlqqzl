@@ -1,4 +1,4 @@
-param(
+﻿param(
     [int]$Target = 0,
     [string]$Output = "",
     [string]$GitHubToken = "",
