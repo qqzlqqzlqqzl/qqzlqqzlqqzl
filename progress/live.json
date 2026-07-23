@@ -2,8 +2,8 @@
   "status": "running",
   "current_stage": "Open Hardware Observatory",
   "stage_started_at": 1784814741.7681272,
-  "last_real_progress_at": 1784814741.7681274,
-  "stage_detail": "读取Sitemap和列表页",
+  "last_real_progress_at": 1784814926.924178,
+  "stage_detail": "已处理1个Sitemap，本来源发现0个候选",
   "completed_sources": [
     {
       "name": "Tindie",
@@ -97,19 +97,21 @@
     }
   ],
   "completed_rows": 9974,
-  "sitemaps_processed": 98,
+  "sitemaps_processed": 99,
   "candidates_found": 40239,
   "detail_pages_processed": 253,
   "warnings": [
     "Seeed Project Hub列表页失败：RetryError",
     "element14 Community sitemap失败：ConnectionError",
-    "element14 Community列表页失败：ConnectionError"
+    "element14 Community列表页失败：ConnectionError",
+    "Open Hardware Observatory sitemap失败：ConnectTimeout"
   ],
-  "elapsed_seconds": 1908.1,
-  "stage_elapsed_seconds": 152.9,
-  "seconds_since_real_progress": 152.9,
+  "_source_candidates": 0,
+  "elapsed_seconds": 1969.6,
+  "stage_elapsed_seconds": 214.5,
+  "seconds_since_real_progress": 29.3,
   "run_url": "https://github.com/qqzlqqzlqqzl/qqzlqqzlqqzl/actions/runs/30010928798",
-  "updated_at_epoch": 1784814894.7091253,
+  "updated_at_epoch": 1784814956.2203143,
   "heartbeat_schema": 1,
   "repository": "qqzlqqzlqqzl/qqzlqqzlqqzl",
   "run_id": "30010928798",
