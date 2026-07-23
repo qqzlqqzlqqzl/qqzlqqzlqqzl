@@ -1,9 +1,9 @@
 {
   "status": "running",
   "current_stage": "OpenBuilds",
-  "stage_started_at": 1784815164.366435,
-  "last_real_progress_at": 1784815228.4613664,
-  "stage_detail": "已处理3个Sitemap，本来源发现0个候选",
+  "stage_started_at": 1784815287.0184424,
+  "last_real_progress_at": 1784815287.018443,
+  "stage_detail": "解析候选详情，共532个候选",
   "completed_sources": [
     {
       "name": "Electromaker",
@@ -98,7 +98,7 @@
   ],
   "completed_rows": 11757,
   "sitemaps_processed": 173,
-  "candidates_found": 56651,
+  "candidates_found": 57183,
   "detail_pages_processed": 369,
   "warnings": [
     "Seeed Project Hub列表页失败：RetryError",
@@ -108,11 +108,11 @@
     "Open Hardware Observatory列表页失败：ConnectTimeout"
   ],
   "_source_candidates": 0,
-  "elapsed_seconds": 2277.2,
-  "stage_elapsed_seconds": 99.4,
-  "seconds_since_real_progress": 35.3,
+  "elapsed_seconds": 2338.6,
+  "stage_elapsed_seconds": 38.2,
+  "seconds_since_real_progress": 38.2,
   "run_url": "https://github.com/qqzlqqzlqqzl/qqzlqqzlqqzl/actions/runs/30010928798",
-  "updated_at_epoch": 1784815263.7509835,
+  "updated_at_epoch": 1784815325.1857822,
   "heartbeat_schema": 1,
   "repository": "qqzlqqzlqqzl/qqzlqqzlqqzl",
   "run_id": "30010928798",
