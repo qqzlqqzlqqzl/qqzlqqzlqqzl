@@ -2,16 +2,19 @@
 """GitHub-persistent entrypoint for the observable V2 crawler.
 
 In addition to stdout, local progress.json and the best-effort PR comment, this
-entrypoint atomically updates progress/live.json on the dedicated `progress`
-branch every heartbeat. It is therefore inspectable while the main job runs.
+entrypoint atomically updates progress/live.json on the dedicated ``progress``
+branch every heartbeat. It also installs a source timeout that cannot be
+silently swallowed by broad ``except Exception`` blocks in detail parsers.
 """
 from __future__ import annotations
 
 import base64
 import json
 import os
+import signal
+import time
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 import requests
 
@@ -19,6 +22,68 @@ import v2_progress
 
 
 ORIGINAL_WRITE_CHECKPOINT = v2_progress.write_checkpoint
+
+
+class SourceHardTimeout(BaseException):
+    """Escape broad Exception handlers and terminate only the active source."""
+
+
+def hard_timeout_handler(signum, frame):  # type: ignore[no-untyped-def]
+    raise SourceHardTimeout("single source exceeded 12 minute hard timeout")
+
+
+def strict_wrap_source(
+    name: str,
+    function: Callable[..., list[v2_progress.base.Record]],
+) -> Callable[..., list[v2_progress.base.Record]]:
+    def wrapped(*args: Any, **kwargs: Any) -> list[v2_progress.base.Record]:
+        v2_progress.set_stage(name, "来源采集开始")
+        started = time.time()
+        previous = signal.signal(signal.SIGALRM, hard_timeout_handler)
+        signal.alarm(12 * 60)
+        try:
+            rows = function(*args, **kwargs)
+            v2_progress.complete_source(name, len(rows), time.time() - started)
+            return rows
+        except SourceHardTimeout as exc:
+            v2_progress.append_warning(f"{name}超时，已跳过：{exc}")
+            # v2.run_source catches Exception and records this source as failed,
+            # allowing the rest of the crawl to continue.
+            raise RuntimeError(str(exc)) from exc
+        finally:
+            signal.alarm(0)
+            signal.signal(signal.SIGALRM, previous)
+
+    return wrapped
+
+
+def install_strict_instrumentation() -> None:
+    base = v2_progress.base
+    v2 = v2_progress.v2
+
+    base.fetch_oshwa = strict_wrap_source("OSHWA认证目录", base.fetch_oshwa)
+    base.fetch_hackclub = strict_wrap_source("Hack Club项目库", base.fetch_hackclub)
+    base.fetch_github = strict_wrap_source("GitHub", base.fetch_github)
+    base.fetch_gitlab = strict_wrap_source("GitLab", base.fetch_gitlab)
+
+    original = v2_progress.instrumented_fast_source
+
+    def wrapped_fast(source: v2.FastSource) -> list[base.Record]:
+        started = time.time()
+        previous = signal.signal(signal.SIGALRM, hard_timeout_handler)
+        signal.alarm(12 * 60)
+        try:
+            rows = original(source)
+            v2_progress.complete_source(source.name, len(rows), time.time() - started)
+            return rows
+        except SourceHardTimeout as exc:
+            v2_progress.append_warning(f"{source.name}超时，已跳过：{exc}")
+            raise RuntimeError(str(exc)) from exc
+        finally:
+            signal.alarm(0)
+            signal.signal(signal.SIGALRM, previous)
+
+    v2.fetch_fast_source = wrapped_fast
 
 
 def github_headers() -> dict[str, str]:
@@ -81,6 +146,7 @@ def durable_write_checkpoint() -> None:
     publish_progress_branch()
 
 
+v2_progress.install_instrumentation = install_strict_instrumentation
 v2_progress.write_checkpoint = durable_write_checkpoint
 
 # Keep the already-created progress comment as an optional second channel.
