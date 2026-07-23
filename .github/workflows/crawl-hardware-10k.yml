@@ -8,6 +8,7 @@ on:
       - "crawler/v2.py"
       - "crawler/v2_progress.py"
       - "crawler/v2_progress_entry.py"
+      - "crawler/v2_progress_git.py"
       - "crawler/main.py"
       - "crawler/requirements.txt"
       - ".github/workflows/crawl-hardware-10k.yml"
@@ -40,10 +41,7 @@ jobs:
       - name: Crawl with minute heartbeat and source checkpoints
         id: crawl
         continue-on-error: true
-        env:
-          PR_NUMBER: "2"
-          PROGRESS_COMMENT_ID: "5058787098"
-        run: python -u crawler/v2_progress_entry.py --target 10500 --out output_v2
+        run: python -u crawler/v2_progress_git.py --target 10500 --out output_v2
       - name: Package available output
         if: always()
         run: |
