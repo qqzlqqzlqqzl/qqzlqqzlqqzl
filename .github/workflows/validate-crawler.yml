@@ -48,30 +48,29 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Dry-run Windows launchers and capture output
-        id: launchers
-        continue-on-error: true
+      - name: Parse PowerShell scripts
         shell: powershell
         run: |
-          New-Item -ItemType Directory -Force windows-ci | Out-Null
-          cmd /c "RUN_WINDOWS.bat -DryRun -NoPause" *> windows-ci/run-windows.log
-          $runCode = $LASTEXITCODE
-          cmd /c "CHECK_RESULT_WINDOWS.bat -DryRun -NoPause" *> windows-ci/check-result.log
-          $checkCode = $LASTEXITCODE
-          "RUN_WINDOWS exit code: $runCode" | Tee-Object -FilePath windows-ci/status.txt
-          "CHECK_RESULT_WINDOWS exit code: $checkCode" | Tee-Object -FilePath windows-ci/status.txt -Append
-          Get-Content windows-ci/run-windows.log
-          Get-Content windows-ci/check-result.log
-          if ($runCode -ne 0 -or $checkCode -ne 0) { exit 1 }
-      - name: Upload Windows launcher diagnostics
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: windows-launcher-diagnostics
-          path: windows-ci/
-          if-no-files-found: error
-          retention-days: 7
-      - name: Enforce Windows launcher validation
-        if: steps.launchers.outcome != 'success'
+          $failed = $false
+          foreach ($path in @('windows/run.ps1', 'windows/check_result.ps1')) {
+            $tokens = $null
+            $errors = $null
+            [void][System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path $path), [ref]$tokens, [ref]$errors)
+            if ($errors.Count -gt 0) {
+              $errors | ForEach-Object { Write-Error "$path: $($_.Message)" }
+              $failed = $true
+            }
+          }
+          if ($failed) { exit 1 }
+      - name: Dry-run crawler PowerShell entry
         shell: powershell
-        run: exit 1
+        run: powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File windows\run.ps1 -DryRun -NoPause
+      - name: Dry-run result-checker PowerShell entry
+        shell: powershell
+        run: powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File windows\check_result.ps1 -DryRun -NoPause
+      - name: Dry-run crawler BAT entry
+        shell: cmd
+        run: call RUN_WINDOWS.bat -DryRun -NoPause
+      - name: Dry-run result-checker BAT entry
+        shell: cmd
+        run: call CHECK_RESULT_WINDOWS.bat -DryRun -NoPause
