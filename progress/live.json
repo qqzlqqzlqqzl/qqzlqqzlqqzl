@@ -1,9 +1,9 @@
 {
   "status": "running",
-  "current_stage": "GitLab",
-  "stage_started_at": 1784813974.2251163,
-  "last_real_progress_at": 1784813974.225117,
-  "stage_detail": "来源采集开始",
+  "current_stage": "Seeed Project Hub",
+  "stage_started_at": 1784814085.1326952,
+  "last_real_progress_at": 1784814085.3083181,
+  "stage_detail": "已处理1个Sitemap，本来源发现0个候选",
   "completed_sources": [
     {
       "name": "OSHWA认证目录",
@@ -19,18 +19,69 @@
       "name": "GitHub",
       "rows": 2749,
       "elapsed_seconds": 979.8
+    },
+    {
+      "name": "GitLab",
+      "rows": 1840,
+      "elapsed_seconds": 69.8
+    },
+    {
+      "name": "Hackaday.io",
+      "rows": 17,
+      "elapsed_seconds": 4.4
+    },
+    {
+      "name": "Hackster.io",
+      "rows": 4,
+      "elapsed_seconds": 1.2
+    },
+    {
+      "name": "Arduino Project Hub",
+      "rows": 0,
+      "elapsed_seconds": 0.8
+    },
+    {
+      "name": "Instructables",
+      "rows": 0,
+      "elapsed_seconds": 0.4
+    },
+    {
+      "name": "Crowd Supply",
+      "rows": 480,
+      "elapsed_seconds": 5.5
+    },
+    {
+      "name": "Tindie",
+      "rows": 420,
+      "elapsed_seconds": 14.3
+    },
+    {
+      "name": "Kitspace",
+      "rows": 0,
+      "elapsed_seconds": 1.0
+    },
+    {
+      "name": "PCBWay共享项目",
+      "rows": 80,
+      "elapsed_seconds": 6.6
+    },
+    {
+      "name": "嘉立创开源硬件平台",
+      "rows": 16,
+      "elapsed_seconds": 6.9
     }
   ],
-  "completed_rows": 5249,
-  "sitemaps_processed": 0,
-  "candidates_found": 0,
-  "detail_pages_processed": 0,
+  "completed_rows": 8106,
+  "sitemaps_processed": 10,
+  "candidates_found": 21563,
+  "detail_pages_processed": 91,
   "warnings": [],
-  "elapsed_seconds": 1046.7,
-  "stage_elapsed_seconds": 59.1,
-  "seconds_since_real_progress": 59.1,
+  "_source_candidates": 0,
+  "elapsed_seconds": 1108.1,
+  "stage_elapsed_seconds": 9.6,
+  "seconds_since_real_progress": 9.4,
   "run_url": "https://github.com/qqzlqqzlqqzl/qqzlqqzlqqzl/actions/runs/30010928798",
-  "updated_at_epoch": 1784814033.2793026,
+  "updated_at_epoch": 1784814094.722386,
   "heartbeat_schema": 1,
   "repository": "qqzlqqzlqqzl/qqzlqqzlqqzl",
   "run_id": "30010928798",
