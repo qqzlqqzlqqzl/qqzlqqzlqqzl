@@ -1,7 +1,23 @@
 {
-  "status": "initialized",
-  "message": "等待主分支10k抓取任务接管",
-  "current_stage": "未运行",
+  "status": "starting",
+  "current_stage": "初始化",
+  "stage_started_at": 1784812986.5792832,
+  "last_real_progress_at": 1784812986.5792832,
+  "stage_detail": "准备运行",
   "completed_sources": [],
-  "completed_rows": 0
+  "completed_rows": 0,
+  "sitemaps_processed": 0,
+  "candidates_found": 0,
+  "detail_pages_processed": 0,
+  "warnings": [],
+  "elapsed_seconds": 0.0,
+  "stage_elapsed_seconds": 0.0,
+  "seconds_since_real_progress": 0.0,
+  "run_url": "https://github.com/qqzlqqzlqqzl/qqzlqqzlqqzl/actions/runs/30010928798",
+  "updated_at_epoch": 1784812986.5794747,
+  "heartbeat_schema": 1,
+  "repository": "qqzlqqzlqqzl/qqzlqqzlqqzl",
+  "run_id": "30010928798",
+  "run_number": "11",
+  "head_sha": "d179000f6d63d8df6af5f088e696c684a2ca470b"
 }
