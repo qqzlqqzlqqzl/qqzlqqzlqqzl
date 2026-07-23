@@ -1,20 +1,31 @@
 {
-  "status": "starting",
-  "current_stage": "初始化",
-  "stage_started_at": 1784812986.5792832,
-  "last_real_progress_at": 1784812986.5792832,
-  "stage_detail": "准备运行",
-  "completed_sources": [],
-  "completed_rows": 0,
+  "status": "running",
+  "current_stage": "GitHub",
+  "stage_started_at": 1784812994.2634978,
+  "last_real_progress_at": 1784812994.2634985,
+  "stage_detail": "来源采集开始",
+  "completed_sources": [
+    {
+      "name": "OSHWA认证目录",
+      "rows": 1800,
+      "elapsed_seconds": 2.5
+    },
+    {
+      "name": "Hack Club项目库",
+      "rows": 700,
+      "elapsed_seconds": 3.6
+    }
+  ],
+  "completed_rows": 2500,
   "sitemaps_processed": 0,
   "candidates_found": 0,
   "detail_pages_processed": 0,
   "warnings": [],
-  "elapsed_seconds": 0.0,
-  "stage_elapsed_seconds": 0.0,
-  "seconds_since_real_progress": 0.0,
+  "elapsed_seconds": 61.7,
+  "stage_elapsed_seconds": 54.0,
+  "seconds_since_real_progress": 54.0,
   "run_url": "https://github.com/qqzlqqzlqqzl/qqzlqqzlqqzl/actions/runs/30010928798",
-  "updated_at_epoch": 1784812986.5794747,
+  "updated_at_epoch": 1784813048.2889733,
   "heartbeat_schema": 1,
   "repository": "qqzlqqzlqqzl/qqzlqqzlqqzl",
   "run_id": "30010928798",
