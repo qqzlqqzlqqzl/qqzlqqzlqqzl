@@ -1,9 +1,9 @@
 {
   "status": "running",
-  "current_stage": "Seeed Project Hub",
-  "stage_started_at": 1784814085.1326952,
-  "last_real_progress_at": 1784814085.3083181,
-  "stage_detail": "已处理1个Sitemap，本来源发现0个候选",
+  "current_stage": "SparkFun教程项目",
+  "stage_started_at": 1784814279.087008,
+  "last_real_progress_at": 1784814279.0870085,
+  "stage_detail": "读取Sitemap和列表页",
   "completed_sources": [
     {
       "name": "OSHWA认证目录",
@@ -69,19 +69,35 @@
       "name": "嘉立创开源硬件平台",
       "rows": 16,
       "elapsed_seconds": 6.9
+    },
+    {
+      "name": "Seeed Project Hub",
+      "rows": 0,
+      "elapsed_seconds": 180.3
+    },
+    {
+      "name": "DFRobot社区",
+      "rows": 360,
+      "elapsed_seconds": 9.2
+    },
+    {
+      "name": "Adafruit Learning System",
+      "rows": 28,
+      "elapsed_seconds": 4.4
     }
   ],
-  "completed_rows": 8106,
-  "sitemaps_processed": 10,
-  "candidates_found": 21563,
-  "detail_pages_processed": 91,
-  "warnings": [],
-  "_source_candidates": 0,
-  "elapsed_seconds": 1231.1,
-  "stage_elapsed_seconds": 132.6,
-  "seconds_since_real_progress": 132.4,
+  "completed_rows": 8494,
+  "sitemaps_processed": 23,
+  "candidates_found": 23443,
+  "detail_pages_processed": 127,
+  "warnings": [
+    "Seeed Project Hub列表页失败：RetryError"
+  ],
+  "elapsed_seconds": 1292.7,
+  "stage_elapsed_seconds": 0.2,
+  "seconds_since_real_progress": 0.2,
   "run_url": "https://github.com/qqzlqqzlqqzl/qqzlqqzlqqzl/actions/runs/30010928798",
-  "updated_at_epoch": 1784814217.7192283,
+  "updated_at_epoch": 1784814279.256565,
   "heartbeat_schema": 1,
   "repository": "qqzlqqzlqqzl/qqzlqqzlqqzl",
   "run_id": "30010928798",
