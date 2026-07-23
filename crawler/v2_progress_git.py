@@ -36,6 +36,8 @@ def strict_wrap_source(
     name: str,
     function: Callable[..., list[v2_progress.base.Record]],
 ) -> Callable[..., list[v2_progress.base.Record]]:
+    """Wrap one source and convert the hard-timeout sentinel at its boundary."""
+
     def wrapped(*args: Any, **kwargs: Any) -> list[v2_progress.base.Record]:
         v2_progress.set_stage(name, "来源采集开始")
         started = time.time()
@@ -58,6 +60,8 @@ def strict_wrap_source(
 
 
 def install_strict_instrumentation() -> None:
+    """Replace V2 source collectors with hard-timeout-aware wrappers."""
+
     base = v2_progress.base
     v2 = v2_progress.v2
 
@@ -146,15 +150,21 @@ def durable_write_checkpoint() -> None:
     publish_progress_branch()
 
 
-v2_progress.install_instrumentation = install_strict_instrumentation
-v2_progress.write_checkpoint = durable_write_checkpoint
+def main() -> int:
+    """Install GitHub persistence and start the observable crawler."""
 
-# Keep the already-created progress comment as an optional second channel.
-v2_progress.COMMENT_ID = 5058787098
-v2_progress.pr_number = lambda: 2
+    v2_progress.install_instrumentation = install_strict_instrumentation
+    v2_progress.write_checkpoint = durable_write_checkpoint
 
-# Publish immediately, rather than waiting for the first 60-second heartbeat.
-Path("output_v2").mkdir(parents=True, exist_ok=True)
-publish_progress_branch()
+    # Keep the already-created progress comment as an optional second channel.
+    v2_progress.COMMENT_ID = 5058787098
+    v2_progress.pr_number = lambda: 2
 
-raise SystemExit(v2_progress.main())
+    # Publish immediately, rather than waiting for the first 60-second heartbeat.
+    Path("output_v2").mkdir(parents=True, exist_ok=True)
+    publish_progress_branch()
+    return v2_progress.main()
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
