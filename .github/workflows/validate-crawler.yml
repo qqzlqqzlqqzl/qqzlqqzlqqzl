@@ -93,3 +93,20 @@ jobs:
       - name: Dry-run result-checker BAT entry
         shell: cmd
         run: call CHECK_RESULT_WINDOWS.bat -DryRun -NoPause
+      - name: Build validated Windows package
+        shell: powershell
+        run: |
+          $package = 'dist\open-hardware-crawler-windows'
+          New-Item -ItemType Directory -Force $package | Out-Null
+          $excluded = @('.git', 'dist', 'windows-ci', '.venv', '.venv-windows', 'output', 'output_v2', '__pycache__')
+          Get-ChildItem -Force | Where-Object { $excluded -notcontains $_.Name } | ForEach-Object {
+            Copy-Item $_.FullName -Destination $package -Recurse -Force
+          }
+          Compress-Archive -Path $package -DestinationPath 'dist\open-hardware-crawler-windows.zip' -CompressionLevel Optimal
+      - name: Upload validated Windows package
+        uses: actions/upload-artifact@v4
+        with:
+          name: open-hardware-crawler-windows
+          path: dist/open-hardware-crawler-windows.zip
+          if-no-files-found: error
+          retention-days: 90
