@@ -1,13 +1,6 @@
 name: Build full 10.5k real-hardware hero images
 
 on:
-  pull_request:
-    paths:
-      - "scripts/full_hero_images/**"
-      - "tests/test_full_hero_images.py"
-      - "requirements-hero-images.txt"
-      - "requirements-translation.txt"
-      - ".github/workflows/build-full-hero-images.yml"
   workflow_dispatch:
 
 permissions:
@@ -51,7 +44,7 @@ jobs:
         run: |
           set -euxo pipefail
           mkdir -p run11_source
-          BASE="https://github.com/qqzlqqzlqqzl/qqzlqqzlqqzl/releases/download/hardware-opportunities-10k-run-11"
+          BASE="https://github.com/qqzlqqzl/qqzlqqzlqqzl/releases/download/hardware-opportunities-10k-run-11"
           curl -fL --retry 5 --retry-delay 3 "$BASE/hardware_opportunities.csv" -o run11_source/hardware_opportunities.csv
           curl -fL --retry 5 --retry-delay 3 "$BASE/source_status.csv" -o run11_source/source_status.csv
           curl -fL --retry 5 --retry-delay 3 "$BASE/SCORING_METHOD.md" -o run11_source/SCORING_METHOD.md
