@@ -1,8 +1,7 @@
 name: Build full 10.5k real-hardware hero images
 
 on:
-  push:
-    branches: [agent/full-hero-images-10500]
+  pull_request:
     paths:
       - "scripts/full_hero_images/**"
       - "tests/test_full_hero_images.py"
@@ -13,6 +12,10 @@ on:
 
 permissions:
   contents: read
+
+concurrency:
+  group: full-hero-images-10500
+  cancel-in-progress: true
 
 env:
   PYTHONUNBUFFERED: "1"
