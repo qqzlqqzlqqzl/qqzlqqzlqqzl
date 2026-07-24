@@ -5,12 +5,12 @@ Updated: 2026-07-25
 ## Current totals
 
 - Raw records: 10,500
-- Page-reviewed records: 120
+- Page/source-reviewed records: 130
 - Strict commercial candidates: 0
 - Watchlist: 15
-- Market-reference cases: 36
-- Rejected: 69
-- Remaining: 10,380
+- Market-reference cases: 37
+- Rejected: 78
+- Remaining: 10,370
 
 ## Completed batches
 
@@ -28,23 +28,24 @@ Updated: 2026-07-25
 | 010 | 10 | 0 | 2 | 2 | 6 | `batch_010_tindie_repair_parts_modules_rf_testgear_and_displays.csv` |
 | 011 | 10 | 0 | 1 | 3 | 6 | `batch_011_tindie_storage_displays_components_imu_rack_and_prop.csv` |
 | 012 | 10 | 0 | 1 | 3 | 6 | `batch_012_tindie_rc_components_retro_rf_and_displays.csv` |
+| 013 | 10 | 0 | 0 | 1 | 9 | `batch_013_tindie_components_displays_rack_mounts_and_camera.csv` |
 
-## Batch 012 self-check
+## Batch 013 self-check
 
-- Ten product pages or their reliably indexed canonical product records were read together with seller stores and adjacent product families. Items that remained inaccessible or model-ambiguous were not included simply to fill the batch.
-- One record entered the watchlist: the Atari 400 1056K memory upgrade. It has a clear compatibility pain point, a $77.42 price, a seller with 273 orders and a coherent Atari upgrade/reproduction family, but the total market is small, installation requires disassembly and soldering, and no reusable design licence was found.
-- Three records were retained only as market references: the 1/10 RC F1 rain light demonstrates a validated low-price hobby-accessory product family; the 1268 MHz RF filter demonstrates a measured frequency-product family; the $558 micro-OLED/BirdBath module is another specification in the already-linked near-eye display supply family and is not counted as a separate opportunity.
-- Six records were rejected: flickering 3 mm LEDs, a PoE+ MagJack, transparent potentiometers, CAT5e/CAT6 crimp plugs, a 490 MHz spring antenna and a 0.91-inch SSD1306 breakout. Each is a commodity component, reseller item or mature generic module whose apparent value comes from the seller's broader catalogue rather than a defensible standalone product.
-- Hero-image checks found three concrete defects: the transparent-potentiometer row points to a `10 LED EMF PCB` image; the spring-antenna row points to `lora1280.jpg`; the 0.91-inch SSD1306 row points to a 2.26-inch character-OLED image. These are explicitly marked as mismatches instead of being accepted by the earlier automatic image status.
-- Product-family logic prevents double counting: the 0.49-inch BirdBath item remains part of the existing microdisplay/near-eye-optics family; the low-price connectors, antennas and display breakouts remain component-directory evidence rather than new opportunities.
-- Every verdict reason is project-specific and separately records customer, pain point, price, seller evidence, crowding, dependency, manufacturing, after-sales, compliance, licence and hero-image status.
+- Ten records were checked against live Tindie product pages or clearly identified canonical product-page index caches together with seller stores and adjacent product families. Four rows whose live pages returned access/cache failures are explicitly labelled `已逐页阅读（原页索引缓存）`; they are not silently represented as direct live-page reads.
+- One item was retained only as a market reference: the 120 mm fan mount for 10-inch racks. It is a complete use-oriented physical accessory with a clear cooling pain point and a coherent seller family of 10-inch/19-inch device mounts. It remains a reference rather than a strict candidate because it is easy to copy, the licence on the linked Printables design could not be confirmed, and the defensible value lies in continuous device-fit coverage rather than this one model.
+- Nine records were rejected: a Grove encoder bulk pack, two low-price component packs, a generic ST7789 LCD breakout, three RJ45/MagJack catalogue components, a commodity SSD1306 OLED and a stale USB camera module. Demand may exist, but product value comes from established distribution/manufacturing catalogues rather than an open-hardware opportunity suitable for a small entrant.
+- Product-family logic prevents double counting: the three RJ45 rows are evidence for mature connector-manufacturer catalogues rather than three opportunities; EL817 and buzzers are component-resale evidence; the LCD and OLED rows belong to already-saturated generic display-module families.
+- Hero-image checks found five concrete defects or high-risk mismatches: Grove Encoder points to `PWM to Voltage Converter.1.JPG`; the 1.14-inch LCD shares `ARDI BACK.png` with a different round-LCD HAT; the 0.96-inch OLED uses an `alicdn.com` rating image; the 2x4 MagJack image filename names `ARJC02-111008B` while the product is `YKG-832419NL`; and the USB camera points to `Comprehensive development-board-for-iot (2).jpg`. The 0879 connector image is too generically named to confirm and remains unapproved.
+- Every verdict is project-specific and separately records customer, pain point, price, seller evidence, market crowding, dependency, manufacturing, after-sales, compliance, licence and image status.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 120 unique IDs across 120 rows.
+- Reviewed IDs: 130 unique IDs across 130 rows.
 - Every reviewed row records `review_status`, product form, opportunity family, paying customer, pain point, price, market evidence, crowding, dependency, manufacturing, after-sales, compliance, license, hero-image verdict, final bucket, project-specific verdict reason and evidence URLs.
-- No page-inaccessible item is marked `已逐页阅读`.
+- No inaccessible item is silently marked as a normal direct-page review; canonical-cache reviews carry a distinct status.
 - Product-family variants are retained for evidence but are not counted as separate commercial opportunities.
 - The inaccessible `1201 Bandpass Filter Eurorack Synthesizer Module`, `0-10v Analogue To RS485 Modbus RTU Converter DIN`, Cherry M81F keyswitch and M31 astro-filter pages remain unreviewed and unscored.
-- The `08Xx Replacement`, 0.39-inch and 0.71-inch microdisplay pages also remain unreviewed in this batch because their exact pages were not reliably retrievable; related products were not substituted.
+- The `08Xx Replacement`, 0.39-inch, 0.71-inch and 0.6-inch microdisplay pages also remain unreviewed because their exact pages were not reliably retrievable; related products were not substituted.
+- The 1.28-inch round LCD HAT and ESPea Dual Shield remain in the pending queue for a later run; they were not scored from names or shared images alone.
 - PR #9 remains draft and unmerged.
