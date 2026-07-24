@@ -1,0 +1,232 @@
+name: Fast translate and merge completed hero-image shards
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: fast-translate-merge-10500
+  cancel-in-progress: true
+
+env:
+  PYTHONUNBUFFERED: "1"
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+
+jobs:
+  prepare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements-translation.txt
+      - name: Install translation dependencies
+        run: python -m pip install -r requirements-translation.txt
+      - name: Download and verify Run 11 source data
+        run: |
+          set -euxo pipefail
+          mkdir -p run11_source
+          BASE="https://github.com/qqzlqqzlqqzl/qqzlqqzlqqzl/releases/download/hardware-opportunities-10k-run-11"
+          curl -fL --retry 5 --retry-delay 3 "$BASE/hardware_opportunities.csv" -o run11_source/hardware_opportunities.csv
+          curl -fL --retry 5 --retry-delay 3 "$BASE/source_status.csv" -o run11_source/source_status.csv
+          curl -fL --retry 5 --retry-delay 3 "$BASE/SCORING_METHOD.md" -o run11_source/SCORING_METHOD.md
+          python - <<'PY'
+          import csv
+          rows = list(csv.DictReader(open('run11_source/hardware_opportunities.csv', encoding='utf-8-sig')))
+          assert len(rows) == 10500, len(rows)
+          print(f'rows={len(rows)}')
+          PY
+      - name: Download translation model and verify Chinese output
+        env:
+          HF_HOME: ${{ github.workspace }}/hf-cache
+        run: |
+          python - <<'PY'
+          import re
+          from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+          name = 'Helsinki-NLP/opus-mt-en-zh'
+          tokenizer = AutoTokenizer.from_pretrained(name)
+          model = AutoModelForSeq2SeqLM.from_pretrained(name)
+          source = 'An open source ESP32 hardware badge with an OLED display and RGB LEDs.'
+          encoded = tokenizer([source], return_tensors='pt', padding=True)
+          generated = model.generate(**encoded, max_new_tokens=96, num_beams=1, do_sample=False)
+          output = tokenizer.batch_decode(generated, skip_special_tokens=True)[0]
+          print({'source': source, 'output': output})
+          assert len(re.findall(r'[\u3400-\u4dbf\u4e00-\u9fff]', output)) >= 2, output
+          assert output.count('28') < 3, output
+          print('translation smoke test passed')
+          PY
+      - name: Upload source data
+        uses: actions/upload-artifact@v4
+        with:
+          name: fast-run11-source-data
+          path: run11_source/
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 6
+      - name: Upload translation model cache
+        uses: actions/upload-artifact@v4
+        with:
+          name: opus-mt-en-zh-cache
+          path: hf-cache/
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 0
+
+  translate-shards:
+    needs: prepare
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements-translation.txt
+      - name: Install translation dependencies
+        run: python -m pip install -r requirements-translation.txt
+      - name: Download source data
+        uses: actions/download-artifact@v4
+        with:
+          name: fast-run11-source-data
+          path: input
+      - name: Download cached translation model
+        uses: actions/download-artifact@v4
+        with:
+          name: opus-mt-en-zh-cache
+          path: hf-cache
+      - name: Slice 500-row translation shard
+        run: |
+          mkdir -p shard_input translation_output
+          python - <<'PY'
+          import csv
+          shard = int('${{ matrix.shard }}')
+          size = 500
+          rows = list(csv.DictReader(open('input/hardware_opportunities.csv', encoding='utf-8-sig')))
+          fields = list(rows[0].keys())
+          selected = rows[shard * size:(shard + 1) * size]
+          with open('shard_input/hardware_opportunities.csv', 'w', encoding='utf-8-sig', newline='') as handle:
+              writer = csv.DictWriter(handle, fieldnames=fields)
+              writer.writeheader()
+              writer.writerows(selected)
+          print(f'shard={shard} rows={len(selected)}')
+          PY
+      - name: Translate shard into Simplified Chinese with QC
+        env:
+          HF_HOME: ${{ github.workspace }}/hf-cache
+          HF_HUB_OFFLINE: "1"
+          TRANSFORMERS_OFFLINE: "1"
+        run: |
+          python scripts/full_hero_images/translate_descriptions_zh.py \
+            --source-csv shard_input/hardware_opportunities.csv \
+            --output translation_output/translations.csv \
+            --batch-size 32
+      - name: Upload translation shard
+        uses: actions/upload-artifact@v4
+        with:
+          name: fast-translation-shard-${{ matrix.shard }}
+          path: translation_output/
+          if-no-files-found: error
+          retention-days: 90
+          compression-level: 6
+
+  merge:
+    needs: translate-shards
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download source data
+        uses: actions/download-artifact@v4
+        with:
+          name: fast-run11-source-data
+          path: input
+      - name: Download all translation shards
+        uses: actions/download-artifact@v4
+        with:
+          pattern: fast-translation-shard-*
+          path: translation_shards
+          merge-multiple: false
+      - name: Download completed image shards from Run 4
+        uses: actions/download-artifact@v4
+        with:
+          pattern: hero-image-shard-*
+          path: image_artifacts
+          merge-multiple: false
+          run-id: 30065855075
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Combine all translation shards
+        run: |
+          mkdir -p translation_artifact final_output
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          source = list(csv.DictReader(open('input/hardware_opportunities.csv', encoding='utf-8-sig')))
+          by_id = {}
+          for path in sorted(Path('translation_shards').rglob('translations.csv')):
+              for row in csv.DictReader(open(path, encoding='utf-8-sig')):
+                  by_id[row['project_id']] = row
+          assert len(by_id) == 10500, len(by_id)
+          fields = ['project_id', 'description_zh', 'keywords_zh', 'description_translation_status', 'keywords_translation_status']
+          with open('translation_artifact/translations.csv', 'w', encoding='utf-8-sig', newline='') as handle:
+              writer = csv.DictWriter(handle, fieldnames=fields)
+              writer.writeheader()
+              for row in source:
+                  writer.writerow(by_id[row['project_id']])
+          print(f'translations={len(by_id)}')
+          PY
+      - name: Merge all rows, Chinese text and completed images
+        run: |
+          python scripts/full_hero_images/merge_full_hero_artifacts.py \
+            --source-csv input/hardware_opportunities.csv \
+            --image-artifacts image_artifacts \
+            --translation-csv translation_artifact/translations.csv \
+            --output-dir final_output
+          cp input/source_status.csv final_output/
+          cp input/SCORING_METHOD.md final_output/
+      - name: Verify exact 10,500-row coverage and translation QC
+        run: |
+          python - <<'PY'
+          import csv, json, re
+          rows = list(csv.DictReader(open('final_output/hardware_opportunities_full_hero_images.csv', encoding='utf-8-sig')))
+          summary = json.load(open('final_output/summary.json', encoding='utf-8'))
+          assert len(rows) == 10500
+          assert len({row['project_id'] for row in rows}) == 10500
+          assert summary['image_result_rows'] == 10500
+          assert summary['translation_rows'] == 10500
+          bad_repetition = []
+          for row in rows:
+              text = row['description_zh']
+              if len(text) > 30:
+                  tokens = re.findall(r'[\u3400-\u9fff]|[A-Za-z]+|\d+', text.lower())
+                  if len(tokens) >= 12 and max(tokens.count(t) for t in set(tokens)) / len(tokens) > 0.6:
+                      bad_repetition.append(row['project_id'])
+          assert not bad_repetition, bad_repetition[:20]
+          print(json.dumps(summary, ensure_ascii=False, indent=2))
+          PY
+      - name: Package merged full result
+        run: zip -9 -r full-hero-images-10500-fast.zip final_output
+      - name: Upload merged full result
+        uses: actions/upload-artifact@v4
+        with:
+          name: full-hero-images-10500-fast
+          path: |
+            final_output/
+            full-hero-images-10500-fast.zip
+          if-no-files-found: error
+          retention-days: 90
+          compression-level: 0
