@@ -1,16 +1,16 @@
 # V3 manual page-review progress
 
-Updated: 2026-07-24
+Updated: 2026-07-25
 
 ## Current totals
 
 - Raw records: 10,500
-- Page-reviewed records: 100
+- Page-reviewed records: 110
 - Strict commercial candidates: 0
-- Watchlist: 13
-- Market-reference cases: 30
-- Rejected: 57
-- Remaining: 10,400
+- Watchlist: 14
+- Market-reference cases: 33
+- Rejected: 63
+- Remaining: 10,390
 
 ## Completed batches
 
@@ -26,24 +26,25 @@ Updated: 2026-07-24
 | 008 | 10 | 0 | 1 | 3 | 6 | `batch_008_tindie_components_wireless_frequency_and_displays.csv` |
 | 009 | 10 | 0 | 1 | 4 | 5 | `batch_009_tindie_displays_components_rf_and_bms.csv` |
 | 010 | 10 | 0 | 2 | 2 | 6 | `batch_010_tindie_repair_parts_modules_rf_testgear_and_displays.csv` |
+| 011 | 10 | 0 | 1 | 3 | 6 | `batch_011_tindie_storage_displays_components_imu_rack_and_prop.csv` |
 
-## Batch 010 self-check
+## Batch 011 self-check
 
-- Ten current or canonical Tindie product pages were read, together with seller stores, reviews, product families and category/search evidence where available.
-- Two records entered the watchlist: ALFTEL's 1000–1400 MHz 14 dBi helix antenna and EastwoodLab's 0.015% / 10 ppm programmable resistance module. Both have clear professional use and high prices, but neither has enough product-specific sales, independent validation or open-license evidence for strict-candidate status.
-- Two records were retained only as market references: the `051550` arcade custom-IC replacement is additional evidence for an already-counted long-tail repair-product family, while the 1016 LED message board demonstrates better kit/assembled-product packaging but remains a crowded hobbyist product.
-- Six records were rejected: a copied Surface Pro replacement-screen listing, a $1 0402 breakout, a commodity 0.42-inch SSD1306 OLED module, a generic MCP3008 Raspberry Pi HAT, an uncertified $200 mains smart switch with almost no sales evidence, and another standard round AMOLED component already represented by the display-supply family.
-- The Surface Pro LCD page includes an Amazon ASIN, generic best-seller rank and incompatible-looking catalogue wording, supporting classification as third-party repair-part resale rather than an original hardware design.
-- The Raspberry Pi ADC HAT has two positive reviews and comes from a seller with more than 1,200 orders, but this validates the seller's mature HAT/product-family operation rather than proving a new opportunity in the already-saturated MCP3008 HAT category.
-- The precision-resistance module was not treated as a generic small board: its relay-resistor network, four-wire output, DIN mounting, isolated RS-232/RS-485/CAN options, 10 mΩ steps and stated accuracy were read from the actual page. It remains watchlist because calibration traceability, long-term drift, customer evidence and commercial-reuse license are missing.
-- Every verdict reason is project-specific. Display variants and arcade-replacement variants are linked to previously identified opportunity families and are not counted as new independent opportunities.
-- Hero-image verdicts remain explicit visual-review states. No automatically selected image was silently upgraded to fully verified status.
+- Ten current or canonical product pages were read together with seller stores, adjacent product families and category or external-supplier evidence where useful.
+- One record entered the watchlist: the 10-inch 10U open-frame rack. It is an independent physical product with a clear compact-homelab use case, but the page exposes no order or review evidence and the seller currently shows only one product; shipping, compatibility and load validation remain unresolved.
+- Three records were retained only as market references: the 0.23-inch and 0.6-inch micro-OLED items are two variants of the same professional near-eye-display supply family, while the 10-LED EMF-meter PCB shows a fan-prop product ladder from a $10 PCB to $229-$289 assembled replicas. None is counted as a new strict opportunity.
+- Six records were rejected: engineering pill boxes, a standard round TFT/CTP, a low-cost 10G MagJack, an obsolete generic 10-DOF breakout, an IP66 box plus perfboard kit and a $1 1206 breakout.
+- The two micro-display rows are linked to one opportunity family instead of being counted as independent opportunities. The 1206 breakout is explicitly linked to the previously rejected 0402/0603/0805 package-breakout family.
+- The round TFT and micro-display hero-image verdicts preserve model/size ambiguity. The 0.6-inch micro-OLED remains `无合格英雄图`; no related display image was substituted.
+- The EMF-meter row distinguishes the $10 PCB from the assembled prop images and records the entertainment-IP risk rather than treating it as a measurement instrument.
+- Every verdict reason is project-specific and the final bucket is consistent with the recorded market evidence, dependency and risk fields.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 100 unique IDs across 100 rows.
+- Reviewed IDs: 110 unique IDs across 110 rows.
 - Every reviewed row records `review_status`, product form, opportunity family, paying customer, pain point, price, market evidence, crowding, dependency, manufacturing, after-sales, compliance, license, hero-image verdict, final bucket, project-specific verdict reason and evidence URLs.
 - No page-inaccessible item is marked `已逐页阅读`.
 - Product-family variants are retained for evidence but are not counted as separate commercial opportunities.
-- The previously inaccessible `1201 Bandpass Filter Eurorack Synthesizer Module` and `0-10v Analogue To RS485 Modbus RTU Converter DIN` remain unreviewed; they are not scored.
+- The inaccessible `1201 Bandpass Filter Eurorack Synthesizer Module` and `0-10v Analogue To RS485 Modbus RTU Converter DIN` remain unreviewed and unscored.
+- The Cherry M81F keyswitch and M31 astro-filter pages also remain unreviewed because the exact product pages were not reliably retrievable in this run.
 - PR #9 remains draft and unmerged.
