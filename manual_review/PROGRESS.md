@@ -5,12 +5,12 @@ Updated: 2026-07-24
 ## Current totals
 
 - Raw records: 10,500
-- Page-reviewed records: 90
+- Page-reviewed records: 100
 - Strict commercial candidates: 0
-- Watchlist: 11
-- Market-reference cases: 28
-- Rejected: 51
-- Remaining: 10,410
+- Watchlist: 13
+- Market-reference cases: 30
+- Rejected: 57
+- Remaining: 10,400
 
 ## Completed batches
 
@@ -25,22 +25,25 @@ Updated: 2026-07-24
 | 007 | 10 | 0 | 1 | 1 | 8 | `batch_007_tindie_power_components_and_rf.csv` |
 | 008 | 10 | 0 | 1 | 3 | 6 | `batch_008_tindie_components_wireless_frequency_and_displays.csv` |
 | 009 | 10 | 0 | 1 | 4 | 5 | `batch_009_tindie_displays_components_rf_and_bms.csv` |
+| 010 | 10 | 0 | 2 | 2 | 6 | `batch_010_tindie_repair_parts_modules_rf_testgear_and_displays.csv` |
 
-## Batch 009 self-check
+## Batch 010 self-check
 
-- Ten exact or current canonical Tindie product pages were read. Seller stores, related product families, inventory, prices and direct category/search evidence were checked where available.
-- The old `0.49 Inch Micro OLED Birdbath AR Glasses Pglass` URL now resolves through a current canonical Display Components product page. This source change is recorded instead of pretending the old URL was independently verified.
-- The teTra 24S–96S high-voltage BMS main board is the only new watchlist item. It has a clear professional use case and an $860 price, but both main and sub boards are out of stock and no sales, reviews, specifications, safety tests or certification evidence were found.
-- Four specialized display items were retained only as market-reference cases: the 0.49-inch Birdbath optics module, 0.62-inch Micro OLED, 0.8-inch transparent LCD and 0.49-inch 3000-nit Micro OLED. They represent specialized component-supply models, not independent open-hardware opportunities.
-- Five commodity or non-product opportunities were rejected: the 1.28-inch round LCD breakout, acupuncture needles, 100mW serial RF module, USB-A connector lot and ten-pack 1602 I2C LCD modules.
-- One definite hero-image problem was added: the 100mW RF data module points to an `Irrigation Xinjiang` application-scene image rather than the module body.
-- Two records from the previous queue remain unreviewed because their product pages were inaccessible: `1201 Bandpass Filter Eurorack Synthesizer Module` and `0-10v Analogue To RS485 Modbus RTU Converter DIN`. Neither is marked page-reviewed or scored.
-- Product-specific verdict reasons were used. Similar Micro OLED variants are grouped into one opportunity family and are not counted as separate commercial opportunities.
+- Ten current or canonical Tindie product pages were read, together with seller stores, reviews, product families and category/search evidence where available.
+- Two records entered the watchlist: ALFTEL's 1000–1400 MHz 14 dBi helix antenna and EastwoodLab's 0.015% / 10 ppm programmable resistance module. Both have clear professional use and high prices, but neither has enough product-specific sales, independent validation or open-license evidence for strict-candidate status.
+- Two records were retained only as market references: the `051550` arcade custom-IC replacement is additional evidence for an already-counted long-tail repair-product family, while the 1016 LED message board demonstrates better kit/assembled-product packaging but remains a crowded hobbyist product.
+- Six records were rejected: a copied Surface Pro replacement-screen listing, a $1 0402 breakout, a commodity 0.42-inch SSD1306 OLED module, a generic MCP3008 Raspberry Pi HAT, an uncertified $200 mains smart switch with almost no sales evidence, and another standard round AMOLED component already represented by the display-supply family.
+- The Surface Pro LCD page includes an Amazon ASIN, generic best-seller rank and incompatible-looking catalogue wording, supporting classification as third-party repair-part resale rather than an original hardware design.
+- The Raspberry Pi ADC HAT has two positive reviews and comes from a seller with more than 1,200 orders, but this validates the seller's mature HAT/product-family operation rather than proving a new opportunity in the already-saturated MCP3008 HAT category.
+- The precision-resistance module was not treated as a generic small board: its relay-resistor network, four-wire output, DIN mounting, isolated RS-232/RS-485/CAN options, 10 mΩ steps and stated accuracy were read from the actual page. It remains watchlist because calibration traceability, long-term drift, customer evidence and commercial-reuse license are missing.
+- Every verdict reason is project-specific. Display variants and arcade-replacement variants are linked to previously identified opportunity families and are not counted as new independent opportunities.
+- Hero-image verdicts remain explicit visual-review states. No automatically selected image was silently upgraded to fully verified status.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 90 unique IDs across 90 rows.
+- Reviewed IDs: 100 unique IDs across 100 rows.
 - Every reviewed row records `review_status`, product form, opportunity family, paying customer, pain point, price, market evidence, crowding, dependency, manufacturing, after-sales, compliance, license, hero-image verdict, final bucket, project-specific verdict reason and evidence URLs.
 - No page-inaccessible item is marked `已逐页阅读`.
 - Product-family variants are retained for evidence but are not counted as separate commercial opportunities.
+- The previously inaccessible `1201 Bandpass Filter Eurorack Synthesizer Module` and `0-10v Analogue To RS485 Modbus RTU Converter DIN` remain unreviewed; they are not scored.
 - PR #9 remains draft and unmerged.
