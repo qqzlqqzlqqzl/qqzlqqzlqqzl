@@ -6,6 +6,10 @@ on:
     paths:
       - "scripts/build_embedded_images_xlsx.py"
       - ".github/workflows/build-embedded-thumbnails.yml"
+  pull_request:
+    paths:
+      - "scripts/build_embedded_images_xlsx.py"
+      - ".github/workflows/build-embedded-thumbnails.yml"
   workflow_dispatch:
 
 permissions:
