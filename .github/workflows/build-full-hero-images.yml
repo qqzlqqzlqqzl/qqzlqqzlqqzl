@@ -41,8 +41,36 @@ jobs:
           PYTHONPATH: scripts
         run: python -m unittest discover -s tests -p 'test_full_hero_images.py' -v
 
-  image-shards:
+  prepare-source:
     needs: validate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download Run 11 source files once
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p run11_source
+          gh release download hardware-opportunities-10k-run-11 \
+            --repo qqzlqqzlqqzl/qqzlqqzlqqzl \
+            --pattern hardware_opportunities.csv \
+            --pattern source_status.csv \
+            --pattern SCORING_METHOD.md \
+            --dir run11_source
+          test -s run11_source/hardware_opportunities.csv
+          wc -l run11_source/hardware_opportunities.csv
+      - name: Upload Run 11 source artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: run11-source-data
+          path: run11_source/
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 6
+
+  image-shards:
+    needs: prepare-source
     runs-on: ubuntu-24.04
     timeout-minutes: 180
     strategy:
@@ -62,16 +90,14 @@ jobs:
           cache-dependency-path: requirements-hero-images.txt
       - name: Install image dependencies
         run: python -m pip install -r requirements-hero-images.txt
-      - name: Download Run 11 source CSV
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          mkdir -p input shard_output
-          gh release download hardware-opportunities-10k-run-11 \
-            --pattern hardware_opportunities.csv \
-            --dir input
+      - name: Download shared Run 11 source artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: run11-source-data
+          path: input
       - name: Process 500-row image shard with internal threading
         run: |
+          mkdir -p shard_output
           python -m full_hero_images.process_shard \
             --source-csv input/hardware_opportunities.csv \
             --output-dir shard_output \
@@ -88,7 +114,7 @@ jobs:
           compression-level: 0
 
   translate-chinese:
-    needs: validate
+    needs: prepare-source
     runs-on: ubuntu-24.04
     timeout-minutes: 360
     steps:
@@ -105,16 +131,14 @@ jobs:
           key: hf-opus-mt-en-zh-v1
       - name: Install translation dependencies
         run: python -m pip install -r requirements-translation.txt
-      - name: Download Run 11 source CSV
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          mkdir -p input translation_output
-          gh release download hardware-opportunities-10k-run-11 \
-            --pattern hardware_opportunities.csv \
-            --dir input
+      - name: Download shared Run 11 source artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: run11-source-data
+          path: input
       - name: Translate descriptions and keywords into Simplified Chinese
         run: |
+          mkdir -p translation_output
           python scripts/full_hero_images/translate_descriptions_zh.py \
             --source-csv input/hardware_opportunities.csv \
             --output translation_output/translations.csv \
@@ -137,16 +161,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Download Run 11 source files
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          mkdir -p input final_output image_artifacts translation_artifact
-          gh release download hardware-opportunities-10k-run-11 \
-            --pattern hardware_opportunities.csv \
-            --pattern source_status.csv \
-            --pattern SCORING_METHOD.md \
-            --dir input
+      - name: Download shared Run 11 source artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: run11-source-data
+          path: input
       - name: Download all image shards
         uses: actions/download-artifact@v4
         with:
@@ -160,6 +179,7 @@ jobs:
           path: translation_artifact
       - name: Merge all 10,500 rows and images
         run: |
+          mkdir -p final_output
           python scripts/full_hero_images/merge_full_hero_artifacts.py \
             --source-csv input/hardware_opportunities.csv \
             --image-artifacts image_artifacts \
