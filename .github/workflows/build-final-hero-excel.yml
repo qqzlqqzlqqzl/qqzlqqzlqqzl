@@ -1,0 +1,92 @@
+name: Build final 10.5k hero-image Excel
+
+on:
+  pull_request:
+    paths:
+      - "scripts/full_hero_images/build_final_excel.py"
+      - ".github/workflows/build-final-hero-excel.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: final-hero-excel-10500
+  cancel-in-progress: true
+
+jobs:
+  build-final-excel:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install workbook dependencies
+        run: python -m pip install --disable-pip-version-check openpyxl==3.1.5 pillow==11.3.0
+      - name: Download verified full data and hero images
+        uses: actions/download-artifact@v4
+        with:
+          name: full-hero-images-10500-fast
+          path: input
+          run-id: 30068281842
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Verify intermediate package exists
+        run: |
+          test -s input/final_output/hardware_opportunities_full_hero_images.csv
+          test -s input/final_output/summary.json
+          test -d input/final_output/hero_images
+          python - <<'PY'
+          import csv, json
+          rows = list(csv.DictReader(open('input/final_output/hardware_opportunities_full_hero_images.csv', encoding='utf-8-sig')))
+          summary = json.load(open('input/final_output/summary.json', encoding='utf-8'))
+          assert len(rows) == 10500, len(rows)
+          assert len({r['project_id'] for r in rows}) == 10500
+          assert summary['image_result_rows'] == 10500
+          assert summary['translation_rows'] == 10500
+          print(summary)
+          PY
+      - name: Build full-field Excel with embedded real-hardware images
+        run: |
+          mkdir -p delivery
+          python scripts/full_hero_images/build_final_excel.py \
+            --input-dir input/final_output \
+            --output "delivery/开源硬件商业化机会库_10500条_全字段_真实英雄图版.xlsx"
+      - name: Package final delivery
+        run: |
+          cp -r input/final_output delivery/full_data_and_images
+          zip -9 -r "delivery/开源硬件商业化机会库_10500条_全字段_真实英雄图交付包.zip" \
+            "delivery/开源硬件商业化机会库_10500条_全字段_真实英雄图版.xlsx" \
+            "delivery/开源硬件商业化机会库_10500条_全字段_真实英雄图版.validation.json" \
+            delivery/full_data_and_images
+          ls -lh delivery
+      - name: Verify final XLSX structure
+        run: |
+          python - <<'PY'
+          import json, zipfile
+          from pathlib import Path
+          from openpyxl import load_workbook
+          xlsx = Path('delivery/开源硬件商业化机会库_10500条_全字段_真实英雄图版.xlsx')
+          report = json.loads(xlsx.with_suffix('.validation.json').read_text(encoding='utf-8'))
+          assert report['rows'] == 10500
+          assert report['unique_project_ids'] == 10500
+          assert report['embedded_images'] > 0
+          wb = load_workbook(xlsx, read_only=True)
+          assert wb['项目机会库'].max_row == 10503
+          assert {'项目机会库','摘要','来源状态','评分方法','处理状态'}.issubset(wb.sheetnames)
+          wb.close()
+          with zipfile.ZipFile(xlsx) as zf:
+              media = [n for n in zf.namelist() if n.startswith('xl/media/')]
+          assert len(media) == report['embedded_images']
+          print(report)
+          PY
+      - name: Upload final Excel and complete delivery package
+        uses: actions/upload-artifact@v4
+        with:
+          name: hardware-opportunities-10500-final-excel
+          path: delivery/
+          if-no-files-found: error
+          retention-days: 90
+          compression-level: 0
