@@ -1,0 +1,53 @@
+name: Publish permanent final hero-image delivery
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/publish-final-hero-release.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: publish-final-hero-release
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download validated final Excel delivery
+        uses: actions/download-artifact@v4
+        with:
+          name: hardware-opportunities-10500-final-excel
+          path: input
+          run-id: 30072339966
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Verify release files
+        run: |
+          XLSX="input/开源硬件商业化机会库_10500条_全字段_真实英雄图版.xlsx"
+          ZIP="input/开源硬件商业化机会库_10500条_全字段_真实英雄图交付包.zip"
+          REPORT="input/开源硬件商业化机会库_10500条_全字段_真实英雄图版.validation.json"
+          test -s "$XLSX"
+          test -s "$ZIP"
+          test -s "$REPORT"
+          ls -lh input
+      - name: Create or update permanent GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="hardware-opportunities-10500-final-hero-images"
+          XLSX="input/开源硬件商业化机会库_10500条_全字段_真实英雄图版.xlsx"
+          ZIP="input/开源硬件商业化机会库_10500条_全字段_真实英雄图交付包.zip"
+          REPORT="input/开源硬件商业化机会库_10500条_全字段_真实英雄图版.validation.json"
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            gh release create "$TAG" \
+              --title "开源硬件商业化机会库 10,500条 · 全字段真实英雄图版" \
+              --notes "最终交付：10,500条唯一项目记录；保留原始32个商业/评审字段；提供中文简介与关键词；严格筛选真实硬件英雄图并嵌入Excel。包含完整Excel、CSV、图片、质量报告和完整压缩包。"
+          fi
+          gh release upload "$TAG" "$XLSX" "$ZIP" "$REPORT" --clobber
