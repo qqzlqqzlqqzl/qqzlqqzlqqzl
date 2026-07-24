@@ -3,6 +3,9 @@ name: Fast translate and merge completed hero-image shards
 on:
   pull_request:
     paths:
+      - "scripts/full_hero_images/translate_descriptions_zh.py"
+      - "scripts/full_hero_images/merge_full_hero_artifacts.py"
+      - "requirements-translation.txt"
       - ".github/workflows/fast-translate-merge-existing-images.yml"
   workflow_dispatch:
 
@@ -45,16 +48,24 @@ jobs:
           assert len(rows) == 10500, len(rows)
           print(f'rows={len(rows)}')
           PY
-      - name: Download translation model once
+      - name: Download translation model and verify Chinese output
         env:
           HF_HOME: ${{ github.workspace }}/hf-cache
         run: |
           python - <<'PY'
+          import re
           from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
           name = 'Helsinki-NLP/opus-mt-en-zh'
-          AutoTokenizer.from_pretrained(name)
-          AutoModelForSeq2SeqLM.from_pretrained(name)
-          print('translation model cached')
+          tokenizer = AutoTokenizer.from_pretrained(name)
+          model = AutoModelForSeq2SeqLM.from_pretrained(name)
+          source = 'An open source ESP32 hardware badge with an OLED display and RGB LEDs.'
+          encoded = tokenizer([source], return_tensors='pt', padding=True)
+          generated = model.generate(**encoded, max_new_tokens=96, num_beams=1, do_sample=False)
+          output = tokenizer.batch_decode(generated, skip_special_tokens=True)[0]
+          print({'source': source, 'output': output})
+          assert len(re.findall(r'[\u3400-\u4dbf\u4e00-\u9fff]', output)) >= 2, output
+          assert output.count('28') < 3, output
+          print('translation smoke test passed')
           PY
       - name: Upload source data
         uses: actions/upload-artifact@v4
@@ -106,7 +117,6 @@ jobs:
           mkdir -p shard_input translation_output
           python - <<'PY'
           import csv
-          from pathlib import Path
           shard = int('${{ matrix.shard }}')
           size = 500
           rows = list(csv.DictReader(open('input/hardware_opportunities.csv', encoding='utf-8-sig')))
@@ -118,7 +128,7 @@ jobs:
               writer.writerows(selected)
           print(f'shard={shard} rows={len(selected)}')
           PY
-      - name: Translate shard into Simplified Chinese
+      - name: Translate shard into Simplified Chinese with QC
         env:
           HF_HOME: ${{ github.workspace }}/hf-cache
           HF_HUB_OFFLINE: "1"
@@ -127,7 +137,7 @@ jobs:
           python scripts/full_hero_images/translate_descriptions_zh.py \
             --source-csv shard_input/hardware_opportunities.csv \
             --output translation_output/translations.csv \
-            --batch-size 24
+            --batch-size 32
       - name: Upload translation shard
         uses: actions/upload-artifact@v4
         with:
@@ -194,16 +204,24 @@ jobs:
             --output-dir final_output
           cp input/source_status.csv final_output/
           cp input/SCORING_METHOD.md final_output/
-      - name: Verify exact 10,500-row coverage
+      - name: Verify exact 10,500-row coverage and translation QC
         run: |
           python - <<'PY'
-          import csv, json
+          import csv, json, re
           rows = list(csv.DictReader(open('final_output/hardware_opportunities_full_hero_images.csv', encoding='utf-8-sig')))
           summary = json.load(open('final_output/summary.json', encoding='utf-8'))
           assert len(rows) == 10500
           assert len({row['project_id'] for row in rows}) == 10500
           assert summary['image_result_rows'] == 10500
           assert summary['translation_rows'] == 10500
+          bad_repetition = []
+          for row in rows:
+              text = row['description_zh']
+              if len(text) > 30:
+                  tokens = re.findall(r'[\u3400-\u9fff]|[A-Za-z]+|\d+', text.lower())
+                  if len(tokens) >= 12 and max(tokens.count(t) for t in set(tokens)) / len(tokens) > 0.6:
+                      bad_repetition.append(row['project_id'])
+          assert not bad_repetition, bad_repetition[:20]
           print(json.dumps(summary, ensure_ascii=False, indent=2))
           PY
       - name: Package merged full result
