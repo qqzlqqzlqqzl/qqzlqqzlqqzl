@@ -1,0 +1,51 @@
+name: Fetch thumbnail assets
+
+on:
+  pull_request:
+    paths:
+      - "scripts/fetch_thumbnail_assets.py"
+      - ".github/workflows/fetch-thumbnail-assets.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  fetch-thumbnails:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install image dependencies
+        run: python -m pip install --disable-pip-version-check requests pillow
+      - name: Download Run 11 CSV
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p source
+          gh release download hardware-opportunities-10k-run-11 \
+            --repo "${GITHUB_REPOSITORY}" \
+            --pattern hardware_opportunities.csv \
+            --dir source
+      - name: Fetch, normalize and cache thumbnails
+        run: |
+          python -u scripts/fetch_thumbnail_assets.py \
+            --csv source/hardware_opportunities.csv \
+            --out thumbnail_assets \
+            --workers 32 \
+            --width 96 \
+            --height 72
+      - name: Show summary
+        if: always()
+        run: cat thumbnail_assets/summary.json || true
+      - name: Upload thumbnail assets
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thumbnail-assets-run11
+          path: thumbnail_assets/
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 6
