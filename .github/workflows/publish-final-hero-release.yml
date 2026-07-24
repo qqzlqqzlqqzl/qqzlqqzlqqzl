@@ -51,3 +51,35 @@ jobs:
               --notes "最终交付：10,500条唯一项目记录；保留原始32个商业/评审字段；提供中文简介与关键词；严格筛选真实硬件英雄图并嵌入Excel。包含完整Excel、CSV、图片、质量报告和完整压缩包。"
           fi
           gh release upload "$TAG" "$XLSX" "$ZIP" "$REPORT" --clobber
+      - name: Persist successful publication status
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json, os, subprocess, base64
+          from pathlib import Path
+          status = {
+              "status": "success",
+              "tag": "hardware-opportunities-10500-final-hero-images",
+              "release_url": "https://github.com/qqzlqqzlqqzl/qqzlqqzlqqzl/releases/tag/hardware-opportunities-10500-final-hero-images",
+              "source_artifact_run": 30072339966,
+              "records": 10500,
+              "unique_project_ids": 10500,
+              "files": [
+                  "开源硬件商业化机会库_10500条_全字段_真实英雄图版.xlsx",
+                  "开源硬件商业化机会库_10500条_全字段_真实英雄图交付包.zip",
+                  "开源硬件商业化机会库_10500条_全字段_真实英雄图版.validation.json"
+              ]
+          }
+          content = json.dumps(status, ensure_ascii=False, indent=2).encode('utf-8')
+          payload = json.dumps({
+              "message": "status: final hero-image release published",
+              "content": base64.b64encode(content).decode('ascii'),
+              "branch": "main"
+          })
+          subprocess.run([
+              "gh", "api", "--method", "PUT",
+              "/repos/qqzlqqzlqqzl/qqzlqqzlqqzl/contents/release_status/final_hero_images.json",
+              "--input", "-"
+          ], input=payload, text=True, check=True)
+          PY
