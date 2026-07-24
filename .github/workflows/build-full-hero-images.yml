@@ -48,18 +48,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Download Run 11 source files once
-        env:
-          GH_TOKEN: ${{ github.token }}
         run: |
+          set -euxo pipefail
           mkdir -p run11_source
-          gh release download hardware-opportunities-10k-run-11 \
-            --repo qqzlqqzlqqzl/qqzlqqzlqqzl \
-            --pattern hardware_opportunities.csv \
-            --pattern source_status.csv \
-            --pattern SCORING_METHOD.md \
-            --dir run11_source
+          BASE="https://github.com/qqzlqqzlqqzl/qqzlqqzlqqzl/releases/download/hardware-opportunities-10k-run-11"
+          curl -fL --retry 5 --retry-delay 3 "$BASE/hardware_opportunities.csv" -o run11_source/hardware_opportunities.csv
+          curl -fL --retry 5 --retry-delay 3 "$BASE/source_status.csv" -o run11_source/source_status.csv
+          curl -fL --retry 5 --retry-delay 3 "$BASE/SCORING_METHOD.md" -o run11_source/SCORING_METHOD.md
           test -s run11_source/hardware_opportunities.csv
-          wc -l run11_source/hardware_opportunities.csv
+          python - <<'PY'
+          import csv
+          rows = list(csv.DictReader(open('run11_source/hardware_opportunities.csv', encoding='utf-8-sig')))
+          assert len(rows) == 10500, len(rows)
+          print(f'Run 11 source rows: {len(rows)}')
+          PY
       - name: Upload Run 11 source artifact
         uses: actions/upload-artifact@v4
         with:
