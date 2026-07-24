@@ -5,12 +5,12 @@ Updated: 2026-07-24
 ## Current totals
 
 - Raw records: 10,500
-- Page-reviewed records: 70
+- Page-reviewed records: 80
 - Strict commercial candidates: 0
-- Watchlist: 9
-- Market-reference cases: 21
-- Rejected: 40
-- Remaining: 10,430
+- Watchlist: 10
+- Market-reference cases: 24
+- Rejected: 46
+- Remaining: 10,420
 
 ## Completed batches
 
@@ -23,21 +23,22 @@ Updated: 2026-07-24
 | 005 | 10 | 0 | 0 | 3 | 7 | `batch_005_tindie_components_testgear_midi_and_audio.csv` |
 | 006 | 10 | 0 | 0 | 4 | 6 | `batch_006_tindie_rf_eurorack_arcade_and_components.csv` |
 | 007 | 10 | 0 | 1 | 1 | 8 | `batch_007_tindie_power_components_and_rf.csv` |
+| 008 | 10 | 0 | 1 | 3 | 6 | `batch_008_tindie_components_wireless_frequency_and_displays.csv` |
 
-## Batch 007 self-check
+## Batch 008 self-check
 
-- Ten original Tindie product pages were read; seller stores, reviews, category/search pages and related retired products were used where relevant.
-- No item was promoted merely because it had a listed price, inventory count or a high-order seller.
-- The Sourcery ±12V supply was retained only as a market-reference case: its ecosystem and documentation are commercially meaningful, but the $2 board is long sold out and one detailed review reports ripple/crosstalk and a missing mounting hole.
-- The YIHANG 100W SDR T/R switch is the only new watchlist item. It is a complete-use-case product rather than a bare module, but it remains blocked by missing insertion-loss, isolation, VSWR, switching-time, hot-switching and full-power evidence.
-- The MMM999 voice board, Synthrotek screws, generic grow COB, SMD cases, RJ45 component, PCB business-card service, portable soldering iron and ESPea LoRa shield were rejected as commodity modules/components, low-value accessories, custom services, resale items or obsolete-ecosystem add-ons.
-- One definite hero-image error was recorded: `100 X Eurorack Module Screws` points to `PCB-4-Channel_Mixer.jpg`; it must not remain in the final workbook.
-- Ambiguous product images were not falsely approved. They remain marked for final visual inspection where filenames are generic or nearby SKUs are visually similar.
+- Ten exact Tindie product pages were read; seller stores, product families, category/search pages, customer feedback and vendor specifications were used where relevant.
+- The inaccessible `1201 Bandpass Filter Eurorack Synthesizer Module` page and the currently unretrievable `0-10v Analogue To RS485 Modbus RTU Converter DIN` page were not marked `已逐页阅读`, were not scored, and remain in the queue.
+- No commodity item was promoted merely because it had a listed price or inventory. The GPS-disciplined 10MHz reference is the only new watchlist item because it is a complete professional-use instrument with a $99 price and real user feedback; key metrology evidence is still missing.
+- FSC-BP119, the 0.23-inch micro-AMOLED supply product and the GPIO Labs TCXO were retained only as market-reference cases. Their value comes from product completion, specialized supply or an established RF product family—not a market gap in a bare module.
+- Six commodity, resale or inventory-only items were rejected: the Vishay lot, FSC-BT909 module, ICStation 0–10V/4–20mA board, 0805 breakout, SSD1306 OLED module and generic screw assortment.
+- One definite hero-image error was recorded: the FSC-BT909 row points to an `ESP32 CH340C WiFi Bluetooth Development Board` image and must not appear in the final workbook.
+- One important source-data conflict was preserved rather than silently corrected: the Vishay product page says 4.7KΩ while the old title/URL says 47K.
 - Project-specific verdict reasons were used; no forced score normalization or template-only commercial reason was added.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 70 unique IDs across 70 rows.
+- Reviewed IDs: 80 unique IDs across 80 rows.
 - Every reviewed row records `review_status`, product form, opportunity family, paying customer, pain point, price, market evidence, crowding, dependency, manufacturing, after-sales, compliance, license, hero-image verdict, final bucket, project-specific verdict reason and evidence URLs.
 - No page-inaccessible item is marked `已逐页阅读`.
 - Product-family variants are retained for evidence but are not counted as separate commercial opportunities.
