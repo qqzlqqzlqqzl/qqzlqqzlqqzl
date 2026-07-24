@@ -1,0 +1,82 @@
+name: Build embedded-thumbnail workbook
+
+on:
+  push:
+    branches: [agent/embed-thumbnails]
+    paths:
+      - "scripts/build_embedded_images_xlsx.py"
+      - ".github/workflows/build-embedded-thumbnails.yml"
+  pull_request:
+    paths:
+      - "scripts/build_embedded_images_xlsx.py"
+      - ".github/workflows/build-embedded-thumbnails.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install image workbook dependencies
+        run: python -m pip install --disable-pip-version-check requests urllib3 XlsxWriter Pillow
+      - name: Download Run 11 source data
+        run: |
+          mkdir -p input embedded_output
+          gh release download hardware-opportunities-10k-run-11 \
+            --pattern hardware_opportunities.csv \
+            --pattern source_status.csv \
+            --pattern SCORING_METHOD.md \
+            --dir input
+          ls -lh input
+      - name: Build XLSX with real embedded images
+        run: |
+          python -u scripts/build_embedded_images_xlsx.py \
+            --csv input/hardware_opportunities.csv \
+            --source-status input/source_status.csv \
+            --scoring-method input/SCORING_METHOD.md \
+            --output embedded_output/开源硬件商业化机会库_10000条_内嵌缩略图版.xlsx \
+            --cache-dir thumbnail_cache \
+            --workers 24 \
+            --timeout 15
+      - name: Verify output structure
+        run: |
+          python - <<'PY'
+          import json, zipfile
+          from pathlib import Path
+          path = Path('embedded_output/开源硬件商业化机会库_10000条_内嵌缩略图版.xlsx')
+          assert path.exists() and path.stat().st_size > 1_000_000, path
+          with zipfile.ZipFile(path) as z:
+              names = z.namelist()
+              media = [n for n in names if n.startswith('xl/media/')]
+              drawings = [n for n in names if n.startswith('xl/drawings/drawing') and n.endswith('.xml')]
+              assert media, 'no embedded media files found'
+              assert drawings, 'no drawing XML found'
+              print(json.dumps({'xlsx_bytes': path.stat().st_size, 'embedded_media_files': len(media), 'drawings': len(drawings)}, ensure_ascii=False))
+          PY
+      - name: Package embedded workbook
+        run: |
+          cp input/hardware_opportunities.csv embedded_output/
+          cp input/source_status.csv embedded_output/
+          cp input/SCORING_METHOD.md embedded_output/
+          cd embedded_output
+          zip -9 -r ../open-hardware-opportunities-embedded-thumbnails.zip .
+      - name: Upload embedded-image result
+        uses: actions/upload-artifact@v4
+        with:
+          name: open-hardware-opportunities-embedded-thumbnails
+          path: |
+            embedded_output/
+            open-hardware-opportunities-embedded-thumbnails.zip
+          if-no-files-found: error
+          retention-days: 90
+          compression-level: 0
