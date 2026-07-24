@@ -1,0 +1,190 @@
+name: Build full 10.5k real-hardware hero images
+
+on:
+  push:
+    branches: [agent/full-hero-images-10500]
+    paths:
+      - "scripts/full_hero_images/**"
+      - "tests/test_full_hero_images.py"
+      - "requirements-hero-images.txt"
+      - "requirements-translation.txt"
+      - ".github/workflows/build-full-hero-images.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PYTHONUNBUFFERED: "1"
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-hero-images.txt
+      - name: Install image dependencies
+        run: python -m pip install -r requirements-hero-images.txt
+      - name: Compile pipeline
+        run: python -m compileall -q scripts/full_hero_images tests/test_full_hero_images.py
+      - name: Run strict image-selection tests
+        env:
+          PYTHONPATH: scripts
+        run: python -m unittest discover -s tests -p 'test_full_hero_images.py' -v
+
+  image-shards:
+    needs: validate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PYTHONPATH: scripts
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-hero-images.txt
+      - name: Install image dependencies
+        run: python -m pip install -r requirements-hero-images.txt
+      - name: Download Run 11 source CSV
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p input shard_output
+          gh release download hardware-opportunities-10k-run-11 \
+            --pattern hardware_opportunities.csv \
+            --dir input
+      - name: Process 500-row image shard with internal threading
+        run: |
+          python -m full_hero_images.process_shard \
+            --source-csv input/hardware_opportunities.csv \
+            --output-dir shard_output \
+            --shard-index ${{ matrix.shard }} \
+            --shard-size 500 \
+            --workers 12
+      - name: Upload image shard
+        uses: actions/upload-artifact@v4
+        with:
+          name: hero-image-shard-${{ matrix.shard }}
+          path: shard_output/
+          if-no-files-found: error
+          retention-days: 90
+          compression-level: 0
+
+  translate-chinese:
+    needs: validate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements-translation.txt
+      - name: Cache translation model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-opus-mt-en-zh-v1
+      - name: Install translation dependencies
+        run: python -m pip install -r requirements-translation.txt
+      - name: Download Run 11 source CSV
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p input translation_output
+          gh release download hardware-opportunities-10k-run-11 \
+            --pattern hardware_opportunities.csv \
+            --dir input
+      - name: Translate descriptions and keywords into Simplified Chinese
+        run: |
+          python scripts/full_hero_images/translate_descriptions_zh.py \
+            --source-csv input/hardware_opportunities.csv \
+            --output translation_output/translations.csv \
+            --batch-size 24
+      - name: Upload Chinese translation table
+        uses: actions/upload-artifact@v4
+        with:
+          name: hero-image-chinese-translations
+          path: translation_output/
+          if-no-files-found: error
+          retention-days: 90
+          compression-level: 6
+
+  merge:
+    needs: [image-shards, translate-chinese]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download Run 11 source files
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p input final_output image_artifacts translation_artifact
+          gh release download hardware-opportunities-10k-run-11 \
+            --pattern hardware_opportunities.csv \
+            --pattern source_status.csv \
+            --pattern SCORING_METHOD.md \
+            --dir input
+      - name: Download all image shards
+        uses: actions/download-artifact@v4
+        with:
+          pattern: hero-image-shard-*
+          path: image_artifacts
+          merge-multiple: false
+      - name: Download translation artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: hero-image-chinese-translations
+          path: translation_artifact
+      - name: Merge all 10,500 rows and images
+        run: |
+          python scripts/full_hero_images/merge_full_hero_artifacts.py \
+            --source-csv input/hardware_opportunities.csv \
+            --image-artifacts image_artifacts \
+            --translation-csv translation_artifact/translations.csv \
+            --output-dir final_output
+          cp input/source_status.csv final_output/
+          cp input/SCORING_METHOD.md final_output/
+      - name: Verify final coverage
+        run: |
+          python - <<'PY'
+          import csv, json
+          rows = list(csv.DictReader(open('final_output/hardware_opportunities_full_hero_images.csv', encoding='utf-8-sig')))
+          summary = json.load(open('final_output/summary.json', encoding='utf-8'))
+          assert len(rows) == 10500, len(rows)
+          assert len({r['project_id'] for r in rows}) == 10500
+          assert summary['image_result_rows'] == 10500
+          assert summary['translation_rows'] == 10500
+          print(json.dumps(summary, ensure_ascii=False, indent=2))
+          PY
+      - name: Package full intermediate result
+        run: zip -9 -r full-hero-images-10500.zip final_output
+      - name: Upload full 10,500-row hero-image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: full-hero-images-10500
+          path: |
+            final_output/
+            full-hero-images-10500.zip
+          if-no-files-found: error
+          retention-days: 90
+          compression-level: 0
