@@ -1,12 +1,6 @@
 name: Fast translate and merge completed hero-image shards
 
 on:
-  pull_request:
-    paths:
-      - "scripts/full_hero_images/translate_descriptions_zh.py"
-      - "scripts/full_hero_images/merge_full_hero_artifacts.py"
-      - "requirements-translation.txt"
-      - ".github/workflows/fast-translate-merge-existing-images.yml"
   workflow_dispatch:
 
 permissions:
