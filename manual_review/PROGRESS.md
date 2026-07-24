@@ -5,12 +5,12 @@ Updated: 2026-07-24
 ## Current totals
 
 - Raw records: 10,500
-- Page-reviewed records: 40
+- Page-reviewed records: 50
 - Strict commercial candidates: 0
 - Watchlist: 8
-- Market-reference cases: 13
-- Rejected: 19
-- Remaining: 10,460
+- Market-reference cases: 16
+- Rejected: 26
+- Remaining: 10,450
 
 ## Completed batches
 
@@ -20,17 +20,22 @@ Updated: 2026-07-24
 | 002 | 10 | 0 | 6 | 3 | 1 | `batch_002_tindie_arcade_family_and_controls.csv` |
 | 003 | 10 | 0 | 0 | 3 | 7 | `batch_003_tindie_modules_sensors_and_macropads.csv` |
 | 004 | 10 | 0 | 0 | 4 | 6 | `batch_004_tindie_components_kits_and_rc2014.csv` |
+| 005 | 10 | 0 | 0 | 3 | 7 | `batch_005_tindie_components_testgear_midi_and_audio.csv` |
 
-## Batch 004 self-check
+## Batch 005 self-check
 
-- All 10 rows have `review_status=已逐页阅读` and page/store/competition evidence URLs.
-- No duplicate `project_id` appears within batch 004 or batches 001–003.
-- No kit or generic module entered the strict shortlist merely because it was sold on Tindie.
-- Component packs, commodity sensors, a generic PIR board, a commodity touch monitor and low-value modules were rejected.
-- Four rows were retained only as market-reference cases: the Terrain-Tronics tabletop-terrain product family, the open-source function-generator kit, the historical PixelFlood family and the mature RC2014/RCBus ecosystem.
-- The Terrain-Tronics SKU was explicitly merged into the previously identified tabletop-terrain opportunity family rather than counted as a new independent opportunity.
-- Three clear hero-image problems were identified: the potentiometer row used a Christmas-tree image; the vibration-sensor row duplicated the PIR image; the 11.6-inch monitor row used a Raspberry Pi mini-PC-case image.
-- Hero images marked `基本匹配` still require final-workbook visual sampling; automatic image flags are not treated as human approval.
-- Verdict reasons are project-specific and no forced score normalization is used.
+- All 10 rows were reviewed using the original Tindie product page plus store, review, manufacturer or competition pages where available.
+- The inaccessible `1201 Bandpass Filter` product page was not falsely marked reviewed; it remains in the queue for a later retry. The accessible `10HP 3U DIY Eurorack Blank Panel` was reviewed instead.
+- No duplicate `project_id` appears in batch 005 or batches 001–004.
+- No standard component, Arduino shield, generic RF/audio module or accessory entered the strict shortlist merely because it was sold by an established seller.
+- Three rows were retained only as market-reference cases: the low-cost calibrated OCXO/test-equipment-upgrade model, the existing arcade-replacement family, and the MIDI Thru product-family model.
+- The `007340` row was merged conceptually into the previously identified arcade replacement opportunity family rather than counted as an independent opportunity.
+- The resistor assortment, Arduino Shield kit, RJ45 connector, generic LNA, high-speed DAC breakout, TDA7498 amplifier board and Eurorack blank panel were rejected.
+- One clear hero-image problem was confirmed: the 10HP blank-panel row used a 4-channel-mixer PCB image and must be replaced. Other images remain `基本匹配` pending final-workbook visual sampling.
+- Verdict reasons are project-specific; no forced score normalization or template-only score reason was used.
 
-PR #9 remains draft and unmerged.
+## Cross-batch self-check
+
+- Reviewed IDs: 50 unique IDs across 50 rows.
+- Every reviewed row records `review_status`, product form, paying customer, pain point, price, market evidence, crowding, dependency, manufacturing, after-sales, compliance, license, hero-image verdict, final bucket, project-specific verdict reason and evidence URLs.
+- PR #9 remains draft and unmerged.
