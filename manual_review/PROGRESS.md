@@ -5,12 +5,12 @@ Updated: 2026-07-25
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 180
+- Page/source-reviewed records: 190
 - Strict commercial candidates: 0
 - Watchlist: 16
-- Market-reference cases: 64
-- Rejected: 100
-- Remaining: 10,320
+- Market-reference cases: 67
+- Rejected: 107
+- Remaining: 10,310
 
 ## Completed batches
 
@@ -34,22 +34,21 @@ Updated: 2026-07-25
 | 016 | 10 | 0 | 0 | 5 | 5 | `batch_016_tindie_cables_lighting_modules_displays_retro_and_optics.csv` |
 | 017 | 10 | 0 | 0 | 3 | 7 | `batch_017_tindie_arcade_oled_cables_wearables_touchscreen_led_and_devboards.csv` |
 | 018 | 10 | 0 | 0 | 7 | 3 | `batch_018_tindie_arcade_microdisplays_supplies_frequency_rf_connectors_and_eurorack.csv` |
+| 019 | 10 | 0 | 0 | 3 | 7 | `batch_019_tindie_qrp_components_rpi_displays_arcade_and_connectors.csv` |
 
-## Batch 018 self-check
+## Batch 019 self-check
 
-- Eight records were read from usable original product pages. The GPS L5 filter and 1–20HP blind panel used explicitly labelled Tindie product-index, seller-directory and catalogue cross-checks because their original page fetches temporarily returned errors.
-- Three records were rejected: standard antistatic bags, a discontinued HP E1938A OCXO resale item and a duplicate/mature 12-channel infrared relay bare board.
-- Seven records are retained only as market references. The Namco 04xx replacement belongs to the existing arcade-repair family; the GPS filter belongs to GPIO Labs' 129-SKU RF catalogue; the miniature cable and Eurorack panel demonstrate accessory-catalogue methods rather than defensible standalone opportunities.
-- The three micro-OLED listings were not counted as three independent opportunities. Two Hicenda listings use the same ECX331DB-6 panel with CVBS versus HDMI controllers, while the 0.4-inch listing is another specification inside an already established microdisplay/driver/optics supply family.
-- Page credibility was checked rather than copied blindly: the 0.4-inch micro-OLED title says 1440×1080 while its body claims 1920×1080, and the GPS L5 price appears as 63 dollars in one current index and 51 dollars in the seller catalogue.
-- Hero-image review found two decisive failures: the antistatic-bag image filename points to an LH12A laser-holder product, and the 04xx entry reuses the same automatic image as the earlier 07xx record. Rows without qualified microdisplay images remain unresolved; generic filenames are not treated as human verification.
-- Each verdict is project-specific and separately records product form, customer, pain point, evidence, crowding, dependencies, manufacturing, after-sales, compliance, licensing and image status.
+- Eight records were read from usable original product pages. The power-inductor pack used an explicitly labelled product-cache and seller-page cross-check because the current page cache missed; the round TFT used product indexes, its duplicate listing and the seller catalogue because the page was anti-bot blocked; the iLens page returned 502 and was cross-checked using the exact product name, image filename, seller catalogue and current OEM/supply pages. These statuses are recorded separately and are not presented as normal direct-page reviews.
+- Seven records were rejected: an incomplete oil-immersed dummy-load PCB kit based on a mature DIY method, a 2-dollar power-inductor pack, Soviet old-stock regulator chips, a mature Raspberry Pi ADC HAT, a standard round TFT component, standard B10K potentiometers and a standard integrated-magnetics RJ45 connector.
+- Three records are retained only as market references: the iLens finished OEM smart-glasses product, the 054574 item inside the existing arcade long-tail replacement family, and the 1.03-inch micro-OLED inside the established microdisplay/driver/optics supply family. None is counted as a new independent commercial opportunity.
+- Hero-image review found one decisive high-risk failure: the round-TFT image filename says OLED and the same URL is reused for a later 0.99-inch record. The ADC HAT image predates the stated v3.0 redesign; the iLens image is not proven to be the exact delivered version; generic component photos remain unresolved. No automatic image label was promoted to human verification.
+- Each verdict is project-specific and separately records product form, customer, pain point, price/evidence, market crowding, dependencies, manufacturing, after-sales, compliance, licensing and image status.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 180 unique IDs across 180 rows. The queue workflow excludes exact project IDs already present in every `batch_*.csv`; semantic duplicate products and interface/specification variants are additionally collapsed during human review.
-- No inaccessible item is silently marked as a normal direct-page review; canonical-cache, seller-directory, manufacturer-page and cross-checked reviews use distinct statuses.
+- Reviewed IDs: 190 unique IDs across 190 rows. The queue workflow excludes exact project IDs already present in every `batch_*.csv`; semantic duplicate products and interface/specification variants are additionally collapsed during human review.
+- No inaccessible item is silently marked as a normal direct-page review; canonical-cache, seller-directory, manufacturer/OEM-page and cross-checked reviews use distinct statuses.
 - Product-family variants are retained as evidence but are not counted as separate commercial opportunities.
-- No project is admitted to the strict shortlist without page-level evidence, and no strict candidate has been found in the first 180 records.
-- Automatic image labels are not accepted as human verification; mismatches, duplicates and unresolved images remain explicitly marked.
+- No project is admitted to the strict shortlist without page-level evidence, and no strict candidate has been found in the first 190 records.
+- Automatic image labels are not accepted as human verification; mismatches, duplicates, version risks and unresolved images remain explicitly marked.
 - PR #9 remains draft and unmerged.
