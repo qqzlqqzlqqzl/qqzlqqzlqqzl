@@ -5,13 +5,13 @@ Updated: 2026-07-26
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 512
+- Page/source-reviewed records: 531
 - Strict commercial candidates: 0
 - Watchlist: 23
-- Market-reference cases: 166
-- Rejected: 323
+- Market-reference cases: 167
+- Rejected: 341
 - Deferred because exact page evidence is unresolved: 2
-- Remaining unreviewed or deferred: 9,988
+- Remaining unreviewed or deferred: 9,969
 
 ## Completed batches
 
@@ -56,22 +56,22 @@ Updated: 2026-07-26
 | 034 | 20 | 0 | 1 | 2 | 17 | `batch_034_badges_software_ai_audio_and_input_devices.csv` |
 | 035 | 20 | 0 | 0 | 3 | 17 | `batch_035_keyboards_music_badgeware_software_and_workshop_clones.csv` |
 | 036 | 20 | 0 | 0 | 2 | 18 | `batch_036_workshop_clones_badge_tutorial_security_and_retroesp32.csv` |
+| 037 | 19 | 0 | 0 | 1 | 18 | `batch_037_software_badges_firmware_modules_objex_and_tufty.csv` |
 
-## Batch 036 self-check
+## Batch 037 self-check
 
-- Fifteen additional Workshop Badge Generator participant forks were reviewed from their exact source-record cache after the GitLab pages failed to load reliably. Each remains a traceable source row, but all are collapsed into one software-training family and create no separate hardware opportunities.
-- Redbadger was read from the exact GitLab project page and is a cybersecurity software project, not a badge or hardware device.
-- The Pimoroni MQTT page was read as a complete tutorial: it explicitly uses Tufty 2350, Plasma 2350 W and an RGB LED chain, so its tutorial images are upstream-board/application images rather than an independent product hero image.
-- RetroESP32 was checked against its README, stated license, current Tindie listing, store totals and reviews. It is retained only as a historical software-plus-custom-board commercialization case because the assembled product has been out of stock since December 18, 2024 and the market is mature.
-- The Delft Open Hardware badge is retained only as an event-hardware method reference; the 2017 BSides Indy badge workshop is rejected as a one-off workshop record without recurring product evidence.
-- All 20 project IDs are unique. No source-cache review is mislabeled as a stable direct-page review, and no automatic image status is promoted to human verification.
+- Eighteen records were confirmed as software, documentation, digital-badge assets, generic CAD, firmware-only family members or upstream-board demos; none was assigned a hardware commercial score.
+- Minecraft Badges was read from its exact GitLab page; its badges are web graphics. MightyCore was read from README and is an Arduino core package, while the pictured development board is a separate linked product.
+- The Tufty networking badge was cross-checked against the exact GitLab embedded-topic description and remains an application running on a Pimoroni board rather than an independent product.
+- OBJEX Link was reviewed across README, Tindie shop, product listings, shared design and competitors. It is retained only as a market-reference case: the store shows about 19 orders, main versions have been out of stock for years, the development-board market is crowded, and the PCBWay share uses a non-commercial/no-derivatives license.
+- All 19 project IDs are unique. Product-family members and software forks remain traceable rows but do not inflate the commercial-opportunity count.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 512 unique IDs across 512 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed.
+- Reviewed IDs: 531 unique IDs across 531 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed.
 - Deferred IDs: 2 unique IDs, excluded from the active queue but not counted as reviewed.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
-- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 512 records.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 531 records.
 - Automatic image labels are not accepted as human verification; mismatches, tutorial images, upstream-board images and unresolved images remain marked.
 - PR #9 remains draft and unmerged.
