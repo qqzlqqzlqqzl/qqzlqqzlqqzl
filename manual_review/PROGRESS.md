@@ -1,17 +1,17 @@
 # V3 manual page-review progress
 
-Updated: 2026-07-25
+Updated: 2026-07-26
 
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 372
+- Page/source-reviewed records: 392
 - Strict commercial candidates: 0
 - Watchlist: 20
-- Market-reference cases: 137
-- Rejected: 215
+- Market-reference cases: 145
+- Rejected: 227
 - Deferred because exact page evidence is unresolved: 2
-- Remaining unreviewed or deferred: 10,128
+- Remaining unreviewed or deferred: 10,108
 
 ## Completed batches
 
@@ -49,21 +49,23 @@ Updated: 2026-07-25
 | 027 | 18 | 0 | 0 | 7 | 11 | `batch_027_tindie_displays_cables_components_retro_and_rpi.csv` |
 | 028 | 18 | 0 | 1 | 6 | 11 | `batch_028_tindie_displays_optics_retro_components_and_testgear.csv` |
 | 029 | 7 | 0 | 0 | 2 | 5 | `batch_029_tindie_tools_repair_cables_displays_consumables_calculator_and_testpins.csv` |
+| 030 | 20 | 0 | 0 | 8 | 12 | `batch_030_badges_kits_keychains_software_and_geocache.csv` |
 
-## Batch 029 self-check
+## Batch 030 self-check
 
-- All seven remaining Tindie queue entries were reviewed from exact indexed product bodies or, for the angle finder, an exact Tindie catalog entry cross-checked against the seller catalog and an external same-product history.
-- The angle finder, SWD cable, round TFT, Kester solder portion and pogo-pin pack were rejected as generic resale, standard components, consumable repackaging or mature commodity supply.
-- The Namco `05xx` replacement was collapsed into the existing arcade long-tail repair family rather than counted as a new opportunity.
-- The 10LC RPN calculator was retained only as a market-reference case: it is closer to a complete outcome-driven product, but the seller has only eight orders, the hardware platform is third-party and the firmware/hardware license path is unresolved.
-- No automatic hero-image status was upgraded to human verification; all seven rows lacked a qualified original hero image and remain explicitly unresolved.
+- All 20 rows were reviewed from exact project pages, exact repository READMEs, OSHWA certification pages, seller pages or named commercial comparators; no queue summary alone was accepted as page review.
+- Five conference-badge records were collapsed into the conference-customization family. Teebeutel hardware is the sole family representative; its expansion and documentation repositories were rejected as duplicate components.
+- Four Hack Club keychain/badge submissions were rejected as personal or workshop projects with cost estimates but no customer, sales or repeat-purchase evidence.
+- NextGenerator and MCard-StarterKit were corrected as software-only records. The Claude usage monitor was rejected for generic-module assembly, undocumented API dependence, session-cookie handling and disabled TLS verification.
+- Reverse Geocache Box was retained only as a market-reference case because historical kits and finished products demonstrate payment, but existing commercial implementations, patent risk and lockout/support risk prevent shortlist entry.
+- Automatic hero-image labels were not accepted without page-image agreement. Only the ef28 and Reverse Geocache repository images were confirmed as the actual project; unresolved records remain unresolved.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 372 unique IDs across 372 rows. Exact IDs are excluded from refreshed queues, while semantic duplicates and product-family variants are collapsed during review.
+- Reviewed IDs: 392 unique IDs across 392 rows. Exact IDs are excluded from refreshed queues, while semantic duplicates and product-family variants are collapsed during review.
 - Deferred IDs: 2 unique IDs, excluded from the active queue but not counted as reviewed.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
-- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 372 records.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 392 records.
 - Automatic image labels are not accepted as human verification; mismatches, duplicate/version risks and unresolved images remain marked.
 - PR #9 remains draft and unmerged.
