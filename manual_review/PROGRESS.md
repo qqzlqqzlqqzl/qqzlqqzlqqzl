@@ -5,13 +5,13 @@ Updated: 2026-07-25
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 365
+- Page/source-reviewed records: 372
 - Strict commercial candidates: 0
 - Watchlist: 20
-- Market-reference cases: 135
-- Rejected: 210
+- Market-reference cases: 137
+- Rejected: 215
 - Deferred because exact page evidence is unresolved: 2
-- Remaining unreviewed or deferred: 10,135
+- Remaining unreviewed or deferred: 10,128
 
 ## Completed batches
 
@@ -48,23 +48,22 @@ Updated: 2026-07-25
 | 026 | 19 | 0 | 1 | 9 | 9 | `batch_026_tindie_cables_filters_bms_microdisplays_components_and_retro.csv` |
 | 027 | 18 | 0 | 0 | 7 | 11 | `batch_027_tindie_displays_cables_components_retro_and_rpi.csv` |
 | 028 | 18 | 0 | 1 | 6 | 11 | `batch_028_tindie_displays_optics_retro_components_and_testgear.csv` |
+| 029 | 7 | 0 | 0 | 2 | 5 | `batch_029_tindie_tools_repair_cables_displays_consumables_calculator_and_testpins.csv` |
 
-## Batch 028 self-check
+## Batch 029 self-check
 
-- Eighteen records were accepted only after reading exact product pages or exact indexed product bodies and cross-checking seller catalogs where needed.
-- The 1000mAh Nicla Sense battery and the nominal 1.03-inch 2560×2560 1000-nit microOLED were not counted as reviewed because exact, non-conflicting product bodies could not be retrieved. They were moved to `deferred_unresolved.csv` instead of being silently scored from crawler text.
-- The queue builder now excludes deferred exact-page records while keeping them outside reviewed totals, preventing the hourly queue from stalling on the same inaccessible URLs.
-- The Pico LCD HAT, round TFT, panel meter, SSD1306 module, wire terminals, MagJack, spring antennas, propellers, e-paper module and generic pogo perfboard were rejected rather than inheriting crawler scores.
-- The four microdisplay rows were collapsed into the existing microdisplay/driver/near-eye-optics supply family. The two arcade IC rows remain evidence for the existing long-tail repair family rather than separate opportunities.
-- The 10MHz dual-oven OCXO reference is the only new watchlist entry: it is a complete professional tool with two reviews, but calibration traceability, phase-noise data, long-term ageing and seller support remain unresolved.
-- Automatic hero-image labels were not promoted to human verification. The TFT and wire-terminal records contain clear filename/SKU conflicts, and the Pico LCD image is reused across different display products.
+- All seven remaining Tindie queue entries were reviewed from exact indexed product bodies or, for the angle finder, an exact Tindie catalog entry cross-checked against the seller catalog and an external same-product history.
+- The angle finder, SWD cable, round TFT, Kester solder portion and pogo-pin pack were rejected as generic resale, standard components, consumable repackaging or mature commodity supply.
+- The Namco `05xx` replacement was collapsed into the existing arcade long-tail repair family rather than counted as a new opportunity.
+- The 10LC RPN calculator was retained only as a market-reference case: it is closer to a complete outcome-driven product, but the seller has only eight orders, the hardware platform is third-party and the firmware/hardware license path is unresolved.
+- No automatic hero-image status was upgraded to human verification; all seven rows lacked a qualified original hero image and remain explicitly unresolved.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 365 unique IDs across 365 rows. Exact IDs are excluded from refreshed queues, while semantic duplicates and product-family variants are collapsed during review.
+- Reviewed IDs: 372 unique IDs across 372 rows. Exact IDs are excluded from refreshed queues, while semantic duplicates and product-family variants are collapsed during review.
 - Deferred IDs: 2 unique IDs, excluded from the active queue but not counted as reviewed.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
-- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 365 records.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 372 records.
 - Automatic image labels are not accepted as human verification; mismatches, duplicate/version risks and unresolved images remain marked.
 - PR #9 remains draft and unmerged.
