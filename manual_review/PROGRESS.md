@@ -5,13 +5,13 @@ Updated: 2026-07-26
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 531
+- Page/source-reviewed records: 551
 - Strict commercial candidates: 0
 - Watchlist: 23
 - Market-reference cases: 167
-- Rejected: 341
-- Deferred because exact page evidence is unresolved: 2
-- Remaining unreviewed or deferred: 9,969
+- Rejected: 361
+- Deferred because exact page evidence is unresolved: 3
+- Remaining unreviewed or deferred: 9,949
 
 ## Completed batches
 
@@ -57,21 +57,23 @@ Updated: 2026-07-26
 | 035 | 20 | 0 | 0 | 3 | 17 | `batch_035_keyboards_music_badgeware_software_and_workshop_clones.csv` |
 | 036 | 20 | 0 | 0 | 2 | 18 | `batch_036_workshop_clones_badge_tutorial_security_and_retroesp32.csv` |
 | 037 | 19 | 0 | 0 | 1 | 18 | `batch_037_software_badges_firmware_modules_objex_and_tufty.csv` |
+| 038A | 10 | 0 | 0 | 0 | 10 | `batch_038a_badge_tutorial_workshop_software_and_nfc.csv` |
+| 038B | 10 | 0 | 0 | 0 | 10 | `batch_038b_badge_apps_firmware_svg_php_csp_and_drupal.csv` |
 
-## Batch 037 self-check
+## Batch 038 self-check
 
-- Eighteen records were confirmed as software, documentation, digital-badge assets, generic CAD, firmware-only family members or upstream-board demos; none was assigned a hardware commercial score.
-- Minecraft Badges was read from its exact GitLab page; its badges are web graphics. MightyCore was read from README and is an Arduino core package, while the pictured development board is a separate linked product.
-- The Tufty networking badge was cross-checked against the exact GitLab embedded-topic description and remains an application running on a Pimoroni board rather than an independent product.
-- OBJEX Link was reviewed across README, Tindie shop, product listings, shared design and competitors. It is retained only as a market-reference case: the store shows about 19 orders, main versions have been out of stock for years, the development-board market is crowded, and the PCBWay share uses a non-commercial/no-derivatives license.
-- All 19 project IDs are unique. Product-family members and software forks remain traceable rows but do not inflate the commercial-opportunity count.
+- Twenty records were checked against exact project pages, exact source-record caches and established product-family evidence; all twenty are software, tutorials, workshop forks, module assemblies, giveaway badges or non-independent firmware repositories.
+- Badger 2350 commute status was read from the original Pimoroni tutorial page. The page explicitly requires the existing Badger/Tufty board and teaches API, Wi-Fi and MicroPython usage, so its upstream-board image is not an independent product hero image.
+- Request Headers Manager and GitLab Schedule Badge were read from their exact GitLab pages and confirmed as Python/Docker or CI-status software. CryptoHack and DCSGone app/firmware records were collapsed into their existing badge families rather than counted as new hardware opportunities.
+- Five DictCloud workshop forks were retained as traceable rows but rejected as a single repeated Workshop Badge Generator training family. The Arduino/PN532 cloner project was rejected as a module-combination tutorial with no self-developed product or sales evidence.
+- ZionTree was not counted as reviewed: its exact page did not load reliably and the cache contains only a Prettier status badge with no project body, so it was moved to the deferred list.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 531 unique IDs across 531 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed.
-- Deferred IDs: 2 unique IDs, excluded from the active queue but not counted as reviewed.
+- Reviewed IDs: 551 unique IDs across 551 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed.
+- Deferred IDs: 3 unique IDs, excluded from the active queue but not counted as reviewed.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
-- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 531 records.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 551 records.
 - Automatic image labels are not accepted as human verification; mismatches, tutorial images, upstream-board images and unresolved images remain marked.
 - PR #9 remains draft and unmerged.
