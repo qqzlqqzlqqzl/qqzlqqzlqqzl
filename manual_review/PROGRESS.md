@@ -5,13 +5,13 @@ Updated: 2026-07-26
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 412
+- Page/source-reviewed records: 432
 - Strict commercial candidates: 0
 - Watchlist: 21
-- Market-reference cases: 152
-- Rejected: 239
+- Market-reference cases: 157
+- Rejected: 254
 - Deferred because exact page evidence is unresolved: 2
-- Remaining unreviewed or deferred: 10,088
+- Remaining unreviewed or deferred: 10,068
 
 ## Completed batches
 
@@ -51,22 +51,23 @@ Updated: 2026-07-26
 | 029 | 7 | 0 | 0 | 2 | 5 | `batch_029_tindie_tools_repair_cables_displays_consumables_calculator_and_testpins.csv` |
 | 030 | 20 | 0 | 0 | 8 | 12 | `batch_030_badges_kits_keychains_software_and_geocache.csv` |
 | 031 | 20 | 0 | 1 | 7 | 12 | `batch_031_catalog_pages_software_badges_keyboards_and_crowdsupply.csv` |
+| 032 | 20 | 0 | 0 | 5 | 15 | `batch_032_badges_software_tutorials_keyboards_and_crowdsupply.csv` |
 
-## Batch 031 self-check
+## Batch 032 self-check
 
-- All 20 records were reviewed against exact project, campaign, repository, article, catalog or reliable cached pages. Catalog and blog pages were rejected rather than treated as product records.
-- Five entries were corrected as software, documentation or firmware-only records: rsbadges, Student_ID_Card, smtp, dcsgonefirm and the academic smart-badge code repository.
-- Conference and macro-pad variants were assigned to existing product families instead of being counted as separate commercial opportunities.
-- Pixblasters Video LED Controller entered the watchlist because it combines a $375 price, 91 campaign backers, ongoing 2026 product updates and a real professional use case. It still requires verification of the complete open-source scope, customer composition, gross margin and field-support burden.
-- Crowd Supply funding figures were treated as evidence of historical demand, not proof of an unoccupied market. Mature products such as UHK and ANAVI macro pads remain market-reference cases.
-- Automatic hero-image labels were checked against page content; software/catalog entries have no hardware hero image, and repository prototypes were not upgraded to sale-ready product images.
+- All 20 rows use exact project pages, exact GitLab/GitHub metadata, exact Crowd Supply/Pimoroni pages, or explicitly labelled repository-cache text; no inaccessible page was presented as an ordinary direct-page review.
+- Nine entries were corrected as software, firmware-only or tutorial records rather than hardware: FIXDUP, radio-silence, emd, Dokos Bookings, scouts_esp32c3, espagotchi, Reconnaissance, Portfolio, cioban and Mini-Badges include ten such corrections; the Badger and MKVN guide pages were separately rejected as tutorials/guides.
+- Arduino/Micro:bit/RP2040 dependencies were recorded explicitly. The RFID access project was rejected as a module-assembly tutorial; Piantor and MicrobitOLEDBadge were kept only as mature product-family references.
+- Gameduino 3X Dazzler was not promoted to watchlist despite historical funding: it is no longer available, uses an older FPGA generation and belongs to a mature embedded graphics market.
+- Event badge variants were assigned to the conference-badge family. Teebeutel and DragonJar are market references, while RedZone was rejected for lack of verifiable activity or procurement evidence.
+- Hero-image checks corrected the FIXDUP website screenshot, the DragonJar image/version risk, tutorial/upstream-product images and all software records with no hardware body.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 412 unique IDs across 412 rows. Exact IDs are excluded from refreshed queues, while semantic duplicates and product-family variants are collapsed during review.
+- Reviewed IDs: 432 unique IDs across 432 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed.
 - Deferred IDs: 2 unique IDs, excluded from the active queue but not counted as reviewed.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
-- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 412 records.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 432 records.
 - Automatic image labels are not accepted as human verification; mismatches, duplicate/version risks and unresolved images remain marked.
 - PR #9 remains draft and unmerged.
