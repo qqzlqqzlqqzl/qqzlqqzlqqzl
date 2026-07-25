@@ -5,12 +5,12 @@ Updated: 2026-07-25
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 210
+- Page/source-reviewed records: 230
 - Strict commercial candidates: 0
 - Watchlist: 16
-- Market-reference cases: 73
-- Rejected: 121
-- Remaining: 10,290
+- Market-reference cases: 79
+- Rejected: 135
+- Remaining: 10,270
 
 ## Completed batches
 
@@ -36,21 +36,23 @@ Updated: 2026-07-25
 | 018 | 10 | 0 | 0 | 7 | 3 | `batch_018_tindie_arcade_microdisplays_supplies_frequency_rf_connectors_and_eurorack.csv` |
 | 019 | 10 | 0 | 0 | 3 | 7 | `batch_019_tindie_qrp_components_rpi_displays_arcade_and_connectors.csv` |
 | 020 | 20 | 0 | 0 | 6 | 14 | `batch_020_tindie_components_microdisplays_props_and_adapters.csv` |
+| 021A | 10 | 0 | 0 | 3 | 7 | `batch_021a_tindie_wires_adc_displays_signal_conditioning_and_rf.csv` |
+| 021B | 10 | 0 | 0 | 3 | 7 | `batch_021b_tindie_adc_oscillators_microdisplays_oled_cables_and_rpi.csv` |
 
-## Batch 020 self-check
+## Batch 021 self-check
 
-- All 20 records were read from exact product-page caches and supporting seller/catalogue pages after direct page fetches returned cache misses; the review status records this evidence path and does not present it as an unrestricted live-page fetch.
-- Six records are retained only as market references: five microdisplay specifications are collapsed into the existing microdisplay/driver/optics supply family, and the assembled 10-LED EMF prop is retained as an IP-dependent high-value prop productisation example.
-- Fourteen records are rejected as commodity buzzers, USB/IR adapters, standard displays, GPIO test boards, NOS Soviet components, spring antennas, connector catalogue parts or low-value breakout boards.
-- Product-family variants are not counted as independent opportunities: the microdisplay listings, NifteeCircuits package breakouts, Electronics16 NOS parts and Casco Logix RF adapters are explicitly collapsed into existing families.
-- Hero-image checks found decisive or high-risk mismatches for the 0.99-inch round TFT (`OLED` filename), the 868 MHz spring antenna (`lora1280.jpg`) and the 0.5-inch microdisplay (`OPTICAL-PRISM-12X`). Records without qualified images remain without images; no neighbouring specification image was substituted.
-- Each row separately records product form, family model, customer, pain point, price/evidence, crowding, dependencies, manufacturing, after-sales, compliance, licensing and image status. No template-only verdict was used.
+- All 20 records were read from exact product pages or exact-page search caches, with direct-page and cross-checked statuses kept distinct where anti-bot or cache failures occurred.
+- Six microdisplay records are retained only as evidence for the existing microdisplay/driver/near-eye-optics supply family; they do not create six new independent opportunities.
+- Fourteen records are rejected as jumper wires, generic ADC/Arduino shields, MAX7219/SSD1306 modules, a low-information signal conditioner, MagJack/antenna catalogue parts, an open-box oscillator, standard cables or a commodity Raspberry Pi display.
+- Strong hero-image corrections include the high-speed ADC using `ruler.JPG`, the HDMI cable using `Copy of RTP SpikeyV2.jpg`, and unresolved image/version conflicts for the old jumper-wire listing and the 6-pin/10-pin IDC cable.
+- The IDC cable page contains a material title/body contradiction (2x3/6-pin versus 2x5/10-pin); the record is rejected and the image is not accepted as verified.
+- Each row separately records product form, product family, customer, pain point, price/evidence, crowding, dependencies, manufacturing, after-sales, compliance, licensing and image status. No old normalised score was reused.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 210 unique IDs across 210 rows. The queue workflow excludes exact project IDs already present in every `batch_*.csv`; semantic duplicate products and interface/specification variants are additionally collapsed during human review.
-- No inaccessible item is silently marked as a normal direct-page review; canonical-cache, seller-directory, manufacturer/OEM-page and cross-checked reviews use distinct statuses.
-- Product-family variants are retained as evidence but are not counted as separate commercial opportunities.
-- No project is admitted to the strict shortlist without page-level evidence, and no strict candidate has been found in the first 210 records.
-- Automatic image labels are not accepted as human verification; mismatches, duplicates, version risks and unresolved images remain explicitly marked.
+- Reviewed IDs: 230 unique IDs across 230 rows. Exact project IDs are excluded from refreshed queues, while semantic duplicate specifications and product-family variants are collapsed during review.
+- No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
+- Product-family variants remain evidence and are not counted as separate commercial opportunities.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 230 records.
+- Automatic image labels are not accepted as human verification; mismatches, duplicate/version risks and unresolved images remain marked.
 - PR #9 remains draft and unmerged.
