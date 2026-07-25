@@ -5,12 +5,12 @@ Updated: 2026-07-25
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 230
+- Page/source-reviewed records: 250
 - Strict commercial candidates: 0
 - Watchlist: 16
-- Market-reference cases: 79
-- Rejected: 135
-- Remaining: 10,270
+- Market-reference cases: 86
+- Rejected: 148
+- Remaining: 10,250
 
 ## Completed batches
 
@@ -38,21 +38,23 @@ Updated: 2026-07-25
 | 020 | 20 | 0 | 0 | 6 | 14 | `batch_020_tindie_components_microdisplays_props_and_adapters.csv` |
 | 021A | 10 | 0 | 0 | 3 | 7 | `batch_021a_tindie_wires_adc_displays_signal_conditioning_and_rf.csv` |
 | 021B | 10 | 0 | 0 | 3 | 7 | `batch_021b_tindie_adc_oscillators_microdisplays_oled_cables_and_rpi.csv` |
+| 022A | 10 | 0 | 0 | 3 | 7 | `batch_022a_tindie_connectors_supplies_rpi_adc_motor_microdisplay_and_arcade.csv` |
+| 022B | 10 | 0 | 0 | 4 | 6 | `batch_022b_tindie_surplus_microdisplays_cables_round_tft_led_controls_and_arcade.csv` |
 
-## Batch 021 self-check
+## Batch 022 self-check
 
-- All 20 records were read from exact product pages or exact-page search caches, with direct-page and cross-checked statuses kept distinct where anti-bot or cache failures occurred.
-- Six microdisplay records are retained only as evidence for the existing microdisplay/driver/near-eye-optics supply family; they do not create six new independent opportunities.
-- Fourteen records are rejected as jumper wires, generic ADC/Arduino shields, MAX7219/SSD1306 modules, a low-information signal conditioner, MagJack/antenna catalogue parts, an open-box oscillator, standard cables or a commodity Raspberry Pi display.
-- Strong hero-image corrections include the high-speed ADC using `ruler.JPG`, the HDMI cable using `Copy of RTP SpikeyV2.jpg`, and unresolved image/version conflicts for the old jumper-wire listing and the 6-pin/10-pin IDC cable.
-- The IDC cable page contains a material title/body contradiction (2x3/6-pin versus 2x5/10-pin); the record is rejected and the image is not accepted as verified.
-- Each row separately records product form, product family, customer, pain point, price/evidence, crowding, dependencies, manufacturing, after-sales, compliance, licensing and image status. No old normalised score was reused.
+- All 20 rows were reviewed from exact product-page caches or exact-title/store cross-checks. Cache-limited records remain explicitly marked `已交叉核验` rather than ordinary direct-page review.
+- The Raspberry Pi ADC HAT was rejected despite real seller sales and a product review: it remains a mature HAT whose support burden includes Linux/Python compatibility.
+- Four microdisplay/optics records are retained only as evidence for the existing microdisplay, driver and near-eye-optics supply family; they do not create four independent opportunities.
+- Two arcade replacement records are folded into the existing long-tail repair-replacement family; the commercial asset is the 114-SKU catalogue, original-board test access and repair knowledge, not either isolated board.
+- Thirteen rows were rejected as standard MagJack/round-TFT components, hot-glue consumables, prototype boards, connector assortments, one-off motor or Soviet-component stock, generic cables, ecosystem wire accessories or a five-dollar voltage-to-PWM module.
+- Hero-image review did not inherit automatic labels. Numeric/generic filenames, absent images and related-product/version risks remain unresolved or rejected.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 230 unique IDs across 230 rows. Exact project IDs are excluded from refreshed queues, while semantic duplicate specifications and product-family variants are collapsed during review.
+- Reviewed IDs: 250 unique IDs across 250 rows. Exact project IDs are excluded from refreshed queues, while semantic duplicate specifications and product-family variants are collapsed during review.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
-- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 230 records.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 250 records.
 - Automatic image labels are not accepted as human verification; mismatches, duplicate/version risks and unresolved images remain marked.
 - PR #9 remains draft and unmerged.
