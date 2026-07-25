@@ -5,12 +5,12 @@ Updated: 2026-07-25
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 130
+- Page/source-reviewed records: 140
 - Strict commercial candidates: 0
 - Watchlist: 15
-- Market-reference cases: 37
-- Rejected: 78
-- Remaining: 10,370
+- Market-reference cases: 43
+- Rejected: 82
+- Remaining: 10,360
 
 ## Completed batches
 
@@ -29,23 +29,22 @@ Updated: 2026-07-25
 | 011 | 10 | 0 | 1 | 3 | 6 | `batch_011_tindie_storage_displays_components_imu_rack_and_prop.csv` |
 | 012 | 10 | 0 | 1 | 3 | 6 | `batch_012_tindie_rc_components_retro_rf_and_displays.csv` |
 | 013 | 10 | 0 | 0 | 1 | 9 | `batch_013_tindie_components_displays_rack_mounts_and_camera.csv` |
+| 014 | 10 | 0 | 0 | 6 | 4 | `batch_014_tindie_eurorack_optics_microdisplays_modules_and_retro.csv` |
 
-## Batch 013 self-check
+## Batch 014 self-check
 
-- Ten records were checked against live Tindie product pages or clearly identified canonical product-page index caches together with seller stores and adjacent product families. Four rows whose live pages returned access/cache failures are explicitly labelled `已逐页阅读（原页索引缓存）`; they are not silently represented as direct live-page reads.
-- One item was retained only as a market reference: the 120 mm fan mount for 10-inch racks. It is a complete use-oriented physical accessory with a clear cooling pain point and a coherent seller family of 10-inch/19-inch device mounts. It remains a reference rather than a strict candidate because it is easy to copy, the licence on the linked Printables design could not be confirmed, and the defensible value lies in continuous device-fit coverage rather than this one model.
-- Nine records were rejected: a Grove encoder bulk pack, two low-price component packs, a generic ST7789 LCD breakout, three RJ45/MagJack catalogue components, a commodity SSD1306 OLED and a stale USB camera module. Demand may exist, but product value comes from established distribution/manufacturing catalogues rather than an open-hardware opportunity suitable for a small entrant.
-- Product-family logic prevents double counting: the three RJ45 rows are evidence for mature connector-manufacturer catalogues rather than three opportunities; EL817 and buzzers are component-resale evidence; the LCD and OLED rows belong to already-saturated generic display-module families.
-- Hero-image checks found five concrete defects or high-risk mismatches: Grove Encoder points to `PWM to Voltage Converter.1.JPG`; the 1.14-inch LCD shares `ARDI BACK.png` with a different round-LCD HAT; the 0.96-inch OLED uses an `alicdn.com` rating image; the 2x4 MagJack image filename names `ARJC02-111008B` while the product is `YKG-832419NL`; and the USB camera points to `Comprehensive development-board-for-iot (2).jpg`. The 0879 connector image is too generically named to confirm and remains unapproved.
-- Every verdict is project-specific and separately records customer, pain point, price, seller evidence, market crowding, dependency, manufacturing, after-sales, compliance, licence and image status.
+- Ten records were checked against live product pages or clearly identified canonical product-page caches, with seller stores, alternative storefronts and adjacent product families used for cross-checking. Cache-based reviews carry a distinct review status and are not presented as unrestricted live-page reads.
+- Six rows are retained only as market references: a Eurorack band-pass filter, an astronomy filter, an 08xx arcade-chip replacement, two micro-OLED display configurations and a retro-computer NFC accessory. None qualifies as a strict candidate because the defensible value lies in a mature product family, specialised supply/test capability or a very small platform community rather than an isolated open design.
+- Four rows are rejected: a Raspberry Pi Pico round-LCD HAT, a bulk Arduino-compatible shield, a two-dollar generic touch-switch pack and a mains smart-light switch with weak sales evidence and extreme certification/support burden.
+- Product-family logic prevents double counting. The two micro-OLED rows are evidence for one near-eye-display supply family, while 08xx is another SKU in the previously identified long-tail arcade-repair family rather than a separate large opportunity.
+- Hero-image review found three important issues: the 08xx row shares its automatic image with the 083 replacement; the 0.39-inch micro-OLED points to a BirdBath optics filename; and the 1.28-inch Pico HAT shares `ARDI BACK.png` with the previously rejected 1.14-inch LCD breakout. The 0.71-inch dual-display row has no qualified hero image. None of these was silently treated as verified.
+- Every verdict separately records product form, opportunity family, customer, pain point, price, market evidence, crowding, dependency, manufacturing, after-sales, compliance, licence, image status and project-specific reasoning.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 130 unique IDs across 130 rows.
-- Every reviewed row records `review_status`, product form, opportunity family, paying customer, pain point, price, market evidence, crowding, dependency, manufacturing, after-sales, compliance, license, hero-image verdict, final bucket, project-specific verdict reason and evidence URLs.
-- No inaccessible item is silently marked as a normal direct-page review; canonical-cache reviews carry a distinct status.
-- Product-family variants are retained for evidence but are not counted as separate commercial opportunities.
-- The inaccessible `1201 Bandpass Filter Eurorack Synthesizer Module`, `0-10v Analogue To RS485 Modbus RTU Converter DIN`, Cherry M81F keyswitch and M31 astro-filter pages remain unreviewed and unscored.
-- The `08Xx Replacement`, 0.39-inch, 0.71-inch and 0.6-inch microdisplay pages also remain unreviewed because their exact pages were not reliably retrievable; related products were not substituted.
-- The 1.28-inch round LCD HAT and ESPea Dual Shield remain in the pending queue for a later run; they were not scored from names or shared images alone.
+- Reviewed IDs: 140 unique IDs across 140 rows.
+- No inaccessible item is silently marked as a normal direct-page review; canonical-cache and cross-checked reviews use distinct statuses.
+- Product-family variants are retained as evidence but are not counted as separate commercial opportunities.
+- No forced score normalisation is used, and no project is admitted to the strict shortlist without page-level evidence.
+- Automatic image labels are not accepted as human verification; mismatches and unresolved images remain explicitly marked.
 - PR #9 remains draft and unmerged.
