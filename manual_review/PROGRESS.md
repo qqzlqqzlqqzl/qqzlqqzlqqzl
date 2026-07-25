@@ -5,12 +5,12 @@ Updated: 2026-07-25
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 160
+- Page/source-reviewed records: 170
 - Strict commercial candidates: 0
 - Watchlist: 16
-- Market-reference cases: 54
-- Rejected: 90
-- Remaining: 10,340
+- Market-reference cases: 57
+- Rejected: 97
+- Remaining: 10,330
 
 ## Completed batches
 
@@ -32,20 +32,22 @@ Updated: 2026-07-25
 | 014 | 10 | 0 | 0 | 6 | 4 | `batch_014_tindie_eurorack_optics_microdisplays_modules_and_retro.csv` |
 | 015 | 10 | 0 | 1 | 6 | 3 | `batch_015_tindie_industrial_converter_retro_parts_microdisplays_rack_and_connectors.csv` |
 | 016 | 10 | 0 | 0 | 5 | 5 | `batch_016_tindie_cables_lighting_modules_displays_retro_and_optics.csv` |
+| 017 | 10 | 0 | 0 | 3 | 7 | `batch_017_tindie_arcade_oled_cables_wearables_touchscreen_led_and_devboards.csv` |
 
-## Batch 016 self-check
+## Batch 017 self-check
 
-- Ten records were checked against indexed product pages, seller catalogues and category/competitor pages. The 10W LED light and the 0.72-inch HMD lens-group entry have incomplete exact-page text and are explicitly labelled as cross-checked rather than unrestricted direct-page reads.
-- Five commodity or mature items were rejected: a $4.95 SMA cable pack, a weakly documented 24V LED light, an Arduino MCP3208 ADC Shield, a paused-store IR relay bare board and a standard 1.22-inch round TFT.
-- Five rows are retained only as market references: three microdisplay specifications, one HMD optics configuration and the Namco 06xx replacement. They belong to previously identified product families and do not increase the count of independent opportunities.
-- Hero-image review found two strong faults: the 1.22-inch TFT points to a filename containing `OLED`, and the 0.5-inch bare microdisplay points to a BirdBath-lens image. The 06xx and 07xx replacement rows share the same image URL, so neither image is treated as exact-model verification.
-- Every verdict separately records product form, opportunity family, customer, pain point, price or missing-price status, evidence, crowding, dependency, manufacturing, after-sales, compliance, licence, hero-image status and project-specific reasoning.
+- Ten records were checked using direct product-page reads where available; the PIC cable and the 0.39-inch micro-OLED use explicitly labelled manufacturer/catalogue cross-checks because their direct Tindie pages were incomplete or temporarily inaccessible.
+- Seven entries were rejected: two commodity 0.96-inch OLED modules, one PIC cable, an Arduino tutorial PCB pack for RGB shades, a generic SBC touchscreen, an educational 10x10 RGB matrix kit and a narrow AVR/Arduino-compatible development board.
+- Three entries are retained only as market references: the Namco 07xx replacement and two microdisplay specifications. They belong to previously identified long-tail repair and microdisplay supply families and do not increase the count of independent opportunities.
+- The 10.6-inch touchscreen was not mistaken for a new product opportunity: the seller has zero recorded Tindie orders, the SKU is out of stock, and mature suppliers offer supported/certified alternatives at lower prices.
+- Hero-image review identified one strong mismatch and one duplicate-model failure: the 1284 board image filename is `k6502_kit2.jpg`, while the 07xx and 04xx entries use the same image URL. Rows without a qualified microdisplay image remain explicitly unresolved rather than borrowing a neighbouring SKU image.
+- Product-specific verdicts were written separately; no shared boilerplate score reason or forced score normalisation was introduced.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 160 unique IDs across 160 rows.
-- No inaccessible item is silently marked as a normal direct-page review; canonical-cache and cross-checked reviews use distinct statuses.
+- Reviewed IDs: 170 unique IDs across 170 rows. The queue workflow excludes IDs already present in every `batch_*.csv` before selecting the next records.
+- No inaccessible item is silently marked as a normal direct-page review; canonical-cache, manufacturer-page and cross-checked reviews use distinct statuses.
 - Product-family variants are retained as evidence but are not counted as separate commercial opportunities.
-- No forced score normalisation is used, and no project is admitted to the strict shortlist without page-level evidence.
-- Automatic image labels are not accepted as human verification; mismatches and unresolved images remain explicitly marked.
+- No project is admitted to the strict shortlist without page-level evidence, and no strict candidate has been found in the first 170 records.
+- Automatic image labels are not accepted as human verification; mismatches, duplicates and unresolved images remain explicitly marked.
 - PR #9 remains draft and unmerged.
