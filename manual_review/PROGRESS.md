@@ -5,12 +5,12 @@ Updated: 2026-07-25
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 170
+- Page/source-reviewed records: 180
 - Strict commercial candidates: 0
 - Watchlist: 16
-- Market-reference cases: 57
-- Rejected: 97
-- Remaining: 10,330
+- Market-reference cases: 64
+- Rejected: 100
+- Remaining: 10,320
 
 ## Completed batches
 
@@ -33,21 +33,23 @@ Updated: 2026-07-25
 | 015 | 10 | 0 | 1 | 6 | 3 | `batch_015_tindie_industrial_converter_retro_parts_microdisplays_rack_and_connectors.csv` |
 | 016 | 10 | 0 | 0 | 5 | 5 | `batch_016_tindie_cables_lighting_modules_displays_retro_and_optics.csv` |
 | 017 | 10 | 0 | 0 | 3 | 7 | `batch_017_tindie_arcade_oled_cables_wearables_touchscreen_led_and_devboards.csv` |
+| 018 | 10 | 0 | 0 | 7 | 3 | `batch_018_tindie_arcade_microdisplays_supplies_frequency_rf_connectors_and_eurorack.csv` |
 
-## Batch 017 self-check
+## Batch 018 self-check
 
-- Ten records were checked using direct product-page reads where available; the PIC cable and the 0.39-inch micro-OLED use explicitly labelled manufacturer/catalogue cross-checks because their direct Tindie pages were incomplete or temporarily inaccessible.
-- Seven entries were rejected: two commodity 0.96-inch OLED modules, one PIC cable, an Arduino tutorial PCB pack for RGB shades, a generic SBC touchscreen, an educational 10x10 RGB matrix kit and a narrow AVR/Arduino-compatible development board.
-- Three entries are retained only as market references: the Namco 07xx replacement and two microdisplay specifications. They belong to previously identified long-tail repair and microdisplay supply families and do not increase the count of independent opportunities.
-- The 10.6-inch touchscreen was not mistaken for a new product opportunity: the seller has zero recorded Tindie orders, the SKU is out of stock, and mature suppliers offer supported/certified alternatives at lower prices.
-- Hero-image review identified one strong mismatch and one duplicate-model failure: the 1284 board image filename is `k6502_kit2.jpg`, while the 07xx and 04xx entries use the same image URL. Rows without a qualified microdisplay image remain explicitly unresolved rather than borrowing a neighbouring SKU image.
-- Product-specific verdicts were written separately; no shared boilerplate score reason or forced score normalisation was introduced.
+- Eight records were read from usable original product pages. The GPS L5 filter and 1–20HP blind panel used explicitly labelled Tindie product-index, seller-directory and catalogue cross-checks because their original page fetches temporarily returned errors.
+- Three records were rejected: standard antistatic bags, a discontinued HP E1938A OCXO resale item and a duplicate/mature 12-channel infrared relay bare board.
+- Seven records are retained only as market references. The Namco 04xx replacement belongs to the existing arcade-repair family; the GPS filter belongs to GPIO Labs' 129-SKU RF catalogue; the miniature cable and Eurorack panel demonstrate accessory-catalogue methods rather than defensible standalone opportunities.
+- The three micro-OLED listings were not counted as three independent opportunities. Two Hicenda listings use the same ECX331DB-6 panel with CVBS versus HDMI controllers, while the 0.4-inch listing is another specification inside an already established microdisplay/driver/optics supply family.
+- Page credibility was checked rather than copied blindly: the 0.4-inch micro-OLED title says 1440×1080 while its body claims 1920×1080, and the GPS L5 price appears as 63 dollars in one current index and 51 dollars in the seller catalogue.
+- Hero-image review found two decisive failures: the antistatic-bag image filename points to an LH12A laser-holder product, and the 04xx entry reuses the same automatic image as the earlier 07xx record. Rows without qualified microdisplay images remain unresolved; generic filenames are not treated as human verification.
+- Each verdict is project-specific and separately records product form, customer, pain point, evidence, crowding, dependencies, manufacturing, after-sales, compliance, licensing and image status.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 170 unique IDs across 170 rows. The queue workflow excludes IDs already present in every `batch_*.csv` before selecting the next records.
-- No inaccessible item is silently marked as a normal direct-page review; canonical-cache, manufacturer-page and cross-checked reviews use distinct statuses.
+- Reviewed IDs: 180 unique IDs across 180 rows. The queue workflow excludes exact project IDs already present in every `batch_*.csv`; semantic duplicate products and interface/specification variants are additionally collapsed during human review.
+- No inaccessible item is silently marked as a normal direct-page review; canonical-cache, seller-directory, manufacturer-page and cross-checked reviews use distinct statuses.
 - Product-family variants are retained as evidence but are not counted as separate commercial opportunities.
-- No project is admitted to the strict shortlist without page-level evidence, and no strict candidate has been found in the first 170 records.
+- No project is admitted to the strict shortlist without page-level evidence, and no strict candidate has been found in the first 180 records.
 - Automatic image labels are not accepted as human verification; mismatches, duplicates and unresolved images remain explicitly marked.
 - PR #9 remains draft and unmerged.
