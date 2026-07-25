@@ -5,13 +5,13 @@ Updated: 2026-07-26
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 492
+- Page/source-reviewed records: 512
 - Strict commercial candidates: 0
 - Watchlist: 23
-- Market-reference cases: 164
-- Rejected: 305
+- Market-reference cases: 166
+- Rejected: 323
 - Deferred because exact page evidence is unresolved: 2
-- Remaining unreviewed or deferred: 10,008
+- Remaining unreviewed or deferred: 9,988
 
 ## Completed batches
 
@@ -55,22 +55,23 @@ Updated: 2026-07-26
 | 033 | 20 | 0 | 1 | 2 | 17 | `batch_033_software_false_positives_devboards_macropads_water_monitor_and_eurorack.csv` |
 | 034 | 20 | 0 | 1 | 2 | 17 | `batch_034_badges_software_ai_audio_and_input_devices.csv` |
 | 035 | 20 | 0 | 0 | 3 | 17 | `batch_035_keyboards_music_badgeware_software_and_workshop_clones.csv` |
+| 036 | 20 | 0 | 0 | 2 | 18 | `batch_036_workshop_clones_badge_tutorial_security_and_retroesp32.csv` |
 
-## Batch 035 self-check
+## Batch 036 self-check
 
-- Redox, Aciduino and dcsgonebadge were read from exact project pages; commercial/vendor pages were also checked for Redox and Aciduino rather than inferring demand from stars alone.
-- The dRehmFlight README explicitly says the project is for education and rapid prototyping, is not intended for commercial use, and uses off-the-shelf components; it was therefore rejected as an independent hardware opportunity.
-- Eight CI/CD Workshop Badge Generator participant forks were collapsed into one software-training family. They remain separate source records for traceability but do not create eight commercial opportunities.
-- The two Pimoroni Badgeware pages were verified as tutorials that market upstream boards and sensor kits. Their step images and upstream-board photos were not accepted as independent product hero images.
-- Software repositories, profile text, Docker services, Arduino core packages and Android demo code were rejected without artificial hardware scores.
-- No row was promoted to strict candidate or watchlist in this batch; three genuine hardware/open-hardware projects were retained only as market-reference cases because their categories are mature or event-dependent.
+- Fifteen additional Workshop Badge Generator participant forks were reviewed from their exact source-record cache after the GitLab pages failed to load reliably. Each remains a traceable source row, but all are collapsed into one software-training family and create no separate hardware opportunities.
+- Redbadger was read from the exact GitLab project page and is a cybersecurity software project, not a badge or hardware device.
+- The Pimoroni MQTT page was read as a complete tutorial: it explicitly uses Tufty 2350, Plasma 2350 W and an RGB LED chain, so its tutorial images are upstream-board/application images rather than an independent product hero image.
+- RetroESP32 was checked against its README, stated license, current Tindie listing, store totals and reviews. It is retained only as a historical software-plus-custom-board commercialization case because the assembled product has been out of stock since December 18, 2024 and the market is mature.
+- The Delft Open Hardware badge is retained only as an event-hardware method reference; the 2017 BSides Indy badge workshop is rejected as a one-off workshop record without recurring product evidence.
+- All 20 project IDs are unique. No source-cache review is mislabeled as a stable direct-page review, and no automatic image status is promoted to human verification.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 492 unique IDs across 492 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed.
+- Reviewed IDs: 512 unique IDs across 512 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed.
 - Deferred IDs: 2 unique IDs, excluded from the active queue but not counted as reviewed.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
-- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 492 records.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 512 records.
 - Automatic image labels are not accepted as human verification; mismatches, tutorial images, upstream-board images and unresolved images remain marked.
 - PR #9 remains draft and unmerged.
