@@ -5,13 +5,13 @@ Updated: 2026-07-26
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 432
+- Page/source-reviewed records: 452
 - Strict commercial candidates: 0
-- Watchlist: 21
-- Market-reference cases: 157
-- Rejected: 254
+- Watchlist: 22
+- Market-reference cases: 159
+- Rejected: 271
 - Deferred because exact page evidence is unresolved: 2
-- Remaining unreviewed or deferred: 10,068
+- Remaining unreviewed or deferred: 10,048
 
 ## Completed batches
 
@@ -52,22 +52,24 @@ Updated: 2026-07-26
 | 030 | 20 | 0 | 0 | 8 | 12 | `batch_030_badges_kits_keychains_software_and_geocache.csv` |
 | 031 | 20 | 0 | 1 | 7 | 12 | `batch_031_catalog_pages_software_badges_keyboards_and_crowdsupply.csv` |
 | 032 | 20 | 0 | 0 | 5 | 15 | `batch_032_badges_software_tutorials_keyboards_and_crowdsupply.csv` |
+| 033 | 20 | 0 | 1 | 2 | 17 | `batch_033_software_false_positives_devboards_macropads_water_monitor_and_eurorack.csv` |
 
-## Batch 032 self-check
+## Batch 033 self-check
 
-- All 20 rows use exact project pages, exact GitLab/GitHub metadata, exact Crowd Supply/Pimoroni pages, or explicitly labelled repository-cache text; no inaccessible page was presented as an ordinary direct-page review.
-- Nine entries were corrected as software, firmware-only or tutorial records rather than hardware: FIXDUP, radio-silence, emd, Dokos Bookings, scouts_esp32c3, espagotchi, Reconnaissance, Portfolio, cioban and Mini-Badges include ten such corrections; the Badger and MKVN guide pages were separately rejected as tutorials/guides.
-- Arduino/Micro:bit/RP2040 dependencies were recorded explicitly. The RFID access project was rejected as a module-assembly tutorial; Piantor and MicrobitOLEDBadge were kept only as mature product-family references.
-- Gameduino 3X Dazzler was not promoted to watchlist despite historical funding: it is no longer available, uses an older FPGA generation and belongs to a mature embedded graphics market.
-- Event badge variants were assigned to the conference-badge family. Teebeutel and DragonJar are market references, while RedZone was rejected for lack of verifiable activity or procurement evidence.
-- Hero-image checks corrected the FIXDUP website screenshot, the DragonJar image/version risk, tutorial/upstream-product images and all software records with no hardware body.
+- All 20 rows were read from exact GitHub/GitLab pages, current product pages, or explicitly labelled exact project-cache text; inaccessible GitLab pages were not represented as ordinary direct-page reviews.
+- Fourteen obvious software, documentation, training or security-research false positives were rejected. The GitLab `csp` mirror was collapsed into the same software family as its upstream instead of being counted as a separate opportunity.
+- SparkFun ESP32 Thing was rejected as a mature generic development board despite current availability and open files. ESPlay Retro Emulation was corrected as firmware for separately sold upstream hardware, and its old image was marked as an upstream-device image rather than an independent product hero image.
+- Beyblock20 was retained only as a modular-keyboard concept reference because the repository is explicitly alpha, relies on one Seeeduino XIAO per module and has no price or order evidence.
+- Synapse was retained as a market-reference case because code, schematics, BOM and limited kit/assembled sales are evidenced, but current price and volume are unresolved and the Eurorack MIDI/CV market is mature.
+- TankSync entered watchlist with exact current evidence: ₹5,999 price, first batch sold out, second batch scheduled for August 2026, complete product photos, BOM and a current ₹11,799 Indian competitor. It was not promoted to strict candidate because sold quantity, field-installation burden, accuracy/reliability data and newer binary firmware restrictions remain unresolved.
+- Hero-image review did not accept automatic labels. TankSync's PCB image is hardware-matched but not the preferred complete-kit sales image; software records have no hardware body; ESPlay uses upstream hardware; Beyblock20 and Synapse show their actual prototypes/modules.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 432 unique IDs across 432 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed.
+- Reviewed IDs: 452 unique IDs across 452 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed.
 - Deferred IDs: 2 unique IDs, excluded from the active queue but not counted as reviewed.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
-- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 432 records.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 452 records.
 - Automatic image labels are not accepted as human verification; mismatches, duplicate/version risks and unresolved images remain marked.
 - PR #9 remains draft and unmerged.
