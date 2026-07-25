@@ -5,13 +5,13 @@ Updated: 2026-07-26
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 452
+- Page/source-reviewed records: 472
 - Strict commercial candidates: 0
-- Watchlist: 22
-- Market-reference cases: 159
-- Rejected: 271
+- Watchlist: 23
+- Market-reference cases: 161
+- Rejected: 288
 - Deferred because exact page evidence is unresolved: 2
-- Remaining unreviewed or deferred: 10,048
+- Remaining unreviewed or deferred: 10,028
 
 ## Completed batches
 
@@ -53,23 +53,23 @@ Updated: 2026-07-26
 | 031 | 20 | 0 | 1 | 7 | 12 | `batch_031_catalog_pages_software_badges_keyboards_and_crowdsupply.csv` |
 | 032 | 20 | 0 | 0 | 5 | 15 | `batch_032_badges_software_tutorials_keyboards_and_crowdsupply.csv` |
 | 033 | 20 | 0 | 1 | 2 | 17 | `batch_033_software_false_positives_devboards_macropads_water_monitor_and_eurorack.csv` |
+| 034 | 20 | 0 | 1 | 2 | 17 | `batch_034_badges_software_ai_audio_and_input_devices.csv` |
 
-## Batch 033 self-check
+## Batch 034 self-check
 
-- All 20 rows were read from exact GitHub/GitLab pages, current product pages, or explicitly labelled exact project-cache text; inaccessible GitLab pages were not represented as ordinary direct-page reviews.
-- Fourteen obvious software, documentation, training or security-research false positives were rejected. The GitLab `csp` mirror was collapsed into the same software family as its upstream instead of being counted as a separate opportunity.
-- SparkFun ESP32 Thing was rejected as a mature generic development board despite current availability and open files. ESPlay Retro Emulation was corrected as firmware for separately sold upstream hardware, and its old image was marked as an upstream-device image rather than an independent product hero image.
-- Beyblock20 was retained only as a modular-keyboard concept reference because the repository is explicitly alpha, relies on one Seeeduino XIAO per module and has no price or order evidence.
-- Synapse was retained as a market-reference case because code, schematics, BOM and limited kit/assembled sales are evidenced, but current price and volume are unresolved and the Eurorack MIDI/CV market is mature.
-- TankSync entered watchlist with exact current evidence: ₹5,999 price, first batch sold out, second batch scheduled for August 2026, complete product photos, BOM and a current ₹11,799 Indian competitor. It was not promoted to strict candidate because sold quantity, field-installation burden, accuracy/reliability data and newer binary firmware restrictions remain unresolved.
-- Hero-image review did not accept automatic labels. TankSync's PCB image is hardware-matched but not the preferred complete-kit sales image; software records have no hardware body; ESPlay uses upstream hardware; Beyblock20 and Synapse show their actual prototypes/modules.
+- All 20 rows were read from exact GitHub/GitLab pages or explicitly labelled exact source-page cache text; pages that did not load reliably were not represented as ordinary direct-page reviews.
+- Thirteen software, documentation, resource-list, upstream-board application or one-off maker records were rejected without assigning them artificial commercial scores.
+- The two Tufty conference-badge records were collapsed into one upstream-board application family instead of being counted as two independent opportunities.
+- KB1 entered watchlist because it is a complete niche controller with hardware files, active releases and CERN-OHL-S hardware licensing, but price, orders and target-device market size remain unresolved.
+- ElatoAI and PicoADK were retained only as market-reference cases: both show real platform/product activity, while their commercial value comes from software/ecosystem, support and distribution rather than an uncovered generic-board opportunity.
+- ElatoAI's `pcb-design.png`, KB1's internal assembly image and upstream-board photos were not promoted to complete sales-level hero images.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 452 unique IDs across 452 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed.
+- Reviewed IDs: 472 unique IDs across 472 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed.
 - Deferred IDs: 2 unique IDs, excluded from the active queue but not counted as reviewed.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
-- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 452 records.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 472 records.
 - Automatic image labels are not accepted as human verification; mismatches, duplicate/version risks and unresolved images remain marked.
 - PR #9 remains draft and unmerged.
