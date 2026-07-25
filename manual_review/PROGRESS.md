@@ -5,13 +5,13 @@ Updated: 2026-07-26
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 392
+- Page/source-reviewed records: 412
 - Strict commercial candidates: 0
-- Watchlist: 20
-- Market-reference cases: 145
-- Rejected: 227
+- Watchlist: 21
+- Market-reference cases: 152
+- Rejected: 239
 - Deferred because exact page evidence is unresolved: 2
-- Remaining unreviewed or deferred: 10,108
+- Remaining unreviewed or deferred: 10,088
 
 ## Completed batches
 
@@ -50,22 +50,23 @@ Updated: 2026-07-26
 | 028 | 18 | 0 | 1 | 6 | 11 | `batch_028_tindie_displays_optics_retro_components_and_testgear.csv` |
 | 029 | 7 | 0 | 0 | 2 | 5 | `batch_029_tindie_tools_repair_cables_displays_consumables_calculator_and_testpins.csv` |
 | 030 | 20 | 0 | 0 | 8 | 12 | `batch_030_badges_kits_keychains_software_and_geocache.csv` |
+| 031 | 20 | 0 | 1 | 7 | 12 | `batch_031_catalog_pages_software_badges_keyboards_and_crowdsupply.csv` |
 
-## Batch 030 self-check
+## Batch 031 self-check
 
-- All 20 rows were reviewed from exact project pages, exact repository READMEs, OSHWA certification pages, seller pages or named commercial comparators; no queue summary alone was accepted as page review.
-- Five conference-badge records were collapsed into the conference-customization family. Teebeutel hardware is the sole family representative; its expansion and documentation repositories were rejected as duplicate components.
-- Four Hack Club keychain/badge submissions were rejected as personal or workshop projects with cost estimates but no customer, sales or repeat-purchase evidence.
-- NextGenerator and MCard-StarterKit were corrected as software-only records. The Claude usage monitor was rejected for generic-module assembly, undocumented API dependence, session-cookie handling and disabled TLS verification.
-- Reverse Geocache Box was retained only as a market-reference case because historical kits and finished products demonstrate payment, but existing commercial implementations, patent risk and lockout/support risk prevent shortlist entry.
-- Automatic hero-image labels were not accepted without page-image agreement. Only the ef28 and Reverse Geocache repository images were confirmed as the actual project; unresolved records remain unresolved.
+- All 20 records were reviewed against exact project, campaign, repository, article, catalog or reliable cached pages. Catalog and blog pages were rejected rather than treated as product records.
+- Five entries were corrected as software, documentation or firmware-only records: rsbadges, Student_ID_Card, smtp, dcsgonefirm and the academic smart-badge code repository.
+- Conference and macro-pad variants were assigned to existing product families instead of being counted as separate commercial opportunities.
+- Pixblasters Video LED Controller entered the watchlist because it combines a $375 price, 91 campaign backers, ongoing 2026 product updates and a real professional use case. It still requires verification of the complete open-source scope, customer composition, gross margin and field-support burden.
+- Crowd Supply funding figures were treated as evidence of historical demand, not proof of an unoccupied market. Mature products such as UHK and ANAVI macro pads remain market-reference cases.
+- Automatic hero-image labels were checked against page content; software/catalog entries have no hardware hero image, and repository prototypes were not upgraded to sale-ready product images.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 392 unique IDs across 392 rows. Exact IDs are excluded from refreshed queues, while semantic duplicates and product-family variants are collapsed during review.
+- Reviewed IDs: 412 unique IDs across 412 rows. Exact IDs are excluded from refreshed queues, while semantic duplicates and product-family variants are collapsed during review.
 - Deferred IDs: 2 unique IDs, excluded from the active queue but not counted as reviewed.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
-- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 392 records.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 412 records.
 - Automatic image labels are not accepted as human verification; mismatches, duplicate/version risks and unresolved images remain marked.
 - PR #9 remains draft and unmerged.
