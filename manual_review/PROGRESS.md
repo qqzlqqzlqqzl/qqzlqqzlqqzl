@@ -5,12 +5,12 @@ Updated: 2026-07-25
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 329
+- Page/source-reviewed records: 347
 - Strict commercial candidates: 0
 - Watchlist: 19
-- Market-reference cases: 122
-- Rejected: 188
-- Remaining: 10,171
+- Market-reference cases: 129
+- Rejected: 199
+- Remaining: 10,153
 
 ## Completed batches
 
@@ -45,21 +45,22 @@ Updated: 2026-07-25
 | 024 | 20 | 0 | 0 | 9 | 11 | `batch_024_tindie_oled_components_debug_tools_rack_and_neopixel.csv` |
 | 025 | 20 | 0 | 1 | 10 | 9 | `batch_025_tindie_fm_adc_displays_components_filters_and_retro.csv` |
 | 026 | 19 | 0 | 1 | 9 | 9 | `batch_026_tindie_cables_filters_bms_microdisplays_components_and_retro.csv` |
+| 027 | 18 | 0 | 0 | 7 | 11 | `batch_027_tindie_displays_cables_components_retro_and_rpi.csv` |
 
-## Batch 026 self-check
+## Batch 027 self-check
 
-- Nineteen records were accepted as reviewed only after reading exact indexed product pages or exact SKU/store pages. The Nicla Sense 1000mAh battery row was deliberately left unreviewed because neither its current product body nor reliable cached pricing and market evidence could be retrieved.
-- Generic IDC/SWD cables, spring antennas, round AMOLED, D1 Mini Shield, power-supply kit, MAX7219 module, MagJack, SAO connector and SN74HC595 pack were rejected or retained only as product-family evidence; none was promoted from its crawler score.
-- Four microdisplay/optics rows were collapsed into the existing microdisplay/driver/near-eye-optics supply family. They are specification and pricing evidence, not four new independent opportunities.
-- The Atari 800 1056K board was treated as a variant supporting the existing Atari memory-upgrade family. Its exact product review and seller reviews validate demand, but it does not create a duplicate opportunity.
-- The teTra 24S–96S high-voltage BMS sub-board is the only new watchlist row. High ticket and a real professional problem are present, but sales evidence, safety documentation, open design assets and certification evidence are absent.
-- Automatic image labels were not inherited. Four SKU-linked image URLs remain version/visual-check pending; all rows without exact images explicitly prohibit substitution with a similar display, antenna, filter, connector or retro board.
+- Eighteen records were accepted only after reading exact product pages or exact indexed/cached product bodies and cross-checking seller catalogs where needed.
+- The Nicla Sense 1000mAh battery was deliberately left unreviewed because the exact product body, current price and reliable demand evidence could not be retrieved.
+- The nominal 1.03-inch 2560×2560 1000-nit microOLED row was also left unreviewed because the exact URL was unavailable and the seller catalog exposed conflicting 1.03-inch brightness variants. No similar display was substituted.
+- Round TFT, HDMI monitor, breakout board, parts packs, generic cables, MagJack and reseller meter were rejected; their crawler score and automatic image status were not used as commercial evidence.
+- Four microdisplay rows were collapsed into the existing microdisplay/driver/near-eye-optics supply family. The Raspberry Pi ADC HAT and Commodore cable remain product-family evidence rather than separate strict opportunities.
+- Automatic hero-image labels were never promoted to human verification. Missing, generic or SKU-ambiguous images remain unresolved.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 329 unique IDs across 329 rows. Exact project IDs are excluded from refreshed queues, while semantic duplicate specifications and product-family variants are collapsed during review.
+- Reviewed IDs: 347 unique IDs across 347 rows. Exact IDs are excluded from refreshed queues, while semantic duplicates and product-family variants are collapsed during review.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
-- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 329 records.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 347 records.
 - Automatic image labels are not accepted as human verification; mismatches, duplicate/version risks and unresolved images remain marked.
 - PR #9 remains draft and unmerged.
