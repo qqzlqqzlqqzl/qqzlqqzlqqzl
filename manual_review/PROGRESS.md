@@ -5,13 +5,13 @@ Updated: 2026-07-26
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 472
+- Page/source-reviewed records: 492
 - Strict commercial candidates: 0
 - Watchlist: 23
-- Market-reference cases: 161
-- Rejected: 288
+- Market-reference cases: 164
+- Rejected: 305
 - Deferred because exact page evidence is unresolved: 2
-- Remaining unreviewed or deferred: 10,028
+- Remaining unreviewed or deferred: 10,008
 
 ## Completed batches
 
@@ -54,22 +54,23 @@ Updated: 2026-07-26
 | 032 | 20 | 0 | 0 | 5 | 15 | `batch_032_badges_software_tutorials_keyboards_and_crowdsupply.csv` |
 | 033 | 20 | 0 | 1 | 2 | 17 | `batch_033_software_false_positives_devboards_macropads_water_monitor_and_eurorack.csv` |
 | 034 | 20 | 0 | 1 | 2 | 17 | `batch_034_badges_software_ai_audio_and_input_devices.csv` |
+| 035 | 20 | 0 | 0 | 3 | 17 | `batch_035_keyboards_music_badgeware_software_and_workshop_clones.csv` |
 
-## Batch 034 self-check
+## Batch 035 self-check
 
-- All 20 rows were read from exact GitHub/GitLab pages or explicitly labelled exact source-page cache text; pages that did not load reliably were not represented as ordinary direct-page reviews.
-- Thirteen software, documentation, resource-list, upstream-board application or one-off maker records were rejected without assigning them artificial commercial scores.
-- The two Tufty conference-badge records were collapsed into one upstream-board application family instead of being counted as two independent opportunities.
-- KB1 entered watchlist because it is a complete niche controller with hardware files, active releases and CERN-OHL-S hardware licensing, but price, orders and target-device market size remain unresolved.
-- ElatoAI and PicoADK were retained only as market-reference cases: both show real platform/product activity, while their commercial value comes from software/ecosystem, support and distribution rather than an uncovered generic-board opportunity.
-- ElatoAI's `pcb-design.png`, KB1's internal assembly image and upstream-board photos were not promoted to complete sales-level hero images.
+- Redox, Aciduino and dcsgonebadge were read from exact project pages; commercial/vendor pages were also checked for Redox and Aciduino rather than inferring demand from stars alone.
+- The dRehmFlight README explicitly says the project is for education and rapid prototyping, is not intended for commercial use, and uses off-the-shelf components; it was therefore rejected as an independent hardware opportunity.
+- Eight CI/CD Workshop Badge Generator participant forks were collapsed into one software-training family. They remain separate source records for traceability but do not create eight commercial opportunities.
+- The two Pimoroni Badgeware pages were verified as tutorials that market upstream boards and sensor kits. Their step images and upstream-board photos were not accepted as independent product hero images.
+- Software repositories, profile text, Docker services, Arduino core packages and Android demo code were rejected without artificial hardware scores.
+- No row was promoted to strict candidate or watchlist in this batch; three genuine hardware/open-hardware projects were retained only as market-reference cases because their categories are mature or event-dependent.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 472 unique IDs across 472 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed.
+- Reviewed IDs: 492 unique IDs across 492 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed.
 - Deferred IDs: 2 unique IDs, excluded from the active queue but not counted as reviewed.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
-- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 472 records.
-- Automatic image labels are not accepted as human verification; mismatches, duplicate/version risks and unresolved images remain marked.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 492 records.
+- Automatic image labels are not accepted as human verification; mismatches, tutorial images, upstream-board images and unresolved images remain marked.
 - PR #9 remains draft and unmerged.
