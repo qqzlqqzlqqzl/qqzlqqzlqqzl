@@ -5,12 +5,12 @@ Updated: 2026-07-25
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 250
+- Page/source-reviewed records: 270
 - Strict commercial candidates: 0
-- Watchlist: 16
-- Market-reference cases: 86
-- Rejected: 148
-- Remaining: 10,250
+- Watchlist: 17
+- Market-reference cases: 94
+- Rejected: 159
+- Remaining: 10,230
 
 ## Completed batches
 
@@ -40,21 +40,23 @@ Updated: 2026-07-25
 | 021B | 10 | 0 | 0 | 3 | 7 | `batch_021b_tindie_adc_oscillators_microdisplays_oled_cables_and_rpi.csv` |
 | 022A | 10 | 0 | 0 | 3 | 7 | `batch_022a_tindie_connectors_supplies_rpi_adc_motor_microdisplay_and_arcade.csv` |
 | 022B | 10 | 0 | 0 | 4 | 6 | `batch_022b_tindie_surplus_microdisplays_cables_round_tft_led_controls_and_arcade.csv` |
+| 023A | 10 | 0 | 1 | 4 | 5 | `batch_023a_tindie_microdisplays_rpi_rf_led_arcade_antenna_camera.csv` |
+| 023B | 10 | 0 | 0 | 4 | 6 | `batch_023b_tindie_microdisplay_power_components_cables_testaccessory_hats.csv` |
 
-## Batch 022 self-check
+## Batch 023 self-check
 
-- All 20 rows were reviewed from exact product-page caches or exact-title/store cross-checks. Cache-limited records remain explicitly marked `已交叉核验` rather than ordinary direct-page review.
-- The Raspberry Pi ADC HAT was rejected despite real seller sales and a product review: it remains a mature HAT whose support burden includes Linux/Python compatibility.
-- Four microdisplay/optics records are retained only as evidence for the existing microdisplay, driver and near-eye-optics supply family; they do not create four independent opportunities.
-- Two arcade replacement records are folded into the existing long-tail repair-replacement family; the commercial asset is the 114-SKU catalogue, original-board test access and repair knowledge, not either isolated board.
-- Thirteen rows were rejected as standard MagJack/round-TFT components, hot-glue consumables, prototype boards, connector assortments, one-off motor or Soviet-component stock, generic cables, ecosystem wire accessories or a five-dollar voltage-to-PWM module.
-- Hero-image review did not inherit automatic labels. Numeric/generic filenames, absent images and related-product/version risks remain unresolved or rejected.
+- All 20 records were based on exact product-page caches or exact-title/store/product-family cross-checks. The 12-port RF splitter remains explicitly marked `已交叉核验` because the exact body cache was unavailable.
+- Five microdisplay records were folded into the existing microdisplay/driver/near-eye-optics supply family; they are specification evidence, not five independent opportunities. The Hicenda 0.71-inch page was flagged because its body describes a 0.5-inch product.
+- The `11xx` and `054573` arcade replacements remain evidence for the existing long-tail repair-replacement family rather than new opportunities.
+- Eleven records were rejected as a mature Raspberry Pi display/HAT, generic oscillator or LED-driver module, obsolete camera module, commodity AC-DC power board, MCU/USB-cable/old-stock component resale, low-price adapter PCB or generic power-mux breakout.
+- The 12-port active receive splitter is the only new watchlist record: it has a clear professional use and high ticket price, but RF test burden, support risk, closed design and established professional competition remain material.
+- Hero-image review did not inherit automatic labels. Exact filenames such as `054573_latest` and `13707_51` are treated only as association evidence; generic filenames, missing images and related-version risks remain unresolved.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 250 unique IDs across 250 rows. Exact project IDs are excluded from refreshed queues, while semantic duplicate specifications and product-family variants are collapsed during review.
+- Reviewed IDs: 270 unique IDs across 270 rows. Exact project IDs are excluded from refreshed queues, while semantic duplicate specifications and product-family variants are collapsed during review.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
-- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 250 records.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 270 records.
 - Automatic image labels are not accepted as human verification; mismatches, duplicate/version risks and unresolved images remain marked.
 - PR #9 remains draft and unmerged.
