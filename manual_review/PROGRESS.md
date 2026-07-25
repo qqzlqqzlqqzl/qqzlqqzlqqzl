@@ -5,12 +5,12 @@ Updated: 2026-07-25
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 270
+- Page/source-reviewed records: 290
 - Strict commercial candidates: 0
 - Watchlist: 17
-- Market-reference cases: 94
-- Rejected: 159
-- Remaining: 10,230
+- Market-reference cases: 103
+- Rejected: 170
+- Remaining: 10,210
 
 ## Completed batches
 
@@ -42,21 +42,22 @@ Updated: 2026-07-25
 | 022B | 10 | 0 | 0 | 4 | 6 | `batch_022b_tindie_surplus_microdisplays_cables_round_tft_led_controls_and_arcade.csv` |
 | 023A | 10 | 0 | 1 | 4 | 5 | `batch_023a_tindie_microdisplays_rpi_rf_led_arcade_antenna_camera.csv` |
 | 023B | 10 | 0 | 0 | 4 | 6 | `batch_023b_tindie_microdisplay_power_components_cables_testaccessory_hats.csv` |
+| 024 | 20 | 0 | 0 | 9 | 11 | `batch_024_tindie_oled_components_debug_tools_rack_and_neopixel.csv` |
 
-## Batch 023 self-check
+## Batch 024 self-check
 
-- All 20 records were based on exact product-page caches or exact-title/store/product-family cross-checks. The 12-port RF splitter remains explicitly marked `已交叉核验` because the exact body cache was unavailable.
-- Five microdisplay records were folded into the existing microdisplay/driver/near-eye-optics supply family; they are specification evidence, not five independent opportunities. The Hicenda 0.71-inch page was flagged because its body describes a 0.5-inch product.
-- The `11xx` and `054573` arcade replacements remain evidence for the existing long-tail repair-replacement family rather than new opportunities.
-- Eleven records were rejected as a mature Raspberry Pi display/HAT, generic oscillator or LED-driver module, obsolete camera module, commodity AC-DC power board, MCU/USB-cable/old-stock component resale, low-price adapter PCB or generic power-mux breakout.
-- The 12-port active receive splitter is the only new watchlist record: it has a clear professional use and high ticket price, but RF test burden, support risk, closed design and established professional competition remain material.
-- Hero-image review did not inherit automatic labels. Exact filenames such as `054573_latest` and `13707_51` are treated only as association evidence; generic filenames, missing images and related-version risks remain unresolved.
+- All 20 records were reviewed against exact Tindie product-page caches or exact product/store pages; no title-only record was silently promoted to ordinary direct-page review.
+- Four microdisplay records were folded into the existing microdisplay/driver/near-eye-optics supply family and do not create four independent opportunities.
+- Generic OLED/TFT screens, pogo pins, pin headers, optocouplers, an RGB strip and old ADC breakouts were rejected as mature commodity categories rather than scored as new opportunities.
+- The FPC passthrough board, 12-channel 12V level shifter, PS4 USB-C cable, differential NeoPixel transceiver and 10-inch patch panel remain product-family references; their value comes from a catalog, compatibility data or system documentation, not from an isolated low-price PCB or cable.
+- The Soviet 142EN3 record was confirmed as a one-off vintage inventory sale at 27 USD with one unit left, so it is not treated as a reproducible manufacturing opportunity.
+- Hero-image review identified explicit mismatches for the 0.96-inch OLED, pin headers, round TFT, 0.5-inch micro-OLED, 1.18-inch round OLED and I2C ADC. Automatic labels were not inherited as human verification.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 270 unique IDs across 270 rows. Exact project IDs are excluded from refreshed queues, while semantic duplicate specifications and product-family variants are collapsed during review.
+- Reviewed IDs: 290 unique IDs across 290 rows. Exact project IDs are excluded from refreshed queues, while semantic duplicate specifications and product-family variants are collapsed during review.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
-- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 270 records.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 290 records.
 - Automatic image labels are not accepted as human verification; mismatches, duplicate/version risks and unresolved images remain marked.
 - PR #9 remains draft and unmerged.
