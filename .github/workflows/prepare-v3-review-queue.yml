@@ -6,7 +6,9 @@ on:
       - agent/commercial-v3-strict-rebuild
     paths:
       - ".github/workflows/prepare-v3-review-queue.yml"
-      - "manual_review/**"
+      - "manual_review/batch_*.csv"
+      - "manual_review/deferred_*.csv"
+      - "manual_review/PROGRESS.md"
   workflow_dispatch:
 
 permissions:
@@ -35,11 +37,12 @@ jobs:
           run-id: 30068281842
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build next unreviewed Tindie queue
+      - name: Build next 200 unreviewed records across all platforms
         shell: bash
         run: |
           python - <<'PY'
           import csv
+          from collections import Counter
           from pathlib import Path
 
           source = Path('input/final_output/hardware_opportunities_full_hero_images.csv')
@@ -58,18 +61,16 @@ jobs:
           with source.open(encoding='utf-8-sig', newline='') as f:
               source_rows = list(csv.DictReader(f))
 
+          # Keep source order for traceability. The queue is only a worklist;
+          # no crawler score or keyword rule is allowed to become a commercial verdict.
           selected = []
           for row in source_rows:
               pid = (row.get('project_id') or '').strip()
-              if not pid or pid in excluded:
-                  continue
-              domain = (row.get('source_domain') or '').lower()
-              platform = (row.get('platform') or '').lower()
-              url = (row.get('url') or '').lower()
-              if 'tindie' not in domain and 'tindie' not in platform and 'tindie.com' not in url:
+              url = (row.get('url') or '').strip()
+              if not pid or pid in excluded or not url:
                   continue
               selected.append(row)
-              if len(selected) >= 20:
+              if len(selected) >= 200:
                   break
 
           fields = [
@@ -78,26 +79,28 @@ jobs:
               'normalized_commercial_score','hero_image_status','hero_image_source_url',
               'hero_image_local_filename'
           ]
-          output = Path('manual_review/queue_next_20.csv')
+          output = Path('manual_review/queue_next_200.csv')
           with output.open('w', encoding='utf-8-sig', newline='') as f:
               writer = csv.DictWriter(f, fieldnames=fields, extrasaction='ignore')
               writer.writeheader()
               writer.writerows(selected)
 
+          platform_counts = Counter((row.get('platform') or 'unknown').strip() for row in selected)
           print(f'excluded={len(excluded)} selected={len(selected)} output={output}')
-          for row in selected:
-              print(row.get('project_id'), row.get('name'), row.get('url'))
+          print('platform_counts=', dict(platform_counts))
+          for row in selected[:30]:
+              print(row.get('project_id'), row.get('platform'), row.get('name'), row.get('url'))
           PY
 
       - name: Commit refreshed queue
         shell: bash
         run: |
-          if git diff --quiet -- manual_review/queue_next_20.csv && git ls-files --error-unmatch manual_review/queue_next_20.csv >/dev/null 2>&1; then
+          if git diff --quiet -- manual_review/queue_next_200.csv && git ls-files --error-unmatch manual_review/queue_next_200.csv >/dev/null 2>&1; then
             echo "Queue unchanged."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add manual_review/queue_next_20.csv
-          git commit -m "chore: refresh next V3 manual review queue"
+          git add manual_review/queue_next_200.csv
+          git commit -m "chore: refresh next 200 V3 review records"
           git push origin HEAD:agent/commercial-v3-strict-rebuild
