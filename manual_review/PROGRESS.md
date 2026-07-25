@@ -5,12 +5,13 @@ Updated: 2026-07-25
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 347
+- Page/source-reviewed records: 365
 - Strict commercial candidates: 0
-- Watchlist: 19
-- Market-reference cases: 129
-- Rejected: 199
-- Remaining: 10,153
+- Watchlist: 20
+- Market-reference cases: 135
+- Rejected: 210
+- Deferred because exact page evidence is unresolved: 2
+- Remaining unreviewed or deferred: 10,135
 
 ## Completed batches
 
@@ -46,21 +47,24 @@ Updated: 2026-07-25
 | 025 | 20 | 0 | 1 | 10 | 9 | `batch_025_tindie_fm_adc_displays_components_filters_and_retro.csv` |
 | 026 | 19 | 0 | 1 | 9 | 9 | `batch_026_tindie_cables_filters_bms_microdisplays_components_and_retro.csv` |
 | 027 | 18 | 0 | 0 | 7 | 11 | `batch_027_tindie_displays_cables_components_retro_and_rpi.csv` |
+| 028 | 18 | 0 | 1 | 6 | 11 | `batch_028_tindie_displays_optics_retro_components_and_testgear.csv` |
 
-## Batch 027 self-check
+## Batch 028 self-check
 
-- Eighteen records were accepted only after reading exact product pages or exact indexed/cached product bodies and cross-checking seller catalogs where needed.
-- The Nicla Sense 1000mAh battery was deliberately left unreviewed because the exact product body, current price and reliable demand evidence could not be retrieved.
-- The nominal 1.03-inch 2560×2560 1000-nit microOLED row was also left unreviewed because the exact URL was unavailable and the seller catalog exposed conflicting 1.03-inch brightness variants. No similar display was substituted.
-- Round TFT, HDMI monitor, breakout board, parts packs, generic cables, MagJack and reseller meter were rejected; their crawler score and automatic image status were not used as commercial evidence.
-- Four microdisplay rows were collapsed into the existing microdisplay/driver/near-eye-optics supply family. The Raspberry Pi ADC HAT and Commodore cable remain product-family evidence rather than separate strict opportunities.
-- Automatic hero-image labels were never promoted to human verification. Missing, generic or SKU-ambiguous images remain unresolved.
+- Eighteen records were accepted only after reading exact product pages or exact indexed product bodies and cross-checking seller catalogs where needed.
+- The 1000mAh Nicla Sense battery and the nominal 1.03-inch 2560×2560 1000-nit microOLED were not counted as reviewed because exact, non-conflicting product bodies could not be retrieved. They were moved to `deferred_unresolved.csv` instead of being silently scored from crawler text.
+- The queue builder now excludes deferred exact-page records while keeping them outside reviewed totals, preventing the hourly queue from stalling on the same inaccessible URLs.
+- The Pico LCD HAT, round TFT, panel meter, SSD1306 module, wire terminals, MagJack, spring antennas, propellers, e-paper module and generic pogo perfboard were rejected rather than inheriting crawler scores.
+- The four microdisplay rows were collapsed into the existing microdisplay/driver/near-eye-optics supply family. The two arcade IC rows remain evidence for the existing long-tail repair family rather than separate opportunities.
+- The 10MHz dual-oven OCXO reference is the only new watchlist entry: it is a complete professional tool with two reviews, but calibration traceability, phase-noise data, long-term ageing and seller support remain unresolved.
+- Automatic hero-image labels were not promoted to human verification. The TFT and wire-terminal records contain clear filename/SKU conflicts, and the Pico LCD image is reused across different display products.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 347 unique IDs across 347 rows. Exact IDs are excluded from refreshed queues, while semantic duplicates and product-family variants are collapsed during review.
+- Reviewed IDs: 365 unique IDs across 365 rows. Exact IDs are excluded from refreshed queues, while semantic duplicates and product-family variants are collapsed during review.
+- Deferred IDs: 2 unique IDs, excluded from the active queue but not counted as reviewed.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
-- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 347 records.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 365 records.
 - Automatic image labels are not accepted as human verification; mismatches, duplicate/version risks and unresolved images remain marked.
 - PR #9 remains draft and unmerged.
