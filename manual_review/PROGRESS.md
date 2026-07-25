@@ -5,12 +5,12 @@ Updated: 2026-07-25
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 190
+- Page/source-reviewed records: 210
 - Strict commercial candidates: 0
 - Watchlist: 16
-- Market-reference cases: 67
-- Rejected: 107
-- Remaining: 10,310
+- Market-reference cases: 73
+- Rejected: 121
+- Remaining: 10,290
 
 ## Completed batches
 
@@ -35,20 +35,22 @@ Updated: 2026-07-25
 | 017 | 10 | 0 | 0 | 3 | 7 | `batch_017_tindie_arcade_oled_cables_wearables_touchscreen_led_and_devboards.csv` |
 | 018 | 10 | 0 | 0 | 7 | 3 | `batch_018_tindie_arcade_microdisplays_supplies_frequency_rf_connectors_and_eurorack.csv` |
 | 019 | 10 | 0 | 0 | 3 | 7 | `batch_019_tindie_qrp_components_rpi_displays_arcade_and_connectors.csv` |
+| 020 | 20 | 0 | 0 | 6 | 14 | `batch_020_tindie_components_microdisplays_props_and_adapters.csv` |
 
-## Batch 019 self-check
+## Batch 020 self-check
 
-- Eight records were read from usable original product pages. The power-inductor pack used an explicitly labelled product-cache and seller-page cross-check because the current page cache missed; the round TFT used product indexes, its duplicate listing and the seller catalogue because the page was anti-bot blocked; the iLens page returned 502 and was cross-checked using the exact product name, image filename, seller catalogue and current OEM/supply pages. These statuses are recorded separately and are not presented as normal direct-page reviews.
-- Seven records were rejected: an incomplete oil-immersed dummy-load PCB kit based on a mature DIY method, a 2-dollar power-inductor pack, Soviet old-stock regulator chips, a mature Raspberry Pi ADC HAT, a standard round TFT component, standard B10K potentiometers and a standard integrated-magnetics RJ45 connector.
-- Three records are retained only as market references: the iLens finished OEM smart-glasses product, the 054574 item inside the existing arcade long-tail replacement family, and the 1.03-inch micro-OLED inside the established microdisplay/driver/optics supply family. None is counted as a new independent commercial opportunity.
-- Hero-image review found one decisive high-risk failure: the round-TFT image filename says OLED and the same URL is reused for a later 0.99-inch record. The ADC HAT image predates the stated v3.0 redesign; the iLens image is not proven to be the exact delivered version; generic component photos remain unresolved. No automatic image label was promoted to human verification.
-- Each verdict is project-specific and separately records product form, customer, pain point, price/evidence, market crowding, dependencies, manufacturing, after-sales, compliance, licensing and image status.
+- All 20 records were read from exact product-page caches and supporting seller/catalogue pages after direct page fetches returned cache misses; the review status records this evidence path and does not present it as an unrestricted live-page fetch.
+- Six records are retained only as market references: five microdisplay specifications are collapsed into the existing microdisplay/driver/optics supply family, and the assembled 10-LED EMF prop is retained as an IP-dependent high-value prop productisation example.
+- Fourteen records are rejected as commodity buzzers, USB/IR adapters, standard displays, GPIO test boards, NOS Soviet components, spring antennas, connector catalogue parts or low-value breakout boards.
+- Product-family variants are not counted as independent opportunities: the microdisplay listings, NifteeCircuits package breakouts, Electronics16 NOS parts and Casco Logix RF adapters are explicitly collapsed into existing families.
+- Hero-image checks found decisive or high-risk mismatches for the 0.99-inch round TFT (`OLED` filename), the 868 MHz spring antenna (`lora1280.jpg`) and the 0.5-inch microdisplay (`OPTICAL-PRISM-12X`). Records without qualified images remain without images; no neighbouring specification image was substituted.
+- Each row separately records product form, family model, customer, pain point, price/evidence, crowding, dependencies, manufacturing, after-sales, compliance, licensing and image status. No template-only verdict was used.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 190 unique IDs across 190 rows. The queue workflow excludes exact project IDs already present in every `batch_*.csv`; semantic duplicate products and interface/specification variants are additionally collapsed during human review.
+- Reviewed IDs: 210 unique IDs across 210 rows. The queue workflow excludes exact project IDs already present in every `batch_*.csv`; semantic duplicate products and interface/specification variants are additionally collapsed during human review.
 - No inaccessible item is silently marked as a normal direct-page review; canonical-cache, seller-directory, manufacturer/OEM-page and cross-checked reviews use distinct statuses.
 - Product-family variants are retained as evidence but are not counted as separate commercial opportunities.
-- No project is admitted to the strict shortlist without page-level evidence, and no strict candidate has been found in the first 190 records.
+- No project is admitted to the strict shortlist without page-level evidence, and no strict candidate has been found in the first 210 records.
 - Automatic image labels are not accepted as human verification; mismatches, duplicates, version risks and unresolved images remain explicitly marked.
 - PR #9 remains draft and unmerged.
