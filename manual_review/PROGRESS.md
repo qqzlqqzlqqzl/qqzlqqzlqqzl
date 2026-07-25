@@ -5,12 +5,12 @@ Updated: 2026-07-25
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 290
+- Page/source-reviewed records: 310
 - Strict commercial candidates: 0
-- Watchlist: 17
-- Market-reference cases: 103
-- Rejected: 170
-- Remaining: 10,210
+- Watchlist: 18
+- Market-reference cases: 113
+- Rejected: 179
+- Remaining: 10,190
 
 ## Completed batches
 
@@ -43,21 +43,23 @@ Updated: 2026-07-25
 | 023A | 10 | 0 | 1 | 4 | 5 | `batch_023a_tindie_microdisplays_rpi_rf_led_arcade_antenna_camera.csv` |
 | 023B | 10 | 0 | 0 | 4 | 6 | `batch_023b_tindie_microdisplay_power_components_cables_testaccessory_hats.csv` |
 | 024 | 20 | 0 | 0 | 9 | 11 | `batch_024_tindie_oled_components_debug_tools_rack_and_neopixel.csv` |
+| 025 | 20 | 0 | 1 | 10 | 9 | `batch_025_tindie_fm_adc_displays_components_filters_and_retro.csv` |
 
-## Batch 024 self-check
+## Batch 025 self-check
 
-- All 20 records were reviewed against exact Tindie product-page caches or exact product/store pages; no title-only record was silently promoted to ordinary direct-page review.
-- Four microdisplay records were folded into the existing microdisplay/driver/near-eye-optics supply family and do not create four independent opportunities.
-- Generic OLED/TFT screens, pogo pins, pin headers, optocouplers, an RGB strip and old ADC breakouts were rejected as mature commodity categories rather than scored as new opportunities.
-- The FPC passthrough board, 12-channel 12V level shifter, PS4 USB-C cable, differential NeoPixel transceiver and 10-inch patch panel remain product-family references; their value comes from a catalog, compatibility data or system documentation, not from an isolated low-price PCB or cable.
-- The Soviet 142EN3 record was confirmed as a one-off vintage inventory sale at 27 USD with one unit left, so it is not treated as a reproducible manufacturing opportunity.
-- Hero-image review identified explicit mismatches for the 0.96-inch OLED, pin headers, round TFT, 0.5-inch micro-OLED, 1.18-inch round OLED and I2C ADC. Automatic labels were not inherited as human verification.
+- All 20 records were reviewed against exact product pages, exact indexed bodies or exact seller/product-family pages; no item was scored from the crawler summary alone.
+- Five microdisplay rows were collapsed into the existing microdisplay/driver/near-eye-optics supply family. Three pages use the same Sony ECX331D class panel with different driver-board bundles, so they are specification evidence rather than three new opportunities.
+- The 10W FM transmitter is the only new watchlist record: it is a complete higher-ticket RF product, but the seller has only about two orders and compliance, spectral purity, thermal and field-support risks remain severe.
+- The 128-channel ADC board remains a market-reference architecture rather than a strict candidate because it is a four-board development stack, has been sold out since 2021 and lacks enclosure, isolation, calibration and strong sales evidence.
+- The Xiaomi purifier NFC tags have ten product reviews and a strong seller record, but remain a market reference because firmware dependency, manufacturer lock-in, trademark/IP and long-term compatibility risks are central to the business.
+- Generic motor drivers, Raspberry Pi ADC HATs, switches, round LCD/OLED modules, bulk antennas and pin-header adapters were rejected as mature components or ecosystem modules.
+- Hero-image review found explicit mismatches for the Cytron motor driver, Adeept display variants, NiceRF antenna, DisplayModule round TFT and several reused generic image files. Automatic image labels were not inherited.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 290 unique IDs across 290 rows. Exact project IDs are excluded from refreshed queues, while semantic duplicate specifications and product-family variants are collapsed during review.
+- Reviewed IDs: 310 unique IDs across 310 rows. Exact project IDs are excluded from refreshed queues, while semantic duplicate specifications and product-family variants are collapsed during review.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
-- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 290 records.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 310 records.
 - Automatic image labels are not accepted as human verification; mismatches, duplicate/version risks and unresolved images remain marked.
 - PR #9 remains draft and unmerged.
