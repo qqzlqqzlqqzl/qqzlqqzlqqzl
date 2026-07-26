@@ -10,7 +10,7 @@ Updated: 2026-07-26
 - Watchlist: 28
 - Market-reference cases: 190
 - Rejected: 411
-- Deferred because exact page evidence is unresolved: 15
+- Deferred because exact page evidence is unresolved: 25
 - Remaining unreviewed or deferred: 9,871
 
 ## Completed batches
@@ -74,11 +74,12 @@ Updated: 2026-07-26
 - Existing commercial success was not treated as an unoccupied opportunity. Adafruit, System76, SHIK, AirGradient, SparkFun and V1 Engineering records remain evidence of product-family execution, certification, software and channel advantages rather than invitations to copy one board.
 - QuinLED's PCBWay share page explicitly uses a non-commercial, no-derivatives license; it was not promoted as a reusable commercial design despite its strong page engagement.
 - Automatic image labels were overridden where the available image was only a PCB, certificate image, student submission, or did not show a complete sale-ready product.
+- Ten additional GitLab records whose exact pages repeatedly failed to load were appended to `deferred_unresolved.csv`; none was scored from its source summary.
 
 ## Cross-batch self-check
 
 - Reviewed IDs: 629 unique IDs across 629 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed as opportunities but retained as traceable rows.
-- Deferred IDs: 15 unique IDs, excluded from the active queue but not counted as reviewed.
+- Deferred IDs: 25 unique IDs, excluded from the active queue but not counted as reviewed.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
 - No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 629 records.
