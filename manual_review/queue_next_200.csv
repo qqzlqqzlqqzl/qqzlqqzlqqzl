@@ -1,6 +1,4 @@
 ﻿project_id,name,platform,url,source_domain,description,description_zh,category,stars_or_support,market_validation,hardware_license,normalized_commercial_score,hero_image_status,hero_image_source_url,hero_image_local_filename
-098f7042ec9f64d0,BadgeKit,GitLab,https://gitlab.com/andreassolberg/badgekit,gitlab.com,,,电子礼物/徽章/挂件,0.0,GitLab 0 stars，0 forks,待核验,8.29,无合格英雄图,,
-abda02f1d035c318,HiP-Badge,GitLab,https://gitlab.com/tidklaas/hip-badge,gitlab.com,,,电子礼物/徽章/挂件,6.0,GitLab 6 stars，10 forks,待核验,8.29,无合格英雄图,,
 0b61957aff61ec82,badgekit-api-client-24fbcd84,GitLab,https://gitlab.com/gitlab-oss-package-research/source/npm/ba/badgekit-api-client-24fbcd84,gitlab.com,,,电子礼物/徽章/挂件,0.0,GitLab 0 stars，0 forks,待核验,8.28,无合格英雄图,,
 e593a52a30c6bf79,OctoPrintAPI,GitHub,https://github.com/chunkysteveo/OctoPrintAPI,github.com,"Library for use with Arduino compatible micro controllers (web enabled) to access the Octoprint API on Raspberry Pi's running the Octoprint 3D printer web server by the brilliant Gina Häußge, aka @foosel.","与Arduino兼容的微控制器( 网络已启用) 使用图书馆访问 Raspberry Pi 上 Octoprint API 的 Octoprint 3D 打印机服务器, 由 Excellent Gina Häuge 提供, aka @foosel 提供 。",键盘/宏键盘/控制器,48.0,GitHub 48 stars，24 forks,待核验,8.27,无合格英雄图,,
 d1d527d653bfaee5,badgetizr-integration,GitLab,https://gitlab.com/chris-saez/badgetizr-integration,gitlab.com,,,电子礼物/徽章/挂件,0.0,GitLab 0 stars，0 forks,待核验,8.27,无合格英雄图,,
@@ -199,3 +197,5 @@ b7fd67a42e893c4c,badger-bus-app.py,GitLab,https://gitlab.com/yannickulrich/badge
 0abe24250c9f6e35,Eeki Job Badges,GitLab,https://gitlab.com/naboria-solutions-personnal-projects/eeki-job-badges,gitlab.com,,,电子礼物/徽章/挂件,0.0,GitLab 0 stars，0 forks,待核验,7.88,无合格英雄图,,
 253083822513e926,pipeline-badges,GitLab,https://gitlab.com/manta-project/pipeline-badges,gitlab.com,,,电子礼物/徽章/挂件,0.0,GitLab 0 stars，0 forks,待核验,7.88,无合格英雄图,,
 14502cb98db29bfa,Jackpot CNC Controller,OSHWA认证目录,https://certification.oshwa.org/us002434.html,certification.oshwa.org,OSHWA认证开放硬件项目；类型：Manufacturing,OSHWA认证开放硬件项目；类型：Manufacturing,键盘/宏键盘/控制器,0.0,OSHWA认证；项目类型：Manufacturing,已声明（详情页待提取）,7.88,无合格英雄图,,
+50b98bd1e51aef3d,Keyboard FeatherWing,OSHWA认证目录,https://certification.oshwa.org/se000012.html,certification.oshwa.org,OSHWA认证开放硬件项目；类型：Electronics,OSHWA认证开放硬件项目；类型：Electronics,键盘/宏键盘/控制器,0.0,OSHWA认证；项目类型：Electronics,已声明（详情页待提取）,7.88,无合格英雄图,,
+42136717c06ddbbf,SNES OEM Controller PCB Replacement,OSHWA认证目录,https://certification.oshwa.org/us002604.html,certification.oshwa.org,OSHWA认证开放硬件项目；类型：Electronics,OSHWA认证开放硬件项目；类型：Electronics,键盘/宏键盘/控制器,0.0,OSHWA认证；项目类型：Electronics,已声明（详情页待提取）,7.88,无合格英雄图,,
