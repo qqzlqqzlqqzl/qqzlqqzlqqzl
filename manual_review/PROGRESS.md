@@ -5,13 +5,13 @@ Updated: 2026-07-26
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 647
+- Page/source-reviewed records: 667
 - Strict commercial candidates: 0
-- Watchlist: 31
-- Market-reference cases: 196
-- Rejected: 420
+- Watchlist: 35
+- Market-reference cases: 201
+- Rejected: 431
 - Deferred because exact page evidence is unresolved: 25
-- Remaining unreviewed or deferred: 9,853
+- Remaining unreviewed or deferred: 9,833
 
 ## Completed batches
 
@@ -65,6 +65,7 @@ Updated: 2026-07-26
 | 041B | 10 | 0 | 0 | 2 | 8 | `batch_041b_github_robotics_education_kits_and_devboards.csv` |
 | 042 | 17 | 0 | 1 | 9 | 7 | `batch_042_oshwa_mature_modules_vertical_flowbench_and_open_products.csv` |
 | 042B | 18 | 0 | 3 | 6 | 9 | `batch_042_github_printer_controls_keyboards_tools_retro_and_environment.csv` |
+| 042C | 20 | 0 | 4 | 5 | 11 | `batch_042_oshwa_input_devices_assistive_retro_kvm_and_tutorials.csv` |
 
 ## Batch 042 self-check
 
@@ -81,12 +82,22 @@ Updated: 2026-07-26
 - Nine were rejected as unvalidated concepts, unfinished prototypes, software/HDL, abandoned commodity sub-boards, crowded development-board assemblies, a hazardous mains-voltage tutorial or a high-risk game-memory radar.
 - Automatic image labels were overridden where the image was a PCB render, wiring diagram, component detail, upstream board or incomplete prototype.
 
+## Batch 042C self-check
+
+- Twenty unique source records were read from exact project, product, tutorial or OSHWA certification pages; cached text was used only where the exact identified source page was unavailable through the connector.
+- Four records entered the watchlist: AYAB Electronic Knitting Machine Controller, Willow Joystick, Breathing Games Spirotroller enhanced, and Openterface KVM Extension for uConsole.
+- Five records were retained only as market references: the Adafruit legacy-PC joystick adapter, EXL joystick adapter, uConsole USB hub extension, Ball & Paddle retro game, and CHORD ZERO stenographic keyboard.
+- Eleven records were rejected as retired tutorials, ESP32 or Raspberry Pi assemblies, generic breakouts, mature ecosystem modules, or saturated controllers.
+- OSHWA certification was treated as evidence of documentation and license claims, not as proof of customer demand, pricing, sales or competitive whitespace.
+- Automatic hero-image labels were not accepted as human verification; unresolved certification-page images remain unresolved, and tutorial or upstream-board images were explicitly rejected.
+- Device-family and ecosystem variants remain traceable rows but are not promoted as separate market gaps.
+
 ## Cross-batch self-check
 
-- Reviewed IDs: 647 unique IDs across 647 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed as opportunities but retained as traceable rows.
+- Reviewed IDs: 667 unique IDs across 667 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed as opportunities but retained as traceable rows.
 - Deferred IDs: 25 unique IDs, excluded from the active queue but not counted as reviewed.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
-- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 647 records.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 667 records.
 - Automatic image labels are not accepted as human verification; mismatches, tutorial images, upstream-board images and unresolved images remain marked.
 - PR #9 remains draft and unmerged.
