@@ -1,0 +1,4 @@
+project_id,name,original_url,defer_reason,last_checked
+"aabda3f0f9c75545","Environmental Sensor Development Kit","https://certification.oshwa.org/uk000045.html","精确 OSHWA URL 在缓存中返回 HTTP 200，但没有标题、项目正文、规格、产品图或 README；不能用名称或认证编号推断本体、客户、价格、许可或商业结论。","2026-07-26"
+"7b2240c7f7606ea3","this-ones-for-you-my-retalyation.-also-haha-arrow-game-lolol","https://github.com/Skattermuffin/this-ones-for-you-my-retalyation.-also-haha-arrow-game-lolol","精确 GitHub 项目缓存的 README 抓取状态为 error，正文为空；无法确认项目是硬件、游戏、教程还是误抓，禁止按仓库名猜测。","2026-07-26"
+"e6c3fdee67f39920","hey-game-pepople-i-know-you-r-ment-to-like-make-these-long-but-come-on-its-fun-but-arrow-game-lol","https://github.com/Skattermuffin/hey-game-pepople-i-know-you-r-ment-to-like-make-these-long-but-come-on-its-fun-but-arrow-game-lol","精确 GitHub 项目缓存的 README 抓取状态为 error，正文为空；无法确认产品形态或硬件证据，不能依据异常仓库名或旧摘要判定。","2026-07-26"

@@ -5,13 +5,13 @@ Updated: 2026-07-26
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 851
+- Page/source-reviewed records: 1,041
 - Strict commercial candidates: 0
-- Watchlist: 42
-- Market-reference cases: 228
-- Rejected: 581
-- Deferred because exact page evidence is unresolved: 41
-- Remaining unreviewed or deferred: 9,608
+- Watchlist: 49
+- Market-reference cases: 254
+- Rejected: 738
+- Deferred because exact page evidence is unresolved: 51
+- Remaining unreviewed or deferred: 9,408
 
 ## Completed batches
 
@@ -67,6 +67,7 @@ Updated: 2026-07-26
 | 042B | 18 | 0 | 3 | 6 | 9 | `batch_042_github_printer_controls_keyboards_tools_retro_and_environment.csv` |
 | 042C | 20 | 0 | 4 | 5 | 11 | `batch_042_oshwa_input_devices_assistive_retro_kvm_and_tutorials.csv` |
 | 043 | 184 | 0 | 7 | 27 | 150 | `batch_043_mixed_gitlab_badges_and_hardware.csv` |
+| 044 | 190 | 0 | 7 | 26 | 157 | `batch_044_exact_page_v3.csv` |
 
 ## Batch 042 self-check
 
@@ -102,12 +103,21 @@ Updated: 2026-07-26
 - One hundred fifty were rejected as software, tutorials, generic modules/devboards, Raspberry Pi or third-party assemblies, event-only badges, research prototypes, or crowded low-differentiation products.
 - Automatic hero-image labels were not accepted as human verification. Event-badge, PCB-only, upstream-board, tutorial and certification-page placeholder images were not promoted as sales-grade heroes.
 
+## Batch 044 self-check
+
+- 190 unique source records were integrated from exact GitHub/GitLab README or API text, OSHWA certification pages, Crowd Supply pages, PCBWay project pages, Hack Club project READMEs and a 嘉立创 project page; no record was counted from the crawler title alone.
+- Ten records were not counted as reviewed because the exact source was a 404/empty shell or a PCBWay category directory rather than a concrete project page; they were appended to `deferred_unresolved.csv`.
+- Seven records entered the watchlist: OpenPLC-IIOTv0.1, Open Movement, iHeater, irriBRANT, INTARSO Shooting Range Target Robot, Yottasynth and HTXStudio 单手键盘. Each has a concrete hardware result or professional pain point but lacks enough pricing, delivery, licensing, calibration, safety or repeatability evidence for the strict shortlist.
+- Twenty-six records were retained as market references, mostly mature control boards, research sensor families, established kits, retro repair designs and existing Crowd Supply products. Existing products, crowdfunding or technical completeness were not treated as unoccupied market gaps.
+- One hundred fifty-seven were rejected as software, tutorials, generic modules/devboards, Raspberry Pi or third-party assemblies, educational or personal projects, research prototypes, or crowded low-differentiation products.
+- Automatic hero-image labels were not accepted as human verification; upstream-board, PCB-only, tutorial, certification-page and unresolved images remain explicitly marked.
+
 ## Cross-batch self-check
 
-- Reviewed IDs: 851 unique IDs across 851 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed as opportunities but retained as traceable rows.
-- Deferred IDs: 41 unique IDs, excluded from the active queue but not counted as reviewed.
+- Reviewed IDs: 1,041 unique IDs across 1,041 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed as opportunities but retained as traceable rows.
+- Deferred IDs: 51 unique IDs, excluded from the active queue but not counted as reviewed.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
-- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 851 records.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 1,041 records.
 - Automatic image labels are not accepted as human verification; mismatches, tutorial images, upstream-board images and unresolved images remain marked.
 - PR #9 remains draft and unmerged.
