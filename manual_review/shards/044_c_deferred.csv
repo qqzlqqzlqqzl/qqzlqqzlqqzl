@@ -1,0 +1,4 @@
+project_id,name,original_url,defer_reason,last_checked
+"e4c0578a52340240","ichibot-client-app","https://gitlab.com/Ichimikichiki/ichibot-client-app","精确缓存记录虽标记ok但README正文为空，未取得项目页、README/API正文、产品形态、许可或硬件证据；不能依据client-app名称评分。","2026-07-26"
+"c66f45eb565bf893","SDR-STK","https://github.com/fosatech/SDR-STK","精确缓存README只有一句称其为为RTL-SDR增加功能的软硬件组合，未给硬件组成、文件、许可、价格、客户、图像或市场证据；无法对产品本体作出不猜测的判定。","2026-07-26"
+"60e282e85609c912","EurorackButtonBoard","https://github.com/MostlyCoraGrace/EurorackButtonBoard","精确缓存README只称其为可模块化/热插拔/可patch的Eurorack兼容simrig buttonboard并链接Hackaday，未给BOM、具体硬件、许可、价格、客户或市场证据；不能仅依名称判为产品。","2026-07-26"

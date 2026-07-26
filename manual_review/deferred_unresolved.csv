@@ -1,0 +1,52 @@
+﻿project_id,name,original_url,defer_reason,last_checked
+3a50bbe98bed71ce,103 Microoled Display 2560X2560 1000Nits Mipi,https://www.tindie.com/products/oled-modules/103-microoled-display-2560x2560-1000nits-mipi,精确URL不可用，卖家目录存在1800、3000、20000nit等冲突1.03英寸变体；禁止用相似规格代替,2026-07-25
+d6809e0091e522e8,1000Mah Nicla Sense Lithium Polymer With 10K Ntc,https://www.tindie.com/products/sensormaestros/1000mah-nicla-sense-lithium-polymer-with-10k-ntc,精确商品页和可靠缓存正文均未取得；卖家目录未列出该SKU，不能仅凭抓取标题和图片评分,2026-07-25
+0654647b0e9e6acb,whybadge_unzip_test,https://gitlab.com/Mar10us/whybadge_unzip_test,精确项目页只有whybadge_unzip_test标题，未取得文件正文，不能判断是否硬件或测试夹具,2026-07-26
+098f7042ec9f64d0,BadgeKit,https://gitlab.com/andreassolberg/badgekit,精确GitLab页面和可靠缓存正文未能稳定取得，源记录无描述；无法确认是软件工具、活动徽章固件还是独立硬件，禁止据名称评分,2026-07-26
+0b61957aff61ec82,badgekit-api-client-24fbcd84,https://gitlab.com/gitlab-oss-package-research/source/npm/ba/badgekit-api-client-24fbcd84,精确GitLab项目页连续出现缓存未命中，未取得README、包元数据或可信正文；不能仅凭npm镜像路径和badge字样判定项目范围,2026-07-26
+161563be2c631226,runner.cozybadger.de,https://gitlab.com/cozybadgerde/infrastructure/runner.cozybadger.de,精确GitLab正文未稳定取得；源摘要表明可能是GitLab Runner基础设施，但按规则仍不以摘要代替原页面复核,2026-07-26
+226050c58996c7de,ds,https://gitlab.com/devnw/codepros/oss/ds,精确GitLab页面未取得，源记录仅包含GitHub Actions构建徽章，无法确认仓库实际内容和是否存在硬件,2026-07-26
+2477446715487ad2,Dashboard,https://gitlab.com/open-bar/dashboard,精确GitLab正文未取得，源记录只有coverage和pipeline徽章；无法核验项目本体,2026-07-26
+322e7aaa4e591e87,badge-design,https://gitlab.com/zillurcse/badge-design,精确GitLab项目页只有项目标题壳，未取得README或文件正文，不能根据badge-design名称猜测,2026-07-26
+33b8663db9e7efdc,BadgerBoy,https://gitlab.com/victorgsbarros/badgerboy,精确GitLab页面可见仓库元数据和README入口，但README正文未能稳定加载，原始抓取记录也没有描述；无法判断它是软件、徽章固件还是独立硬件，禁止据名称评分,2026-07-26
+3fe2b6e2386e5ad8,Badgefed-deletion_scheduled-84050664,https://gitlab.com/ozelite/forks/badgefed-deletion_scheduled-84050664,精确GitLab项目页显示删除计划仓库，但未取得可核验README/文件正文，不能补写商业结论,2026-07-26
+48a670265af1af4c,BottonNavUnreadBadges,https://gitlab.com/DenisDavidek/bottonnavunreadbadges,精确项目页/文件正文受限，未取得可核验内容，不能仅凭BottonNavUnreadBadges名称下结论,2026-07-26
+5039e5d783dd2dc0,badges-from-ext-server-rel-url,https://gitlab.com/issue-reproduce/badges-from-ext-server-rel-url,精确项目页可打开但API文件树/README正文未取得，不能判断是否硬件项目,2026-07-26
+52d6df67c7e83dd7,keypad-without-library,https://github.com/vishalgopal2004/keypad-without-library,keypad-without-library 的 GitHub 精确页面返回 404，无法取得 README、文件树或许可证。,2026-07-26
+5318c5d0e318147f,Robatic-ARM,https://github.com/hadi-sangsefidi/Robatic-ARM,Robatic-ARM 的 GitHub 精确页面返回 404，不能仅凭名称猜测是否有可交付机械臂。,2026-07-26
+603de0c4d59e67ce,Akita-Harrier,https://github.com/AkitaEngineering/Akita-Harrier,Akita-Harrier 的 GitHub 精确页面返回 404，源记录没有可靠产品正文。,2026-07-26
+6b2dc67b6043485b,saintcon-minibadge-training,https://gitlab.com/ph13b45/saintcon-minibadge-training,GitLab 项目页只有 saintcon-minibadge-training 的加载壳，未取得精确 README/API 正文，不能按名称猜测产品形态。,2026-07-26
+76a39b6a33a0876f,badge-esp32-breakout,https://gitlab.com/pale-shadow/badge-esp32-breakout,精确项目正文未稳定取得；名称显示可能是徽章用ESP32扩展板，但不能仅凭名称判断产品形态与商业价值,2026-07-26
+7725f8f1ae87a483,Tengucon 2.0 Hardware Badge,https://gitlab.com/Chainfire73/tengucon2,精确项目页只有Tengucon 2.0 Hardware Badge标题，未取得设计/规格/价格/许可正文，不能完成商业核验,2026-07-26
+780acd4bdcd5b3bc,Insignoj,https://gitlab.com/uk.legume/self/media/insignoj,精确项目页可打开但仅返回GitLab标题壳，未取得README、文件正文或产品说明，不能根据Insignoj名称猜测,2026-07-26
+7b2240c7f7606ea3,this-ones-for-you-my-retalyation.-also-haha-arrow-game-lolol,https://github.com/Skattermuffin/this-ones-for-you-my-retalyation.-also-haha-arrow-game-lolol,GitHub 仓库及精确 README 返回 404，源记录只有项目标题，无法确认是游戏、软件还是硬件。,2026-07-26
+88c5d2b25677c995,Appstronaut Mission Control,https://gitlab.com/dyansberg-c/appstronaut-mission-control,精确GitLab页面未取得；源摘要描述为带徽章和倒计时的Web应用，但未读取原页面前不计入已复核或评分,2026-07-26
+8ccd58246a8d1241,peak-badges-automation,https://gitlab.com/peakd/peak-badges-automation,精确页面仅取得项目外壳，README正文不足；名称更像数字badge自动化，未取得可制造硬件证据,2026-07-26
+8ff4a0cc7d76b76f,devlens,https://gitlab.com/SamoTech/devlens,精确GitLab页面未取得；源摘要表明是GitHub Action和仓库健康分析软件，但为保持逐页标准先列为待解锁,2026-07-26
+932cd307aa563e3f,acgt-badges,https://gitlab.com/bontetabala4/acgt-badges,精确GitLab项目页只有项目标题壳，未取得README或文件正文，不能根据acgt-badges名称猜测,2026-07-26
+960da8862feda8d2,ZionTree,https://gitlab.com/showi/ziontree,精确页面未稳定加载，源记录只有prettier状态badge而无项目正文、产品形态或硬件证据；不能据此评分或判定商业价值,2026-07-26
+9f252c28d5d9e897,Apply-get-free-badge,https://gitlab.com/metaverfaid/Apply-get-free-badge,精确GitLab页面和README正文未取得，源摘要只有Apply，无法判断项目范围，禁止据名称淘汰或评分,2026-07-26
+a3b0a2d0364f24f9,Workflow Badge,https://gitlab.com/amdap/services/workflow-badge,精确项目页/文件正文受限，未取得可核验内容，不能仅凭Workflow Badge名称下结论,2026-07-26
+abda02f1d035c318,HiP-Badge,https://gitlab.com/tidklaas/hip-badge,精确项目页仅稳定暴露元数据和大量硬件版本Tag，README/产品正文未取得；无法完整核验产品本体、客户、市场与许可，暂不评分,2026-07-26
+ae2a8609fbc3a1ed,Keyboards,https://www.pcbway.com/project/shareproject/Keyboards,PCBWay URL 返回 Keyboards 分类/共享项目目录而非具体键盘项目正文，无法逐条核验产品本体和市场证据。,2026-07-26
+b2bd3e1c164182d4,badger,https://gitlab.com/linux-committee-tools/badger,精确GitLab页面未稳定加载，源记录无正文；名称不足以证明存在实体硬件,2026-07-26
+b383fb5982f6b4fc,emBO++ Badge,https://gitlab.com/paulbendixen/embo-badge,GitLab 项目页只有标题、提交数和加载壳，README/API 正文未取得，无法判断徽章是否有实际硬件。,2026-07-26
+b5394deea9b6baef,badgeo,https://gitlab.com/qumasan/badgeo,精确GitLab页面和README正文未取得，源记录无描述；无法确认是否数字badge、软件或实体硬件,2026-07-26
+b6e543117215a612,whybadge_file_explorer,https://gitlab.com/Mar10us/whybadge_file_explorer,精确GitLab页面未稳定加载，源记录无描述；项目名可能是WHY徽章应用而非硬件，禁止据名称猜测,2026-07-26
+b7fd67a42e893c4c,badger-bus-app.py,https://gitlab.com/yannickulrich/badger-bus-app.py,精确API仅返回app.py文件树，未取得README或文件正文，无法确认项目用途与产品形态,2026-07-26
+bc203c5af8481e00,RetireMate,https://gitlab.com/pratyush0898/RetireMate,精确GitLab正文未取得，源记录只有Netlify部署徽章；不能只凭项目名或部署状态判定产品形态,2026-07-26
+bd3d5da053c4681d,why2025-badge-firmware,https://gitlab.com/kaistierl/why-2025-badge-firmware,精确项目页可见仓库身份但README正文不足；标题明确偏固件，仍需正文确认范围，暂不作为硬件评分,2026-07-26
+bfcfe8e3fb457e22,project-badges,https://gitlab.com/issue-reproduce/project-badges,精确项目页可打开但文件树/README正文未取得，不能根据project-badges名称猜测,2026-07-26
+c00bd782adc2c3e1,eInk IOT VirtualBadge 2020,https://gitlab.com/stoneflesh/eink-vbadge-project-2020,精确GitLab页面未稳定加载，源记录无正文；可能是电子纸虚拟徽章项目，但产品、BOM、许可和市场证据均未取得,2026-07-26
+c7adc35c72ced12a,badge-d3d80c48,https://gitlab.com/gitlab-oss-package-research/source/maven/ba/badge-d3d80c48,GitLab项目页和文件名可见，但README正文无法取回，不能仅凭package-research路径判定产品形态,2026-07-26
+c971a16ed6559373,ch32v303-48lqfp-portal-badge,https://gitlab.com/hexum-public-share/bfb/dc34/public/badge/portal-badge/hardware/ch32v303-48lqfp-portal-badge,仅取得portal badge项目的成本表二进制和不完整文件树，未取得README/规格正文，无法核验产品本体与客户,2026-07-26
+cb3a999668e235ef,Electronic Games,https://www.pcbway.com/project/shareproject/Electronic-Games,PCBWay URL 返回共享项目分类目录而非 Electronic Games 项目正文，正文没有该条目的规格、价格、文件或主图。,2026-07-26
+cde250f188ffba41,Badger ROS,https://gitlab.com/uc3m-Under_Rob/badger-ros,精确项目页可打开但文件树/README正文未取得，不能判断Badger ROS是否含硬件本体,2026-07-26
+ce40d2a57ce217bb,Badgefed-deletion_scheduled-84050774,https://gitlab.com/ozelite/forks/badgefed-deletion_scheduled-84050774,精确GitLab项目页是已计划删除的Fork壳，未取得README或文件正文，不能补写结论,2026-07-26
+d1d527d653bfaee5,badgetizr-integration,https://gitlab.com/chris-saez/badgetizr-integration,精确GitLab页面和可靠缓存正文未取得，源记录无描述；无法确认是软件集成、自动化项目还是实体硬件,2026-07-26
+d406f3055acc37d6,Firmware,https://gitlab.com/astralforge-why2025/firmware,精确页面仅显示WHY2025徽章Rust应用模板描述，未取得独立硬件设计；为避免仅凭摘要结论，先延后到可读取完整正文时处理,2026-07-26
+d980f935c1732d31,Arduino-UNO-for-Absolute-Beginners,https://github.com/rajeshThakare/Arduino-UNO-for-Absolute-Beginners,Arduino-UNO-for-Absolute-Beginners 的 GitHub 精确页面返回 404，不能仅凭名称归为教程。,2026-07-26
+e6c3fdee67f39920,hey-game-pepople-i-know-you-r-ment-to-like-make-these-long-but-come-on-its-fun-but-arrow-game-lol,https://github.com/Skattermuffin/hey-game-pepople-i-know-you-r-ment-to-like-make-these-long-but-come-on-its-fun-but-arrow-game-lol,GitHub 仓库及精确 README 返回 404，源记录只有项目标题，无法确认是游戏、软件还是硬件。,2026-07-26
+ea2f272ddd684f62,AnilistProfileViewer,https://gitlab.com/masonlee1/AnilistProfileViewer,精确GitLab页面缓存未命中；源摘要更像网站访问统计图像徽章，但未读取项目正文前不作正式结论,2026-07-26
+ef6f0f40ce11a490,badger-database-b586e6b5,https://gitlab.com/gitlab-oss-package-research/tools/libbehave/3.2.0/npm/ba/badger-database-b586e6b5,GitLab项目页仅有包研究仓库文件名，README正文无法取回，不能猜测其是否为硬件,2026-07-26
+f138b417d4c7cf30,Pybadger,https://gitlab.com/soldavid/pybadger,精确GitLab页面未稳定加载，源记录无正文；无法确认是Python badge软件、徽章固件或硬件,2026-07-26
