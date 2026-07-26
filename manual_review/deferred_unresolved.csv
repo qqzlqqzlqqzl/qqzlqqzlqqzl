@@ -3,3 +3,5 @@ project_id,name,original_url,defer_reason,last_checked
 "3a50bbe98bed71ce","103 Microoled Display 2560X2560 1000Nits Mipi","https://www.tindie.com/products/oled-modules/103-microoled-display-2560x2560-1000nits-mipi","精确URL不可用，卖家目录存在1800、3000、20000nit等冲突1.03英寸变体；禁止用相似规格代替","2026-07-25"
 "960da8862feda8d2","ZionTree","https://gitlab.com/showi/ziontree","精确页面未稳定加载，源记录只有prettier状态badge而无项目正文、产品形态或硬件证据；不能据此评分或判定商业价值","2026-07-26"
 "33b8663db9e7efdc","BadgerBoy","https://gitlab.com/victorgsbarros/badgerboy","精确GitLab页面可见仓库元数据和README入口，但README正文未能稳定加载，原始抓取记录也没有描述；无法判断它是软件、徽章固件还是独立硬件，禁止据名称评分","2026-07-26"
+"098f7042ec9f64d0","BadgeKit","https://gitlab.com/andreassolberg/badgekit","精确GitLab页面和可靠缓存正文未能稳定取得，源记录无描述；无法确认是软件工具、活动徽章固件还是独立硬件，禁止据名称评分","2026-07-26"
+"abda02f1d035c318","HiP-Badge","https://gitlab.com/tidklaas/hip-badge","精确项目页仅稳定暴露元数据和大量硬件版本Tag，README/产品正文未取得；无法完整核验产品本体、客户、市场与许可，暂不评分","2026-07-26"
