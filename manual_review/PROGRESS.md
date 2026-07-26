@@ -5,13 +5,13 @@ Updated: 2026-07-26
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 571
+- Page/source-reviewed records: 591
 - Strict commercial candidates: 0
 - Watchlist: 26
-- Market-reference cases: 170
-- Rejected: 375
-- Deferred because exact page evidence is unresolved: 4
-- Remaining unreviewed or deferred: 9,929
+- Market-reference cases: 177
+- Rejected: 388
+- Deferred because exact page evidence is unresolved: 6
+- Remaining unreviewed or deferred: 9,909
 
 ## Completed batches
 
@@ -60,22 +60,22 @@ Updated: 2026-07-26
 | 038A | 10 | 0 | 0 | 0 | 10 | `batch_038a_badge_tutorial_workshop_software_and_nfc.csv` |
 | 038B | 10 | 0 | 0 | 0 | 10 | `batch_038b_badge_apps_firmware_svg_php_csp_and_drupal.csv` |
 | 039 | 20 | 0 | 3 | 3 | 14 | `batch_039_software_false_positives_retro_audio_industrial_io_fans_printer_and_energy.csv` |
+| 040 | 20 | 0 | 0 | 7 | 13 | `batch_040_keyboards_kits_software_printer_boards_watches_and_bms.csv` |
 
-## Batch 039 self-check
+## Batch 040 self-check
 
-- Twenty unique source records were reviewed from exact project pages, exact repository documentation, product pages or reliable page-level evidence. Fourteen records were rejected as software, digital-badge false positives, an obsolete competition SDK or a non-hardware Crowd Supply photography book.
-- USBSID-Pico was retained only as a watchlist case: it is a real sold retro-audio product with complete design files, but its latest v1.5 hardware is CC BY-NC-ND and cannot be commercially copied; older v1.0/v1.3 revisions use CC BY-SA.
-- PL1-0 Universal Sensor Interface and Sensor Watch were retained as watchlist patterns rather than copy targets. PL1-0 has only 34 backers and industrial compliance risk; Sensor Watch has strong validation but the exact Casio replacement-board opportunity is already occupied by its original team.
-- FanPico, KlipperToolboard and ATM90E26 kits were kept as market-reference cases because they demonstrate real demand but sit in crowded categories with low-price, ecosystem, safety or support disadvantages.
-- BadgerBoy was not counted as reviewed. Its exact GitLab page exposes metadata and a README entry, but the body and source description were unavailable, so it was added to the deferred file rather than guessed.
-- Automatic image labels were not treated as human approval. Only images supported by exact project documentation were marked basically matching, and unresolved revision or sales-image issues remain noted.
+- Twenty unique source records were reviewed from exact project pages, exact repository documentation, certification pages or reliable page-level evidence.
+- Thirteen records were rejected as software, documentation, tutorial interfaces, commodity/mature shields, third-party-module assemblies or crowded DIY products.
+- Seven records were retained only as market-reference cases: the duplicate Sensor Watch press source, Duet 2, BIGTREETECH SKR Pro, Perpetual LED Wristwatch, Teensy Eurorack, DIY Gaming Mouse and diyBMS.
+- BadgeKit and HiP-Badge were not counted as reviewed because exact project bodies were insufficient; both were moved to the deferred file rather than guessed.
+- Product-family duplicates were not promoted to new opportunities. Automatic image labels were not treated as human approval; tutorial images, PCB backs and unstable private image links remain flagged.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 571 unique IDs across 571 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed as opportunities but retained as traceable rows.
-- Deferred IDs: 4 unique IDs, excluded from the active queue but not counted as reviewed.
+- Reviewed IDs: 591 unique IDs across 591 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed as opportunities but retained as traceable rows.
+- Deferred IDs: 6 unique IDs, excluded from the active queue but not counted as reviewed.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
-- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 571 records.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 591 records.
 - Automatic image labels are not accepted as human verification; mismatches, tutorial images, upstream-board images and unresolved images remain marked.
 - PR #9 remains draft and unmerged.
