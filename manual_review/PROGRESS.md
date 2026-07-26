@@ -5,13 +5,13 @@ Updated: 2026-07-26
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 612
+- Page/source-reviewed records: 629
 - Strict commercial candidates: 0
-- Watchlist: 27
-- Market-reference cases: 181
-- Rejected: 404
+- Watchlist: 28
+- Market-reference cases: 190
+- Rejected: 411
 - Deferred because exact page evidence is unresolved: 15
-- Remaining unreviewed or deferred: 9,888
+- Remaining unreviewed or deferred: 9,871
 
 ## Completed batches
 
@@ -63,22 +63,24 @@ Updated: 2026-07-26
 | 040 | 20 | 0 | 0 | 7 | 13 | `batch_040_keyboards_kits_software_printer_boards_watches_and_bms.csv` |
 | 041A | 11 | 0 | 1 | 2 | 8 | `batch_041a_github_security_protocol_audio_keyboards_and_groundstation.csv` |
 | 041B | 10 | 0 | 0 | 2 | 8 | `batch_041b_github_robotics_education_kits_and_devboards.csv` |
+| 042 | 17 | 0 | 1 | 9 | 7 | `batch_042_oshwa_mature_modules_vertical_flowbench_and_open_products.csv` |
 
-## Batch 041 self-check
+## Batch 042 self-check
 
-- Twenty-one unique GitHub source records were read from exact repository README pages, file trees, specifications and license sections.
-- One record entered the watchlist: `value-pasta-auto`, because it is an outcome-driven automotive security testbed rather than a generic board, but it still lacks buyer, pricing and reliability evidence.
-- Four records were retained only as market references: the ESP32 SRAM PUF research PoC, Teensy Eurorack CV shield, Pi Tin kit and Snapmaker 2 controller ecosystem.
-- Sixteen records were rejected as software/protocol projects, Arduino or Raspberry Pi assemblies, educational programs, mature commodity breakouts, crowded keyboards, generic development kits or unsafe experimental machinery.
-- Nine GitLab records whose exact README bodies could not be reliably retrieved were moved to `deferred_unresolved.csv`; none was scored from its name alone.
-- Product-family and ecosystem records were not promoted to independent market gaps. Automatic image labels were overridden where the image was a diagram, UI screenshot, sub-board, video thumbnail, upstream board or non-sales view.
+- Seventeen unique records were reviewed from exact GitHub README pages, OSHWA certification pages, current manufacturer/product pages and one exact Hack Club project README; no record was scored from the crawler title alone.
+- One record entered the watchlist: `DIY-Flow-Bench`, because it is a complete outcome-driven automotive measurement system with open hardware, software and a real professional pain point. It still lacks traceable calibration, repeatability, verified pricing and customer-payment evidence.
+- Nine records were retained only as market references: Ammeter Clock Controller, Thermal Printer Controller, Jackpot CNC Controller, Keyboard FeatherWing, SNES OEM Controller PCB Replacement, System76 Launch Lite, QuinLED-Dig-Uno, N32B MIDI Controller and the AirGradient product ecosystem.
+- Seven records were rejected as software-only, mature generic development boards or modules, a student reaction-game exercise, or crowded ESP/Arduino ecosystem products.
+- Existing commercial success was not treated as an unoccupied opportunity. Adafruit, System76, SHIK, AirGradient, SparkFun and V1 Engineering records remain evidence of product-family execution, certification, software and channel advantages rather than invitations to copy one board.
+- QuinLED's PCBWay share page explicitly uses a non-commercial, no-derivatives license; it was not promoted as a reusable commercial design despite its strong page engagement.
+- Automatic image labels were overridden where the available image was only a PCB, certificate image, student submission, or did not show a complete sale-ready product.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 612 unique IDs across 612 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed as opportunities but retained as traceable rows.
+- Reviewed IDs: 629 unique IDs across 629 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed as opportunities but retained as traceable rows.
 - Deferred IDs: 15 unique IDs, excluded from the active queue but not counted as reviewed.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
-- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 612 records.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 629 records.
 - Automatic image labels are not accepted as human verification; mismatches, tutorial images, upstream-board images and unresolved images remain marked.
 - PR #9 remains draft and unmerged.
