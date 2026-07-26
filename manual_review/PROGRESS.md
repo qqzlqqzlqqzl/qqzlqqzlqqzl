@@ -5,13 +5,13 @@ Updated: 2026-07-26
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 629
+- Page/source-reviewed records: 647
 - Strict commercial candidates: 0
-- Watchlist: 28
-- Market-reference cases: 190
-- Rejected: 411
+- Watchlist: 31
+- Market-reference cases: 196
+- Rejected: 420
 - Deferred because exact page evidence is unresolved: 25
-- Remaining unreviewed or deferred: 9,871
+- Remaining unreviewed or deferred: 9,853
 
 ## Completed batches
 
@@ -64,24 +64,29 @@ Updated: 2026-07-26
 | 041A | 11 | 0 | 1 | 2 | 8 | `batch_041a_github_security_protocol_audio_keyboards_and_groundstation.csv` |
 | 041B | 10 | 0 | 0 | 2 | 8 | `batch_041b_github_robotics_education_kits_and_devboards.csv` |
 | 042 | 17 | 0 | 1 | 9 | 7 | `batch_042_oshwa_mature_modules_vertical_flowbench_and_open_products.csv` |
+| 042B | 18 | 0 | 3 | 6 | 9 | `batch_042_github_printer_controls_keyboards_tools_retro_and_environment.csv` |
 
 ## Batch 042 self-check
 
 - Seventeen unique records were reviewed from exact GitHub README pages, OSHWA certification pages, current manufacturer/product pages and one exact Hack Club project README; no record was scored from the crawler title alone.
 - One record entered the watchlist: `DIY-Flow-Bench`, because it is a complete outcome-driven automotive measurement system with open hardware, software and a real professional pain point. It still lacks traceable calibration, repeatability, verified pricing and customer-payment evidence.
-- Nine records were retained only as market references: Ammeter Clock Controller, Thermal Printer Controller, Jackpot CNC Controller, Keyboard FeatherWing, SNES OEM Controller PCB Replacement, System76 Launch Lite, QuinLED-Dig-Uno, N32B MIDI Controller and the AirGradient product ecosystem.
-- Seven records were rejected as software-only, mature generic development boards or modules, a student reaction-game exercise, or crowded ESP/Arduino ecosystem products.
-- Existing commercial success was not treated as an unoccupied opportunity. Adafruit, System76, SHIK, AirGradient, SparkFun and V1 Engineering records remain evidence of product-family execution, certification, software and channel advantages rather than invitations to copy one board.
-- QuinLED's PCBWay share page explicitly uses a non-commercial, no-derivatives license; it was not promoted as a reusable commercial design despite its strong page engagement.
-- Automatic image labels were overridden where the available image was only a PCB, certificate image, student submission, or did not show a complete sale-ready product.
-- Ten additional GitLab records whose exact pages repeatedly failed to load were appended to `deferred_unresolved.csv`; none was scored from its source summary.
+- Nine records were retained only as market references and seven were rejected. Existing commercial success was not treated as an unoccupied opportunity.
+- Ten inaccessible GitLab records were appended to `deferred_unresolved.csv`; none was scored from its source summary.
+
+## Batch 042B self-check
+
+- Eighteen unique GitHub records were read from exact README pages, electrical specifications, build notes, sales links, maintenance warnings and license statements where available.
+- Three records entered the watchlist: `XIAO-PowerBread`, `OnStep-JUWEI-17` and `APC`. Each has a concrete outcome and stronger product evidence than a generic board, but each lacks enough independent market, licensing or support-risk evidence for the strict shortlist.
+- Six were retained as market references: Leviathan, MKS-DLC32, FSR_Endstop, MIDI Mixer One, Little Big Scroll and Smart Citizen Kit.
+- Nine were rejected as unvalidated concepts, unfinished prototypes, software/HDL, abandoned commodity sub-boards, crowded development-board assemblies, a hazardous mains-voltage tutorial or a high-risk game-memory radar.
+- Automatic image labels were overridden where the image was a PCB render, wiring diagram, component detail, upstream board or incomplete prototype.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 629 unique IDs across 629 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed as opportunities but retained as traceable rows.
+- Reviewed IDs: 647 unique IDs across 647 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed as opportunities but retained as traceable rows.
 - Deferred IDs: 25 unique IDs, excluded from the active queue but not counted as reviewed.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
-- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 629 records.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 647 records.
 - Automatic image labels are not accepted as human verification; mismatches, tutorial images, upstream-board images and unresolved images remain marked.
 - PR #9 remains draft and unmerged.
