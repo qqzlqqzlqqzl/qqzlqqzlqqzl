@@ -5,13 +5,13 @@ Updated: 2026-07-26
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 591
+- Page/source-reviewed records: 612
 - Strict commercial candidates: 0
-- Watchlist: 26
-- Market-reference cases: 177
-- Rejected: 388
-- Deferred because exact page evidence is unresolved: 6
-- Remaining unreviewed or deferred: 9,909
+- Watchlist: 27
+- Market-reference cases: 181
+- Rejected: 404
+- Deferred because exact page evidence is unresolved: 15
+- Remaining unreviewed or deferred: 9,888
 
 ## Completed batches
 
@@ -61,21 +61,24 @@ Updated: 2026-07-26
 | 038B | 10 | 0 | 0 | 0 | 10 | `batch_038b_badge_apps_firmware_svg_php_csp_and_drupal.csv` |
 | 039 | 20 | 0 | 3 | 3 | 14 | `batch_039_software_false_positives_retro_audio_industrial_io_fans_printer_and_energy.csv` |
 | 040 | 20 | 0 | 0 | 7 | 13 | `batch_040_keyboards_kits_software_printer_boards_watches_and_bms.csv` |
+| 041A | 11 | 0 | 1 | 2 | 8 | `batch_041a_github_security_protocol_audio_keyboards_and_groundstation.csv` |
+| 041B | 10 | 0 | 0 | 2 | 8 | `batch_041b_github_robotics_education_kits_and_devboards.csv` |
 
-## Batch 040 self-check
+## Batch 041 self-check
 
-- Twenty unique source records were reviewed from exact project pages, exact repository documentation, certification pages or reliable page-level evidence.
-- Thirteen records were rejected as software, documentation, tutorial interfaces, commodity/mature shields, third-party-module assemblies or crowded DIY products.
-- Seven records were retained only as market-reference cases: the duplicate Sensor Watch press source, Duet 2, BIGTREETECH SKR Pro, Perpetual LED Wristwatch, Teensy Eurorack, DIY Gaming Mouse and diyBMS.
-- BadgeKit and HiP-Badge were not counted as reviewed because exact project bodies were insufficient; both were moved to the deferred file rather than guessed.
-- Product-family duplicates were not promoted to new opportunities. Automatic image labels were not treated as human approval; tutorial images, PCB backs and unstable private image links remain flagged.
+- Twenty-one unique GitHub source records were read from exact repository README pages, file trees, specifications and license sections.
+- One record entered the watchlist: `value-pasta-auto`, because it is an outcome-driven automotive security testbed rather than a generic board, but it still lacks buyer, pricing and reliability evidence.
+- Four records were retained only as market references: the ESP32 SRAM PUF research PoC, Teensy Eurorack CV shield, Pi Tin kit and Snapmaker 2 controller ecosystem.
+- Sixteen records were rejected as software/protocol projects, Arduino or Raspberry Pi assemblies, educational programs, mature commodity breakouts, crowded keyboards, generic development kits or unsafe experimental machinery.
+- Nine GitLab records whose exact README bodies could not be reliably retrieved were moved to `deferred_unresolved.csv`; none was scored from its name alone.
+- Product-family and ecosystem records were not promoted to independent market gaps. Automatic image labels were overridden where the image was a diagram, UI screenshot, sub-board, video thumbnail, upstream board or non-sales view.
 
 ## Cross-batch self-check
 
-- Reviewed IDs: 591 unique IDs across 591 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed as opportunities but retained as traceable rows.
-- Deferred IDs: 6 unique IDs, excluded from the active queue but not counted as reviewed.
+- Reviewed IDs: 612 unique IDs across 612 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed as opportunities but retained as traceable rows.
+- Deferred IDs: 15 unique IDs, excluded from the active queue but not counted as reviewed.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
-- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 591 records.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 612 records.
 - Automatic image labels are not accepted as human verification; mismatches, tutorial images, upstream-board images and unresolved images remain marked.
 - PR #9 remains draft and unmerged.
