@@ -5,13 +5,13 @@ Updated: 2026-07-26
 ## Current totals
 
 - Raw records: 10,500
-- Page/source-reviewed records: 667
+- Page/source-reviewed records: 851
 - Strict commercial candidates: 0
-- Watchlist: 35
-- Market-reference cases: 201
-- Rejected: 431
-- Deferred because exact page evidence is unresolved: 25
-- Remaining unreviewed or deferred: 9,833
+- Watchlist: 42
+- Market-reference cases: 228
+- Rejected: 581
+- Deferred because exact page evidence is unresolved: 41
+- Remaining unreviewed or deferred: 9,608
 
 ## Completed batches
 
@@ -66,6 +66,7 @@ Updated: 2026-07-26
 | 042 | 17 | 0 | 1 | 9 | 7 | `batch_042_oshwa_mature_modules_vertical_flowbench_and_open_products.csv` |
 | 042B | 18 | 0 | 3 | 6 | 9 | `batch_042_github_printer_controls_keyboards_tools_retro_and_environment.csv` |
 | 042C | 20 | 0 | 4 | 5 | 11 | `batch_042_oshwa_input_devices_assistive_retro_kvm_and_tutorials.csv` |
+| 043 | 184 | 0 | 7 | 27 | 150 | `batch_043_mixed_gitlab_badges_and_hardware.csv` |
 
 ## Batch 042 self-check
 
@@ -92,12 +93,21 @@ Updated: 2026-07-26
 - Automatic hero-image labels were not accepted as human verification; unresolved certification-page images remain unresolved, and tutorial or upstream-board images were explicitly rejected.
 - Device-family and ecosystem variants remain traceable rows but are not promoted as separate market gaps.
 
+## Batch 043 self-check
+
+- 184 unique source records were reviewed from exact GitLab README/API content, GitHub README content, OSHWA certification pages, Crowd Supply product/pledge pages, Hack Club project READMEs and PCBWay project pages.
+- Sixteen records were not counted as reviewed because the exact page returned only a title shell, an empty/deletion stub, a binary cost file without product documentation, or otherwise no reliable project正文; each was appended to `deferred_unresolved.csv`.
+- Seven records entered the watchlist: Open Smart Kit, Chamber-Master, HEGduino V2, ESP32 LinuxCNC MotionController, MISISTEMITA, Multi-Functional-Controller and ISA 8-Bit Ethernet Controller. Each has a concrete hardware result or professional context but lacks enough pricing, delivery, calibration or safety evidence for the strict shortlist.
+- Twenty-seven were kept as market references, mostly mature control boards, metering/IoT products, professional input devices, conference hardware and funded development kits. Existing sales or crowdfunding were not treated as unoccupied opportunities.
+- One hundred fifty were rejected as software, tutorials, generic modules/devboards, Raspberry Pi or third-party assemblies, event-only badges, research prototypes, or crowded low-differentiation products.
+- Automatic hero-image labels were not accepted as human verification. Event-badge, PCB-only, upstream-board, tutorial and certification-page placeholder images were not promoted as sales-grade heroes.
+
 ## Cross-batch self-check
 
-- Reviewed IDs: 667 unique IDs across 667 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed as opportunities but retained as traceable rows.
-- Deferred IDs: 25 unique IDs, excluded from the active queue but not counted as reviewed.
+- Reviewed IDs: 851 unique IDs across 851 rows. Exact IDs are excluded during subsequent review, while semantic duplicates and product-family variants are collapsed as opportunities but retained as traceable rows.
+- Deferred IDs: 41 unique IDs, excluded from the active queue but not counted as reviewed.
 - No inaccessible item is silently marked as an ordinary direct-page review; exact-cache and cross-checked reviews use explicit statuses.
 - Product-family variants remain evidence and are not counted as separate commercial opportunities.
-- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 667 records.
+- No project has entered the strict shortlist without page-level evidence; no strict candidate has been found in the first 851 records.
 - Automatic image labels are not accepted as human verification; mismatches, tutorial images, upstream-board images and unresolved images remain marked.
 - PR #9 remains draft and unmerged.

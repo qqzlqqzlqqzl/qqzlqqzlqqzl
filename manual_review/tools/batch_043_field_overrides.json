@@ -1,0 +1,546 @@
+{
+  "ebc5224128357218": {
+    "commercialization_mode": "不进入；保留为成熟3D打印控制板参考",
+    "fields": {
+      "paying_customer": "需要扩展轴数、加热/风扇/外设IO的3D打印机改装者和小型设备集成商",
+      "pain_point": "单板驱动多轴3D打印机并通过M5扩展增加IO，减少自制控制板集成工作",
+      "price_usd": "",
+      "market_evidence": "精确README确认STM32F407 GTR主板、M5扩展板和TMC22xx驱动安装资料；未给本页售价、销量或订单",
+      "market_crowding": "BIGTREETECH、MKS、Duet、Klipper生态已有多类3D打印主板，低价板卡供给充足",
+      "third_party_dependency": "依赖STM32F407、TMC22xx插拔驱动、M5扩展板、3D打印机电源/加热/电机和固件生态",
+      "manufacturing_risk": "多层板、高电流和热区、接口密度及批量电气测试带来制造风险",
+      "after_sales_risk": "驱动型号、固件、接线和加热失控问题需要持续兼容与故障支持",
+      "compliance_risk": "装入3D打印机后涉及市电电源、加热床、运动机构和热失控责任",
+      "license_status": "精确README/API未列明确硬件或商业复用许可",
+      "hero_image_verdict": "缓存只取得板卡说明和驱动安装内容，未验证独立成品英雄图；不满足严格候选图证据"
+    }
+  },
+  "8bf84192353b51af": {
+    "commercialization_mode": "不进入；保留为开放无人机实验平台参考",
+    "fields": {
+      "paying_customer": "需要低门槛飞控实验和手机直连的无人机爱好者、创客和工程师",
+      "pain_point": "用手机直接控制开放式ESP32无人机，降低专有遥控器和飞控实验门槛",
+      "price_usd": "",
+      "market_evidence": "精确GitHub README确认ESP32-S3、手机Wi-Fi控制和开放硬件定位；未见商品页、销量或订单",
+      "market_crowding": "教育无人机、ESP32飞控和消费级小型无人机已有大量成熟方案，差异化不足",
+      "third_party_dependency": "依赖ESP32-S3、手机、锂电池、电机/桨叶、机架和飞控软件，整机安全取决于用户装配",
+      "manufacturing_risk": "飞行平衡、射频、动力、轻量结构和电池装配需要逐台测试",
+      "after_sales_risk": "飞行固件、手机兼容、姿态异常和电池/桨叶故障会造成高支持成本",
+      "compliance_risk": "涉及无线发射、锂电池、旋翼伤害和当地无人机飞行规则",
+      "license_status": "README称open-hardware，但精确缓存未列明确硬件商业许可",
+      "hero_image_verdict": "README链接LiteWing.png项目图，但本批未独立下载验证图片内容；不作为严格候选主图"
+    }
+  },
+  "e48d94590536b027": {
+    "commercialization_mode": "不进入；保留为音乐控制器产品化参考",
+    "fields": {
+      "paying_customer": "使用Ableton Live并需要大量实体旋钮、按键和灯光反馈的电子音乐制作人",
+      "pain_point": "把8×8 RGB网格、额外按键、编码器和LCD集中到一个Ableton Live控制面板，减少鼠标操作",
+      "price_usd": "",
+      "market_evidence": "精确README列出完整控制器功能、Ableton/Launchpad95g适配和演示视频；未见售价、销量或订单",
+      "market_crowding": "Novation Launchpad、Push及大量DIY MIDI控制器已覆盖RGB网格和DAW控制需求",
+      "third_party_dependency": "依赖STM32 USB MIDI库、Ableton Live、Launchpad95g脚本、USB VID/PID、LED/按键和自制外壳",
+      "manufacturing_risk": "8×8 RGB矩阵、17个按键、编码器、LCD和MIDI接口的布线、装配与测试工作量大",
+      "after_sales_risk": "DAW脚本、USB MIDI、固件和多种控制映射需要持续维护",
+      "compliance_risk": "主要是低压电子和USB责任，外壳、电源和EMC仍需验证",
+      "license_status": "精确README未列清楚硬件商业复用许可，且使用多个第三方库/脚本",
+      "hero_image_verdict": "README有演示视频链接和功能说明，但未验证可销售成品主图；不进入严格候选"
+    }
+  },
+  "7b53167ba425d24e": {
+    "commercialization_mode": "不进入；保留为复古掌机结构与制造参考",
+    "fields": {
+      "paying_customer": "愿意为小型化原装Game Boy Color兼容掌机、定制外壳和复古维修件付费的收藏者",
+      "pain_point": "在保留原装卡带兼容性的同时缩小Game Boy Color体积，并提供可加工外壳和定制PCB",
+      "price_usd": "",
+      "market_evidence": "精确PCBWay页显示项目说明、BOM、生产文件、四层PCB尺寸、72个赞和43,768次浏览；未见独立成品售价/订单",
+      "market_crowding": "复古掌机改装、Game Boy克隆和现成整机已有成熟社区与商业产品",
+      "third_party_dependency": "依赖拆机Game Boy Color CPU/RAM、原装卡带、定制LCD、玻璃镜片、机加工外壳和3D打印件",
+      "manufacturing_risk": "四层板、定制镜片、外壳加工、原装芯片拆焊和卡带兼容带来高制造与良率风险",
+      "after_sales_risk": "屏幕、卡带、按键、供电和复古芯片来源差异会导致装配与维修问题",
+      "compliance_risk": "电池、充电、热和旧芯片来源责任需要单独验证",
+      "license_status": "精确PCBWay页标注CC BY-NC-ND；限制改作和商业复用，不适合直接复制销售",
+      "hero_image_verdict": "PCBWay正文有项目描述和实际项目图/文件，但页面同时声明图片仅供参考；可作市场参考，不作严格候选"
+    }
+  },
+  "19e996098b0cdd26": {
+    "commercialization_mode": "不进入；保留为客制化分体键盘销售参考",
+    "fields": {
+      "paying_customer": "需要低矮分体布局、RGB和可热插拔轴体的客制化键盘用户，README另给非欧盟预装购买入口",
+      "pain_point": "通过7×5错位分体布局、拇指簇和低矮Choc/MX兼容减少桌面与手部占用",
+      "price_usd": "",
+      "market_evidence": "精确README给出BOM、QMK/Vial、完整装配资料和Lucky Boy Store AliExpress预装入口；未取得该SKU价格/销量",
+      "market_crowding": "Sofle、Corne、Lily及大量客制化分体键盘已有成熟开源设计和销售渠道",
+      "third_party_dependency": "依赖Kailh Choc/MX轴体、RP2040控制器、QMK/Vial、TRRS连接、键帽和用户装配",
+      "manufacturing_risk": "左右两块PCB、68颗LED、轴体/键帽适配和分体连接增加装配与售后复杂度",
+      "after_sales_risk": "QMK布局、左右半通信、RGB、轴体兼容和预装渠道退换货需要支持",
+      "compliance_risk": "低压USB设备，主要风险是电气、ESD和外壳/线缆可靠性",
+      "license_status": "精确README未列清晰硬件商业许可；设计还基于Sofle Choc并依赖QMK/Vial",
+      "hero_image_verdict": "README含Images章节和成品布局说明，能对应键盘本体；但品类红海，不进入严格候选"
+    }
+  },
+  "840ff639dc3fd526": {
+    "commercialization_mode": "不进入；保留为已验证高客单电子纸游戏平台参考",
+    "fields": {
+      "paying_customer": "桌游设计者、互动游戏开发者和需要电子纸卡牌原型的创作者",
+      "pain_point": "让卡牌保存状态、根据位置/时间/其他卡牌改变行为，提供纸卡无法实现的游戏机制",
+      "price_usd": "299–499",
+      "market_evidence": "精确Crowd Supply页显示7,277美元、16位支持者、Funded/Order Below、Limited items in stock和299–499美元选项",
+      "market_crowding": "电子纸开发套件和互动桌游平台已有竞争；该项目已有明确渠道，不能视为未占领空白",
+      "third_party_dependency": "依赖电子纸卡、Plinth底座、塑料件、电池/通信、游戏内容和专用软件生态",
+      "manufacturing_risk": "电子纸、卡片机械结构、底座触点和小批量塑料件的良率与供应链风险高",
+      "after_sales_risk": "卡片配对、固件、游戏内容和底座兼容会形成长期支持负担",
+      "compliance_risk": "电池、无线/近场通信和儿童桌游产品责任需要验证",
+      "license_status": "Crowd Supply正文未显示明确硬件商业复用许可",
+      "hero_image_verdict": "Crowd Supply页展示电子纸卡片与Plinth的产品叙述和购买页面，能对应本体；仅作成熟案例"
+    }
+  },
+  "92ac52a5269cc7ff": {
+    "commercialization_mode": "进入观察名单；等待首发价格、订单、认证与可靠性证据",
+    "fields": {
+      "paying_customer": "想把Home Assistant自动化接入配电箱/机柜的家庭自动化用户、小型安装商和开发者",
+      "pain_point": "在DIY接线和昂贵封闭式工业模块之间提供可直接使用、封闭并可DIN导轨安装的开放模块",
+      "price_usd": "",
+      "market_evidence": "精确Crowd Supply页标注Coming Soon、0 updates，并明确三类模块、DIN导轨、ESPHome/Home Assistant和6A/250VAC等规格；无订单/售价",
+      "market_crowding": "Shelly、Sonoff、工业I/O和Home Assistant模块生态已很拥挤，但开放DIN导轨定位仍值得观察",
+      "third_party_dependency": "依赖ESP32、机械/固态继电器、MOSFET、RS485/Wi-Fi/Ethernet/Bluetooth以及ESPHome/Home Assistant",
+      "manufacturing_risk": "继电器和MOSFET涉及高压/大电流，封闭壳体、端子、绝缘距离和DIN结构必须验证",
+      "after_sales_risk": "现场接线、网络配对、固件升级、继电器寿命和故障保护需要安装商级支持",
+      "compliance_risk": "最高风险是250VAC/6A市电、EMC、阻燃外壳和CE/UL等认证",
+      "license_status": "Crowd Supply称open source，但缓存未显示明确硬件许可证或认证文件",
+      "hero_image_verdict": "Crowd Supply页有模块生态和封闭/DIN产品描述，但未验证已量产成品图；观察而非严格候选"
+    }
+  },
+  "ea76f42156bd8eaa": {
+    "commercialization_mode": "不进入；保留为速记输入设备产品化参考",
+    "fields": {
+      "paying_customer": "速记员、法庭记录员、Plover用户和需要28键专业输入设备的训练者",
+      "pain_point": "用28键正交布局完成速记输入，降低传统键盘不适配速记法的成本和手部移动",
+      "price_usd": "",
+      "market_evidence": "精确README提供StenoKeyboards.com购买入口、28键BOM、Pro Micro和装配说明；未取得SKU售价/销量",
+      "market_crowding": "StenoKeyboards、Plover生态和其他速记键盘已有直接竞争",
+      "third_party_dependency": "依赖Arduino Pro Micro/Elite C、轴体、键帽、Plover/速记固件和用户焊接或预装服务",
+      "manufacturing_risk": "28键装配、二极管/控制器焊接、键帽布局和预装一致性需要测试",
+      "after_sales_risk": "Plover映射、固件刷写、布局适配和专业用户人体工学支持",
+      "compliance_risk": "低压USB输入设备，主要是ESD、线缆和结构可靠性",
+      "license_status": "精确README未列清晰硬件商业许可",
+      "hero_image_verdict": "README包含uni-v2渲染图、布局图和装配照片链接，能对应项目本体；但已存在销售生态"
+    }
+  },
+  "15e24397f9379f53": {
+    "commercialization_mode": "不进入；保留为会议徽章规模化与模块复用参考",
+    "fields": {
+      "paying_customer": "会议/营地主办方及为活动体验付费的参会者，核心采购方是活动组织者",
+      "pain_point": "用可交互徽章承载营地互动、传感器体验和活动后可复用的计算单元，减少一次性电子废弃物",
+      "price_usd": "",
+      "market_evidence": "精确GitLab README确认原型完成、深圳硬件伙伴、ESP32-P4/C6、4英寸屏、键盘和BMI270/BME690；未给公开售价/订单",
+      "market_crowding": "会议徽章和活动定制电子设备有成熟供应商，需求随活动周期波动",
+      "third_party_dependency": "依赖ESP32-P4/C6、4英寸显示、键盘、BMI270/BME690、前面板、深圳量产伙伴和活动内容",
+      "manufacturing_risk": "4英寸屏、前面板、键盘、传感器集成和活动批量交期需要较强供应链管理",
+      "after_sales_risk": "活动现场刷写、网络/互动服务和会后载板兼容需要支持",
+      "compliance_risk": "电池、无线、EMC、活动现场安全和环境传感器责任需要验证",
+      "license_status": "README含LICENSE并称原理图MIT；硬件商业复用范围仍需按仓库文件确认",
+      "hero_image_verdict": "README描述“你看到的”徽章本体和模块，但缓存未独立验证成品照片；只作市场参考"
+    }
+  },
+  "0d9b2b3e423a7254": {
+    "commercialization_mode": "不进入；保留为多回路电能监测产品族参考",
+    "fields": {
+      "paying_customer": "整屋、分户、太阳能、子配电箱和三相系统的能源监测安装者与家庭用户",
+      "pain_point": "用一块主板和可堆叠扩展监测6至42个电流回路，覆盖多相和太阳能场景",
+      "price_usd": "",
+      "market_evidence": "精确README给出六通道、最多42通道、ATM90E32AS、0.1%典型精度、ESPHome安装和校准流程；未取得本批价格/订单",
+      "market_crowding": "CircuitSetup自身已有产品族，且Shelly、IoTaWatt、OpenEnergyMonitor等覆盖家庭电能监测",
+      "third_party_dependency": "依赖ESP32、ATM90E32AS、CT互感器、AC-AC电源、ESPHome/Home Assistant和正确的电压参考接线",
+      "manufacturing_risk": "多路市电测量、CT校准、堆叠连接和绝缘/测试要求高",
+      "after_sales_risk": "相位/CT方向、校准、固件升级和现场配电接线会产生支持成本",
+      "compliance_risk": "接近或连接市电测量系统，涉及绝缘、熔断、EMC和安装责任",
+      "license_status": "精确README未显示明确硬件商业许可证，需另查仓库许可文件",
+      "hero_image_verdict": "README首图明确标注Expandable 6 Channel主板，能对应本体；但不因图片而进入严格候选"
+    }
+  },
+  "c29b4fa60ed0ad3b": {
+    "commercialization_mode": "不进入；保留为表计联网终端与服务闭环参考",
+    "fields": {
+      "paying_customer": "需要远程抄收水、气、热或电表脉冲的家庭用户、物业和区域服务用户",
+      "pain_point": "用电池供电Wi-Fi终端读取脉冲表计，自动上传Home Assistant/HTTP/MQTT并减少人工抄表",
+      "price_usd": "",
+      "market_evidence": "精确README写明waterius.ru购买入口、HTTP/MQTT、Yandex/Home Assistant、157个俄语区水务接口和2–4年AA电池寿命；未取得本批SKU价格",
+      "market_crowding": "已有表计脉冲采集器、LoRa/NB-IoT和智能家居网关；区域接口是主要壁垒",
+      "third_party_dependency": "依赖用户已有脉冲/干接点表计、Wi-Fi网络、区域抄表服务、Home Assistant/Yandex及三节AA电池",
+      "manufacturing_risk": "低功耗射频、脉冲输入保护、电池寿命和防水/安装结构需要验证",
+      "after_sales_risk": "不同表计脉冲权重、网络配网、区域接口和电池更换需要持续支持",
+      "compliance_risk": "无线、电池、表计接口和计量数据责任需按地区核验",
+      "license_status": "精确README未列清晰硬件商业许可；服务接口和商标仍有IP边界",
+      "hero_image_verdict": "README含waterius设备/手机图链接，能对应终端本体；市场已验证但不是新空白"
+    }
+  },
+  "465d49435e213a30": {
+    "commercialization_mode": "不进入；保留为会议互动设备参考",
+    "fields": {
+      "paying_customer": "DORS/CLUC等会议主办方采购者和参会者，价值来自活动互动与会后桌面功能",
+      "pain_point": "用显示、NFC寻宝、徽章交换、通知和游戏把参会者组织进现场互动",
+      "price_usd": "",
+      "market_evidence": "精确GitLab README列出9段显示、LED矩阵、NFC、按键、USB、通知/时钟/游戏和生产测试模式；未给售价/订单",
+      "market_crowding": "会议徽章属于一次性定制市场，已有活动电子厂商和历史徽章项目",
+      "third_party_dependency": "依赖会议内容、NFC标签、显示/LED/USB器件、固件和活动现场部署",
+      "manufacturing_risk": "批量焊接、NFC天线、显示一致性、电池与现场测试会随活动时间形成交付压力",
+      "after_sales_risk": "现场配置、互动服务、固件和会后通知功能需要维护",
+      "compliance_risk": "电池、NFC/无线、EMC和活动人身/财产责任需验证",
+      "license_status": "精确GitLab README/API未列明确硬件商业复用许可",
+      "hero_image_verdict": "README有会议徽章功能和硬件目录，未在缓存中验证独立产品照片；仅作市场参考"
+    }
+  },
+  "d6a52914f5f6c1e6": {
+    "commercialization_mode": "不进入；保留为厂商级FPGA/RISC-V开发套件参考",
+    "fields": {
+      "paying_customer": "需要PolarFire SoC、FPGA和RISC-V联合开发的企业工程师、研究机构和高校实验室",
+      "pain_point": "以一块可交付开发板同时验证FPGA逻辑、四核RISC-V、Linux、网络和工业接口",
+      "price_usd": "489（页面另列含美国运费的499美元众筹价）",
+      "market_evidence": "精确Crowd Supply页显示126,333美元、185位支持者、零售价489美元、已量产但当前Not Available",
+      "market_crowding": "Microchip、SiFive、Xilinx/AMD、Intel等厂商开发套件竞争成熟，渠道和芯片授权壁垒高",
+      "third_party_dependency": "依赖PolarFire SoC、SiFive RISC-V、Libero Silver工具、12V电源、Linux/RTOS和厂商生态",
+      "manufacturing_risk": "高速SerDes、FPGA、DDR4、eMMC、PCIe和多接口测试需要厂商级制造能力",
+      "after_sales_risk": "工具链、Linux启动、FPGA约束和厂商技术支持成本高",
+      "compliance_risk": "高速数字、EMC、热、电源和工业/航空应用责任需要认证与测试",
+      "license_status": "Crowd Supply正文显示需Libero Silver许可；硬件/FPGA资料受厂商许可和工具条款约束",
+      "hero_image_verdict": "Crowd Supply页有Icicle Kit产品图、规格和购买/交付叙述，能对应本体；但属于成熟厂商案例"
+    }
+  },
+  "6ee9b866f15549b3": {
+    "commercialization_mode": "进入观察名单；等待量产、价格和高温安全验证",
+    "fields": {
+      "paying_customer": "需要控制封闭腔体温度、排风和加热安全的Bambu或类似3D打印机用户/小型打印农场",
+      "pain_point": "用DS18B20/DHT、方向滞回、进气故障检测、OLED/旋钮和Web面板自动控制打印机腔体",
+      "price_usd": "",
+      "market_evidence": "精确README列出温度/进气/环境传感器、SG90风门、约1.5°C/min冷却、故障停机和Web/OLED交互；未见商品售价、销量或订单",
+      "market_crowding": "3D打印机腔体改装、BambuSauna和现成温控器已有多个方案，但完整安全闭环较少",
+      "third_party_dependency": "依赖ESP32/ESPHome、DS18B20、DHT11/22、SG90舵机、风扇、加热器和打印机腔体结构",
+      "manufacturing_risk": "高温、风道、舵机、传感器布置和不同打印机外壳适配需要逐机验证",
+      "after_sales_risk": "温度校准、风道安装、过温故障、固件升级和打印机型号兼容支持较重",
+      "compliance_risk": "加热器、风扇、过温保护和3D打印机热安全涉及火灾/电气责任",
+      "license_status": "README显示MIT License；可复用软件不等于整机硬件、加热器和外壳许可",
+      "hero_image_verdict": "README含腔体、OLED、风门和Web界面截图/图示，能对应项目功能；硬件成品照片与量产证据仍不足"
+    }
+  },
+  "cfc8d241b7ea37b9": {
+    "commercialization_mode": "进入观察名单；等待可供货、测量验证和健康合规证据",
+    "fields": {
+      "paying_customer": "需要家庭脑血流/生物反馈训练的个人用户、研究者和脑机接口教育者",
+      "pain_point": "在头戴设备中提供NIR-HEG、HRV、呼吸和皮温反馈，支持家庭训练与研究",
+      "price_usd": "80（页面对比表所列HEGduino V2成本）",
+      "market_evidence": "精确Crowd Supply页显示11,598美元、122位支持者、154%达标但当前Not Available，并给出80美元成本和MAX86141规格",
+      "market_crowding": "Mendi、Peanut、nIRHEG等生物反馈设备已有更高价竞争；页面明确列出直接对比",
+      "third_party_dependency": "依赖MAX86141、BPW34S、ESP32 breakout、可充电电池、头戴结构和网页/移动软件",
+      "manufacturing_risk": "光学遮光、头戴舒适度、传感器一致性、无线和电池装配需要专业测试",
+      "after_sales_risk": "信号质量、佩戴校准、软件连接和用户训练解释会产生高售后成本",
+      "compliance_risk": "健康/生物反馈宣称、光学测量、电池和无线合规边界必须明确，不能直接做医疗宣称",
+      "license_status": "Crowd Supply页面称open hardware/software，但缓存未显示完整硬件许可证与医疗责任条款",
+      "hero_image_verdict": "Crowd Supply页有头戴设备、传感器和规格对比，能对应本体；不可用状态与测量验证不足阻止进入严格候选"
+    }
+  },
+  "59010b79a5a70758": {
+    "commercialization_mode": "不进入；保留为历史会议徽章交付参考",
+    "fields": {
+      "paying_customer": "SaintCon会议主办方及一次性参会者",
+      "pain_point": "用会议徽章提供现场互动和可编程电子体验，承载活动品牌与任务",
+      "price_usd": "",
+      "market_evidence": "精确GitLab README仅给Badge Assembly Instructions、源码目录和构建站点；未给售价、订单或持续客户",
+      "market_crowding": "会议徽章是定制项目市场，复制价值受活动内容、批量和年份限制",
+      "third_party_dependency": "依赖活动主办方、徽章装配、现场服务、固件和电池/显示器件",
+      "manufacturing_risk": "批量装配、活动截止日期、现场测试和电池/显示一致性风险高",
+      "after_sales_risk": "活动期间故障替换和会后固件支持难以形成持续收入",
+      "compliance_risk": "电池、无线/显示和活动人身责任需按当年设计验证",
+      "license_status": "精确README/API未列明确硬件商业复用许可",
+      "hero_image_verdict": "缓存只取得装配说明入口，未验证会议徽章成品英雄图；仅作为历史参考"
+    }
+  },
+  "051e811219c45ca8": {
+    "commercialization_mode": "不进入；保留为高功率MPPT研发与安全审查参考",
+    "fields": {
+      "paying_customer": "需要80V/30A太阳能、风机或电池充电控制的DIY能源系统用户和电源研发者",
+      "pain_point": "在开放设计中实现1kW同步Buck MPPT、CC-CV、遥测和多电池化学支持",
+      "price_usd": "",
+      "market_evidence": "精确PCBWay页显示119,638次浏览、167赞、83评论，给出80V/30A、98%峰值效率、Blynk遥测和BOM/Gerber；未见商品订单",
+      "market_crowding": "Victron、EPEver及大量商业MPPT控制器已覆盖太阳能充电，且高功率安全门槛高",
+      "third_party_dependency": "依赖ESP32-WROOM-32E、MOSFET/电感、ADS1115/1015、ACS712、FUGU固件、散热与电池系统",
+      "manufacturing_risk": "1kW/80V/30A同步Buck的磁性件、散热、EMI、绝缘和功率测试风险极高",
+      "after_sales_risk": "电池化学、保护协议、校准、故障和现场接线需要专业电源支持",
+      "compliance_risk": "高功率直流、电池、太阳能输入和热失控涉及严重电气/火灾责任",
+      "license_status": "PCBWay页未显示明确硬件商业许可证，且引用FUGU固件和外部BOM",
+      "hero_image_verdict": "PCBWay页有项目主图、规格、BOM/Gerber和测试描述，能对应本体；但没有认证/量产证据"
+    }
+  },
+  "f26f38ba2c2ba048": {
+    "commercialization_mode": "不进入；保留为树莓派CM4扩展设备成熟案例",
+    "fields": {
+      "paying_customer": "需要语音、摄像头、传感器和双BLDC电机控制的机器人/智能家居开发者",
+      "pain_point": "把CM4、语音识别、摄像头、传感器和电机控制集中到一个可编程载板，缩短机器人原型时间",
+      "price_usd": "109",
+      "market_evidence": "精确Crowd Supply页显示17,820美元、87位支持者、109美元、In stock/Order Below，并给出双BLDC、双CSI和语音规格",
+      "market_crowding": "Raspberry Pi CM4载板、机器人扩展板和语音AI套件已有成熟品牌与低价模块",
+      "third_party_dependency": "核心依赖Raspberry Pi CM4、摄像头/传感器、Amazon/Alexa/Home Assistant/ChatGPT等软件生态和用户机械结构",
+      "manufacturing_risk": "高速CM4、双CSI、BLDC功率级、音频和传感器接口需要高密度PCB与测试",
+      "after_sales_risk": "CM4供货、Linux/驱动、语音服务、相机和电机接线兼容支持成本高",
+      "compliance_risk": "电机、电池、无线、摄像头隐私和语音服务责任需要按整机验证",
+      "license_status": "Crowd Supply页提供开源文件/软件信息，但硬件商业复用边界需按项目许可确认",
+      "hero_image_verdict": "Crowd Supply页展示SaraKIT本体、接口和机器人示例，能对应产品；但核心价值仍是CM4扩展生态"
+    }
+  },
+  "9328b755f8a5a926": {
+    "commercialization_mode": "不进入；保留为有销售入口的宏键盘案例",
+    "fields": {
+      "paying_customer": "需要小型QMK宏键盘、OLED状态和可定制快捷键的桌面用户与开发者",
+      "pain_point": "用机械按键、OLED和QMK把高频快捷操作从全尺寸键盘/鼠标中独立出来",
+      "price_usd": "",
+      "market_evidence": "精确README给出KeebSupply销售入口、QMK、BOM、KiCad、3D外壳和OSHWA链接；未取得SKU价格/销量",
+      "market_crowding": "宏键盘、QMK/VIA和客制化键盘设计极度拥挤，成熟品牌与开源项目密集",
+      "third_party_dependency": "依赖ATmega32U4、QMK/VIA、机械轴/键帽、OLED、WS2812/LED和用户焊接/外壳",
+      "manufacturing_risk": "微小PCB、USB/ESD、OLED、LED和外壳装配需要稳定小批量测试",
+      "after_sales_risk": "QMK刷写、布局、OLED故障和轴体/键帽兼容需要支持",
+      "compliance_risk": "低压USB设备，主要是ESD、USB和材料/外壳安全",
+      "license_status": "README有LICENSE.svg和OSHWA链接，但缓存未展开硬件许可文本",
+      "hero_image_verdict": "README含PCB顶/底图、3D文件和KeebSupply入口，能对应项目本体；仅作红海市场参考"
+    }
+  },
+  "d13d5baef057f726": {
+    "commercialization_mode": "进入观察名单；等待稳定版本、硬件方案和实际交付证据",
+    "fields": {
+      "paying_customer": "需要LinuxCNC多轴高速脉冲和外部IO的CNC改装者、小型机床集成商和自动化工程师",
+      "pain_point": "用ESP32硬件步进发生器和以太网连接LinuxCNC，减少主机实时性限制并获得多轴平滑脉冲",
+      "price_usd": "",
+      "market_evidence": "精确README给出6轴、7输入/7输出、200kHz步进、RMII/SPI Ethernet、RMT和400kHz演示；同时明确仍在快速开发且建议等待新版本",
+      "market_crowding": "Mesa、外置运动控制器和LinuxCNC成熟板卡已有直接竞争，但低价ESP32细分仍有空间",
+      "third_party_dependency": "依赖ESP32-S2/S3、RMII/W5500、LinuxCNC、FastAccelStepper、步进驱动器、继电器和外部电源",
+      "manufacturing_risk": "实时脉冲、以太网、GPIO规划、EMI和不同ESP32模块启动差异需要硬件验证",
+      "after_sales_risk": "LinuxCNC配置、步进时序、限位/继电器接线和固件版本兼容会产生现场支持",
+      "compliance_risk": "CNC运动、急停、继电器和机床安全责任要求明确隔离和认证",
+      "license_status": "README说明GPL来源和FastAccelStepper等第三方依赖，硬件商业许可边界未独立确认",
+      "hero_image_verdict": "README有高速运动视频缩略图和接口描述，但硬件成品主图/量产照片未验证；暂列观察"
+    }
+  },
+  "871d94e24ce453d6": {
+    "commercialization_mode": "不进入；保留为40%键盘开放资料参考",
+    "fields": {
+      "paying_customer": "偏好40%布局、OLED、编码器和QMK/VIA的客制化键盘用户",
+      "pain_point": "以极小布局保留可编程输入、OLED状态与旋钮，减少桌面占用",
+      "price_usd": "",
+      "market_evidence": "精确README给出QMK刷写、OLED/编码器、KiCad PCB、BOM、3D文件和OSHWA；未见售价/销量",
+      "market_crowding": "40%键盘、QMK/VIA和开源PCB生态高度拥挤",
+      "third_party_dependency": "依赖ATmega328P、Cherry MX、OLED、EC11、QMK和用户焊接/3D外壳",
+      "manufacturing_risk": "小尺寸板、44键布局、OLED/编码器和3D外壳装配需要稳定测试",
+      "after_sales_risk": "固件刷写、布局、轴体/外壳兼容和用户装配支持",
+      "compliance_risk": "低压USB设备，主要是ESD、连接器和结构可靠性",
+      "license_status": "README有LICENSE.svg和OSHWA链接，但缓存未取得完整硬件许可证文本",
+      "hero_image_verdict": "README含PCB、BOM和3D文件，能对应实际键盘设计；不因资料完整而视为新商业空白"
+    }
+  },
+  "4b3ec0e6c313c995": {
+    "commercialization_mode": "不进入；保留为成熟品牌宏键盘板参考",
+    "fields": {
+      "paying_customer": "想购买可编程3×4宏键盘裸板并自选轴体、键帽和CircuitPython/Arduino固件的桌面用户",
+      "pain_point": "提供12键、OLED、旋钮、扬声器和STEMMA QT扩展，且裸板可免焊插入Cherry MX兼容轴体",
+      "price_usd": "",
+      "market_evidence": "精确GitHub README直接链接Adafruit product 5100并写明bare PCB、需另配12轴/键帽和购买入口；本批未独立记录价格",
+      "market_crowding": "Adafruit、KB2040、QMK/VIA和大量客制化宏键盘已覆盖需求",
+      "third_party_dependency": "依赖RP2040、CircuitPython/Arduino、Cherry MX兼容轴体、键帽、NeoPixel、OLED和STEMMA QT生态",
+      "manufacturing_risk": "裸板销售降低装配但仍要保证USB、OLED、12路插座、LED和旋钮一致性",
+      "after_sales_risk": "固件、轴体/键帽、扩展配件和用户自定义代码支持由成熟品牌承担",
+      "compliance_risk": "低压USB设备，主要是USB/ESD、塑料和附件安全",
+      "license_status": "README显示Adafruit产品和源码入口；完整硬件商业许可需按仓库许可文件核对",
+      "hero_image_verdict": "README内嵌assets/5100.jpg并链接Adafruit购买页，能对应产品本体；明确属于成熟在售商品"
+    }
+  },
+  "e30db4583d416027": {
+    "commercialization_mode": "不进入；保留为成熟CNC控制器PCB资料参考",
+    "fields": {
+      "paying_customer": "需要Buildbotics类CNC控制器维修、复制或定制的机床集成者和维修商",
+      "pain_point": "提供可生成原理图、PCB、BOM、Gerber和DRC的完整CNC控制器硬件设计资料",
+      "price_usd": "",
+      "market_evidence": "精确README列出schematics/pcb/bom/net/layout/DRC/zip命令和CERN-OHL-S v2条款；未见该仓库独立商品订单",
+      "market_crowding": "Buildbotics、Mesa、GRBLHAL和商业CNC控制器生态成熟，复制PCB不构成空白",
+      "third_party_dependency": "依赖GEDA工具链、Buildbotics软件/控制器生态、功率驱动、机床传感器和外部电源",
+      "manufacturing_risk": "CNC电机/IO、功率、EMI、接插件和安全测试需要整机级验证",
+      "after_sales_risk": "机床接线、固件、急停、限位和维修替换需专业支持",
+      "compliance_risk": "运动机械、急停、主轴/电机电源和工业EMC责任高",
+      "license_status": "README明确CERN-OHL-S v2，并要求保留Source Location和外壳标识",
+      "hero_image_verdict": "README提供原理图/PCB生产路径而非销售成品英雄图；仅作技术与产品族参考"
+    }
+  },
+  "62e58ce113488fd9": {
+    "commercialization_mode": "进入观察名单；等待价格、套件SKU、订单和规模制造证据",
+    "fields": {
+      "paying_customer": "需要把面包板验证电路固定成可维护墙装/箱体设备的原型工程师、教育实验室和小型集成商",
+      "pain_point": "解决面包板原型搬到真实环境后松散、易断线、难安装的问题，用背板、电子板和防水壳形成系统",
+      "price_usd": "",
+      "market_evidence": "精确README给出五步部署流程、背板/电子板/防水箱三组件、PCB/模板/结构文件和真实安装图；未见商品价格/订单",
+      "market_crowding": "DIN导轨、接线端子、模块化原型盒和工业外壳已有替代品，但面包板到墙装的系统化桥接较少",
+      "third_party_dependency": "依赖用户自选电子模块、PCB厂、激光/CNC加工、防水外壳和自定义接线/固件",
+      "manufacturing_risk": "背板尺寸、孔距、防水等级、材料和用户模块差异会影响套件一致性",
+      "after_sales_risk": "安装指导、模块兼容、密封和现场维护支持可能比单块PCB更重",
+      "compliance_risk": "若装入市电/户外系统，防水、绝缘、阻燃和安装责任需按最终设备验证",
+      "license_status": "README称完全开源并提供schematics/PCB/templates，但未在缓存中列出明确商业硬件许可",
+      "hero_image_verdict": "README明确给出protoboard、finished-in-wall、installed-wall等项目图，能对应系统本体；证据仍不足以进严格候选"
+    }
+  },
+  "eb55b586d8a25042": {
+    "commercialization_mode": "不进入；保留为第三方温控模块集成参考",
+    "fields": {
+      "paying_customer": "希望给Bambu Lab P1S/X1 Carbon增加腔体加热、风扇监控和Home Assistant联动的打印用户",
+      "pain_point": "把Sinilink/Waveshare温控模块与ESPHome连接到打印作业状态，并提供过温、失控和紧急停机",
+      "price_usd": "",
+      "market_evidence": "精确README列出P1S/X1C支持、ESP8285/ESP32-C6两套硬件、Modbus寄存器、安全告警和接线图；未见商品/订单",
+      "market_crowding": "BambuSauna、MakerWorld改装件和成品温控器已有同类方案",
+      "third_party_dependency": "核心依赖Sinilink XY-SA/ST或Waveshare ESP32-C6-Zero、ESPHome、Home Assistant、Bambu打印机和加热器",
+      "manufacturing_risk": "第三方温控模块、Modbus接线、风扇RPM、加热器和不同机型外壳适配需要逐机验证",
+      "after_sales_risk": "过温阈值、传感器故障、网络断开、固件OTA和打印机固件变化会产生支持成本",
+      "compliance_risk": "加热器、市电、过温保护和3D打印机火灾责任是主要风险",
+      "license_status": "README未显示明确硬件商业许可，且项目依赖Sinilink/Waveshare第三方硬件",
+      "hero_image_verdict": "README含bambusauna/温控器截图和接线图，能对应功能；不是独立硬件产品本体"
+    }
+  },
+  "b6efb1693a3cb5c7": {
+    "commercialization_mode": "进入观察名单；等待价格、认证、现场案例和交付证据",
+    "fields": {
+      "paying_customer": "需要液位、压力、温度三点逻辑控制泵、压缩机或加热器的农业、制造和过程控制客户",
+      "pain_point": "用Start/Maintain/Stop三点逻辑和anti-chatter直接控制过程设备，减少通用PLC编程和继电器抖动",
+      "price_usd": "",
+      "market_evidence": "精确OSHWA页明确industrial-grade、农业/制造应用、液位/压力/温度和泵/压缩机/加热器控制，并提供完整设计文件；未给价格/订单",
+      "market_crowding": "PLC、温控器、液位继电器和工业控制器成熟，但小型开放式三点控制器的低价细分仍需验证",
+      "third_party_dependency": "依赖外部液位/压力/温度传感器、泵/压缩机/加热器、电源、继电器/接触器和现场接线",
+      "manufacturing_risk": "工业输入保护、继电器/接触器驱动、抗干扰、端子和批量测试需要认证级验证",
+      "after_sales_risk": "现场参数、传感器标定、anti-chatter阈值和故障模式需要工程支持",
+      "compliance_risk": "直接控制泵、压缩机、加热器，涉及工业电气、EMC、继电器安全和设备责任",
+      "license_status": "OSHWA页明确Hardware CERN-OHL-W-2.0、Documentation CC-BY-4.0；商业复用需保留许可义务",
+      "hero_image_verdict": "OSHWA正文确认工业控制器本体和功能，但认证页没有足够成品主图/价格/交付证据；列入观察"
+    }
+  },
+  "9900eb904c9e4e90": {
+    "commercialization_mode": "不进入；保留为成熟开放键盘品牌案例",
+    "fields": {
+      "paying_customer": "需要可配置机械键盘、开放固件和Linux桌面集成的专业桌面用户",
+      "pain_point": "通过开放机械/电气设计、固件和配置软件提供用户自定义按键体验",
+      "price_usd": "",
+      "market_evidence": "精确OSHWA页确认System76 Launch成品、开放机械/电气设计、固件和软件；未在认证页记录独立售价/销量",
+      "market_crowding": "System76、Keychron、QMK/VIA和客制化键盘生态均已覆盖",
+      "third_party_dependency": "依赖机械轴/键帽、QMK/配置软件、USB主控和成熟键盘供应链",
+      "manufacturing_risk": "成品键盘需要轴体一致性、外壳、键帽、PCB、固件和售后库存管理",
+      "after_sales_risk": "固件兼容、配置软件、键帽轴体和退换货服务成本高",
+      "compliance_risk": "低压USB、EMC、材料和输入设备责任",
+      "license_status": "OSHWA页列Hardware Other、Software GPL、Documentation CC-BY-SA；硬件具体许可未明确",
+      "hero_image_verdict": "OSHWA正文确认成品产品族，但认证页本身不是独立销售英雄图；只作成熟市场案例"
+    }
+  },
+  "fc881d6ac65845a5": {
+    "commercialization_mode": "进入观察名单；等待长尾销量、制造和兼容性证据",
+    "fields": {
+      "paying_customer": "需要给IBM PC XT、8位ISA兼容机或Micro 8088提供网络连接的复古计算维修者",
+      "pain_point": "在没有16位ISA的老机器上提供NE2000兼容以太网，解决长尾维修和文件传输需求",
+      "price_usd": "",
+      "market_evidence": "精确OSHWA页明确8位ISA/IBM PC XT/Micro 8088、RTL8019和NE2000兼容定位；未给价格、销量或订单",
+      "market_crowding": "TAM很小，现成8位ISA网卡供给有限，但复古计算社区已有少量直接替代品",
+      "third_party_dependency": "依赖Realtek RTL8019、老ISA总线、电源、DOS/NE2000驱动和目标电脑兼容性",
+      "manufacturing_risk": "老芯片供应、ISA信号完整性、跳线/IO地址配置和小批量测试风险高",
+      "after_sales_risk": "不同XT兼容机、驱动、IRQ/IO配置和老化电源需要人工支持",
+      "compliance_risk": "低压数字板和老电脑电源/EMC责任，维修场景需明确适配边界",
+      "license_status": "OSHWA页明确Hardware CERN、Software GPL、Documentation CC-BY-SA；商业复用需履行对应许可",
+      "hero_image_verdict": "OSHWA正文确认8位ISA NIC本体和兼容范围，但没有价格/订单/成品主图证据；列入观察"
+    }
+  },
+  "2ebfc30be3e40a7a": {
+    "commercialization_mode": "不进入；保留为成熟宏键盘生态参考",
+    "fields": {
+      "paying_customer": "需要9键可热插拔宏键盘、旋钮和QMK/KMK编程的桌面用户",
+      "pain_point": "用小型可编程键盘和旋钮承担快捷键、媒体控制或桌面自动化",
+      "price_usd": "",
+      "market_evidence": "精确OSHWA页确认XIAO RP2040、旋钮、9个Gateron红轴、RGB/背光和KMK/QMK；认证页未给独立销量/价格",
+      "market_crowding": "ANAVI、Adafruit、KB2040和大量QMK宏键盘生态已覆盖需求",
+      "third_party_dependency": "依赖XIAO RP2040、Gateron轴/键帽、KMK/QMK、WS2812和用户外壳",
+      "manufacturing_risk": "热插拔插座、LED、旋钮、外壳和套件配件需要一致性测试",
+      "after_sales_risk": "QMK/KMK布局、轴体、灯效和用户装配支持成本",
+      "compliance_risk": "低压USB/桌面输入设备，主要是ESD和材料安全",
+      "license_status": "OSHWA页明确Hardware CC-BY-SA-4.0、Software GPL-3.0-only、Documentation CC-BY-SA-4.0",
+      "hero_image_verdict": "OSHWA正文能对应9键宏键盘本体和规格，但认证页不提供销售英雄图；成熟生态参考"
+    }
+  },
+  "35f552f76590dedf": {
+    "commercialization_mode": "不进入；保留为成熟品牌成品键盘参考",
+    "fields": {
+      "paying_customer": "需要可配置机械键盘和Linux/QMK生态的专业桌面用户",
+      "pain_point": "提供开放机械/电气设计、固件和配置软件，满足高自定义输入需求",
+      "price_usd": "",
+      "market_evidence": "精确OSHWA页确认System76 Launch Heavy成品定位、开放机械/电气设计和GPL固件；未给独立价格/销量",
+      "market_crowding": "System76 Launch、Keychron、QMK/VIA和客制化键盘品类竞争成熟",
+      "third_party_dependency": "依赖机械轴/键帽、USB主控、QMK、配置软件和成熟键盘供应链",
+      "manufacturing_risk": "Heavy成品的外壳、PCB、轴体、固件和库存售后均需稳定规模化能力",
+      "after_sales_risk": "配置、固件、轴体/键帽和整机退换货支持成本高",
+      "compliance_risk": "低压USB、EMC、材料和输入设备责任",
+      "license_status": "OSHWA页列Hardware Other、Software GPL-3.0-only、Documentation CC-BY-SA；硬件具体许可未明确",
+      "hero_image_verdict": "OSHWA正文确认Launch Heavy成品产品族，但认证页不是独立销售主图；仅作成熟案例"
+    }
+  },
+  "9bd59ebb065e1992": {
+    "commercialization_mode": "不进入；保留为低门槛宏键盘产品参考",
+    "fields": {
+      "paying_customer": "需要两键可编程快捷输入的桌面用户、开发者和无障碍/小型控制应用开发者",
+      "pain_point": "用极小的QMK双键设备承载固定宏，避免购买或占用完整键盘",
+      "price_usd": "",
+      "market_evidence": "精确OSHWA页确认两键机械键盘、QMK、KiCad和ANAVI/Crowd Supply/GitHub入口；未给独立销量",
+      "market_crowding": "宏键盘和自定义输入设备供给极多，两键设计制造门槛低",
+      "third_party_dependency": "依赖ATtiny85/QMK、机械轴、键帽、USB和ANAVI软件/供应链",
+      "manufacturing_risk": "板卡虽小但需USB、按键、固件和外壳/支架一致性",
+      "after_sales_risk": "宏映射、刷写、按键寿命和用户安装支持",
+      "compliance_risk": "低压USB输入设备，主要是ESD与外壳材料",
+      "license_status": "OSHWA页列Hardware Other、Software GPL、Documentation CC-BY-SA；硬件许可证未明确",
+      "hero_image_verdict": "OSHWA正文确认双键本体，但无独立销量/英雄图证据；不进入严格候选"
+    }
+  },
+  "fbc4dc7308359533": {
+    "commercialization_mode": "不进入；保留为人体工学键盘PCB/外壳参考",
+    "fields": {
+      "paying_customer": "需要Alice/Arisu类人体工学60%布局并愿意自装PCB与亚克力壳的客制化键盘用户",
+      "pain_point": "通过人体工学60%布局改善手部姿态，并提供可复制PCB与亚克力外壳",
+      "price_usd": "",
+      "market_evidence": "精确OSHWA页确认Arisutea ergo 60% PCB与亚克力外壳、KiCad/Arisu引用；未给售价、销量或订单",
+      "market_crowding": "Alice/Arisu、人体工学60%和客制化键盘PCB已有成熟社区与供应链",
+      "third_party_dependency": "依赖机械轴、键帽、控制器、QMK/固件、亚克力切割和用户装配",
+      "manufacturing_risk": "左右/人体工学结构、亚克力壳、PCB公差和用户焊接影响交付一致性",
+      "after_sales_risk": "布局、固件、轴体兼容和装配问题需要社区支持",
+      "compliance_risk": "低压USB设备，主要是ESD、材料和结构安全",
+      "license_status": "OSHWA页列Hardware Other、Software GPL、Documentation Other；商业硬件许可不清晰",
+      "hero_image_verdict": "OSHWA正文确认PCB与亚克力外壳本体，但没有销售主图/订单证据；仅作市场参考"
+    }
+  },
+  "bab674cc170daf3b": {
+    "commercialization_mode": "不进入；保留为成熟蓝牙HID模块参考",
+    "fields": {
+      "paying_customer": "需要把12路按键接入手机、电脑或平板并以蓝牙键盘事件输出的嵌入式集成商",
+      "pain_point": "无需自研蓝牙协议栈即可把外部按钮转换成跨平台蓝牙键盘输入",
+      "price_usd": "",
+      "market_evidence": "精确OSHWA页确认3–16VDC、12输入、Mac/Windows/Linux/iOS/Android兼容和Adafruit成品模块；未在认证页记录价格/销量",
+      "market_crowding": "Adafruit、蓝牙HID模块和可编程输入板已有成熟商品与低价替代",
+      "third_party_dependency": "依赖Bluefruit/蓝牙芯片、3–16V电源、外部按钮、手机/电脑蓝牙栈和Adafruit渠道",
+      "manufacturing_risk": "模块本身成熟，但整机仍需输入保护、天线、配对和外壳测试",
+      "after_sales_risk": "蓝牙配对、平台兼容、输入映射和电源噪声排查",
+      "compliance_risk": "蓝牙射频、EMC、3–16V电源和不同国家无线认证",
+      "license_status": "OSHWA页列Hardware Other、Software MIT、Documentation CC-BY-SA；硬件商业许可未明确",
+      "hero_image_verdict": "OSHWA正文确认成熟模块功能，但认证页不是独立销售英雄图；只作市场参考"
+    }
+  },
+  "40824d67859a5c42": {
+    "commercialization_mode": "不进入；保留为成熟宏键盘产品族参考",
+    "fields": {
+      "paying_customer": "需要12键热插拔、RGB、QMK和可扩展I²C的桌面用户/客制化键盘买家",
+      "pain_point": "把12个可替换机械轴、RGB、QMK和I²C扩展集中成一个免焊可编程输入设备",
+      "price_usd": "",
+      "market_evidence": "精确OSHWA页确认12个Gateron红轴、热插拔、RGB、WS2812B、I²C扩展和ANAVI生态；未给独立销量/价格",
+      "market_crowding": "ANAVI、Adafruit、QMK/VIA和客制化宏键盘供给成熟",
+      "third_party_dependency": "依赖XIAO/RP2040或其他主控、Gateron轴/键帽、QMK、WS2812B和I²C外设",
+      "manufacturing_risk": "12路热插拔、RGB、PCB镀金、套件配件和外壳需要批量一致性",
+      "after_sales_risk": "QMK刷写、轴体/键帽、灯效和扩展外设兼容需要支持",
+      "compliance_risk": "低压USB/桌面输入设备，主要是ESD、材料和连接器可靠性",
+      "license_status": "OSHWA页明确Hardware CC-BY-SA-4.0、Software GPL-3.0-only、Documentation CC-BY-SA-4.0",
+      "hero_image_verdict": "OSHWA正文明确12键宏键盘本体和规格，但认证页不是销量/销售主图；仅作成熟生态参考"
+    }
+  }
+}

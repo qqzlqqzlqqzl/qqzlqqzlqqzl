@@ -7,7 +7,7 @@ Updated: 2026-07-26
 - Repository: `qqzlqqzlqqzl/qqzlqqzlqqzl`
 - Draft pull request: `#9` (`rebuild: strict commercial screening V3`)
 - Working branch: `agent/commercial-v3-strict-rebuild`
-- Canonical progress checkpoint: `364d688f104389669e138b6331c74d12c2f25b57`
+- Canonical progress checkpoint: pending next checkpoint commit
 - Canonical progress ledger: `manual_review/PROGRESS.md`
 - Review policy: `commercial_v3/REBUILD_SPEC.md`
 - Hourly task title: `千条人工复核批次`
@@ -15,18 +15,18 @@ Updated: 2026-07-26
 ## Current checkpoint
 
 - Raw records: 10,500
-- Page/source-reviewed records: 667
+- Page/source-reviewed records: 851
 - Strict commercial candidates: 0
-- Watchlist: 35
-- Market-reference cases: 201
-- Rejected: 431
-- Deferred unresolved: 25
-- Remaining unreviewed or deferred: 9,833
+- Watchlist: 42
+- Market-reference cases: 228
+- Rejected: 581
+- Deferred unresolved: 41
+- Remaining unreviewed or deferred: 9,608
 
 ## Persisted review data
 
 - Structured review batches are stored under `manual_review/`.
-- Completed files currently span `batch_001_...csv` through the three batch-042 checkpoint files, including `batch_042_oshwa_input_devices_assistive_retro_kvm_and_tutorials.csv`.
+- Completed files currently span `batch_001_...csv` through `batch_043_mixed_gitlab_badges_and_hardware.csv`, including the three batch-042 checkpoint files.
 - `manual_review/deferred_unresolved.csv` contains records whose exact source evidence could not yet be resolved.
 - `manual_review/queue_next_20.csv` and `manual_review/queue_next_200.csv` are resumable work queues.
 - `manual_review/PROGRESS.md` records batch totals, cross-batch checks and the latest checkpoint.

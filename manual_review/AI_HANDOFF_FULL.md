@@ -37,15 +37,15 @@ PR #9 必须保持 Draft 和未合并，直到用户明确批准最终结果。
 以 `manual_review/PROGRESS.md` 为准，当前检查点为：
 
 - Raw records：10,500
-- Page/source-reviewed：612
+- Page/source-reviewed：851
 - Strict commercial candidates：0
-- Watchlist：27
-- Market-reference cases：181
-- Rejected：404
-- Deferred unresolved：15
-- Remaining unreviewed or deferred：9,888
+- Watchlist：42
+- Market-reference cases：228
+- Rejected：581
+- Deferred unresolved：41
+- Remaining unreviewed or deferred：9,608
 
-已完成的结构化批次从 `batch_001_...csv` 延伸到 `batch_041b_...csv`。当前共 612 个复核行、612 个唯一 `project_id`。
+已完成的结构化批次从 `batch_001_...csv` 延伸到 `batch_043_...csv`。当前共 851 个复核行、851 个唯一 `project_id`。
 
 原来的 ChatGPT 小时调度在交接时已经暂停，避免两个 AI 同时写分支。新接手方应自行建立调度，并确保只有一个写入者。
 
@@ -400,7 +400,7 @@ git push -u origin agent/commercial-v3-strict-rebuild
 - queue: manual_review/queue_next_200.csv
 - deferred: manual_review/deferred_unresolved.csv
 
-当前进度：10,500 条中 612 条已复核，27 条观察名单，181 条市场参考，404 条淘汰，15 条 deferred，严格候选 0 条。
+当前进度：10,500 条中 851 条已复核，42 条观察名单，228 条市场参考，581 条淘汰，41 条 deferred，严格候选 0 条。
 
 先读取接手文档、规范、进度和最近两个 batch。收集所有 batch_*.csv 与 deferred_unresolved.csv 中的 project_id 去重。继续处理 queue_next_200.csv；每条必须实际读取原始商品页、项目页、精确 README/API 或可信缓存正文，不得只根据名称、摘要、旧商业分或关键词给结论。
 
@@ -428,7 +428,7 @@ PR #9 保持 Draft、未合并，直到用户明确批准。
 
 ## 20. 已知未完成事项
 
-- 尚余 9,888 条未复核或 deferred；
+- 尚余 9,608 条未复核或 deferred；
 - 尚无严格商业候选；
 - 尚未对所有外部页面做完整离线快照；
 - 尚未生成最终 V3 Excel；
